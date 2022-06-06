@@ -14,7 +14,7 @@ public class ImageUtil {
    *
    * @param filename the path of the file. 
    */
-  public static void readPPM(String filename) {
+  public static Pixel[][] readPPM(String filename) {
     Scanner sc;
     
     try {
@@ -29,7 +29,7 @@ public class ImageUtil {
     while (sc.hasNextLine()) {
         String s = sc.nextLine();
         if (s.charAt(0)!='#') {
-            builder.append(s+System.lineSeparator());
+            builder.append(s).append(System.lineSeparator());
         }
     }
     
@@ -48,15 +48,23 @@ public class ImageUtil {
     System.out.println("Height of image: "+height);
     int maxValue = sc.nextInt();
     System.out.println("Maximum value of a color in this file (usually 255): "+maxValue);
+
+
+
+    Pixel imageVals[][] = new Pixel[height][width];
     
     for (int i=0;i<height;i++) {
         for (int j=0;j<width;j++) {
             int r = sc.nextInt();
             int g = sc.nextInt();
             int b = sc.nextInt();
+            //PlaceHolder pixel values.
+           imageVals[i][j] = new Pixel(r+g+b);
             System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
         }
     }
+    return imageVals;
+
   }
 
   //demo main
@@ -70,7 +78,7 @@ public class ImageUtil {
           filename = "sample.ppm";
       }
       
-      ImageUtil.readPPM(filename);
+      ImagePrModel m = new ImagePrModel(ImageUtil.readPPM(filename));
   }
 }
 
