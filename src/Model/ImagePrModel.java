@@ -21,7 +21,16 @@ public class ImagePrModel implements ImageModel {
 
   @Override
   public void flipImage(String direction) {
+    if (direction.equals("horizontal")) {
+      image.horizontal();
 
+    } else if (direction.equals("vertical")) {
+      image.vertictal();
+
+    } else {
+      //Catch and throw an illegal state in the controller.
+        throw new IllegalArgumentException();
+    }
   }
 
   @Override

@@ -52,7 +52,6 @@ public class ImagePPM {
    * @param constant the amount to brighten (positive int) or darken (negative int) by.
    */
 
-  //doesn't increment count?
   public void brighten(int constant) {
     List<Pixel> bright = flatten();
     bright = bright.stream().map(new mutateAll(constant)).collect(Collectors.toList());
@@ -62,12 +61,26 @@ public class ImagePPM {
       ArrayList<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         row.add(bright.get(count));
-        //count++;
+        count++;
       }
       brighten.add(row);
     }
     imageVals = brighten;
   }
+
+  public void vertictal() {
+    imageVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
+  }
+
+  public void horizontal() {
+    List<List<Pixel>> newVals = new ArrayList<>();
+    for (int x = imageVals.size() -1;  x > 0; x--) {
+      newVals.add(imageVals.get(x));
+    }
+    imageVals = newVals;
+
+  }
+
 
 
 }
