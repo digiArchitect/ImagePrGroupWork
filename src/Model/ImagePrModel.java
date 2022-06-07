@@ -25,11 +25,11 @@ public class ImagePrModel implements ImageModel {
       image.horizontal();
 
     } else if (direction.equals("vertical")) {
-      image.vertictal();
+      image.vertical();
 
     } else {
       //Catch and throw an illegal state in the controller.
-        throw new IllegalArgumentException();
+      throw new IllegalArgumentException();
     }
   }
 
