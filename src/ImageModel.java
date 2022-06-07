@@ -1,3 +1,5 @@
+import java.awt.*;
+
 public interface ImageModel {
   /**
    * Flips the image depending on the direction user inputs.
@@ -14,8 +16,19 @@ public interface ImageModel {
   void brighten(int constant);
   /**
    * Turns the image greyscale based off of which component the user would like.
-   * @param component Component can either be 
+   * @param component Component used to define the value in which the image is greyscaled.
    * @throws IllegalArgumentException if provided constant is null
+   * @throws IllegalArgumentException if component is not luma, value, or intensity.
    */
   void greyscale(String component);
+  /**
+   * saves a ppm to a specific file.
+   * @param fileLocation the fileLocation where the image will be saved.
+   */
+  void save(String fileLocation);
+
+  /**
+   * Creates an image based off of the imagevalues.
+   */
+
 }

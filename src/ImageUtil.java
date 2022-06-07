@@ -22,7 +22,7 @@ public class ImageUtil {
     }
     catch (FileNotFoundException e) {
         System.out.println("File "+filename+ " not found!");
-        return;
+        throw new IllegalArgumentException();
     }
     StringBuilder builder = new StringBuilder();
     //read the file line by line, and populate a string. This will throw away any comment lines
