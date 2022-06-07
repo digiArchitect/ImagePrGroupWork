@@ -1,10 +1,16 @@
 package Image;
 
 import java.util.function.Function;
-
+/**
+ * Function class used to mutate all the Pixels within a list.
+ */
 public class mutateAll implements Function<Pixel,Pixel>  {
   int constant;
 
+  /**
+   * Constructs mutateAll with constant which is used to mutate all the values in the list.
+   * @param constant positive or negative value which mutates the function.
+   */
   public mutateAll(int constant) {
     this.constant = constant;
   }

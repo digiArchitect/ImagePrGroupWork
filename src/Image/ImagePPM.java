@@ -3,6 +3,7 @@ package Image;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -52,23 +53,9 @@ public class ImagePPM {
    * @param constant the amount to brighten (positive int) or darken (negative int) by.
    */
 
-  public void brighten(int constant) {
-    List<Pixel> bright = flatten();
-    bright = bright.stream().map(new mutateAll(constant)).collect(Collectors.toList());
-    int count = 0;
-    List<List<Pixel>> brighten = new ArrayList<>();
-    for (int i = 0; i < height; i++) {
-      ArrayList<Pixel> row = new ArrayList<>();
-      for (int j = 0; j < width; j++) {
-        row.add(bright.get(count));
-        count++;
-      }
-      brighten.add(row);
-    }
-    imageVals = brighten;
-  }
 
-  public void vertictal() {
+
+  public void vertical() {
     imageVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
   }
 
@@ -79,6 +66,35 @@ public class ImagePPM {
     }
     imageVals = newVals;
 
+  }
+
+  /**
+   * Given a function<T,T> apply it to the pixels within imageVals
+   * @param applyFunc The function that is used to change the pixel values.
+   */
+  public void applyChanges (Function<Pixel,Pixel> applyFunc) {
+    List<Pixel> mapList = flatten();
+    mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
+    updateImageVals(mapList);
+  }
+
+  /**
+   * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals
+   * @param flatlist The 1d arraylist whos data will be extracted.
+   */
+  public void updateImageVals(List<Pixel> flatlist) {
+    List<List<Pixel>> newList = new ArrayList<>();
+
+    int count = 0;
+    for (int i = 0; i < height; i++) {
+      ArrayList<Pixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        row.add(flatlist.get(count));
+        count++;
+      }
+      newList.add(row);
+    }
+    imageVals = newList;
   }
 
 

@@ -3,7 +3,10 @@ package Model;
 import java.io.File;
 
 import Image.ImagePPM;
+import Image.greyScale;
+import Image.mutateAll;
 import Model.ImageModel;
+
 
 public class ImagePrModel implements ImageModel {
 
@@ -12,7 +15,6 @@ public class ImagePrModel implements ImageModel {
   /**
    * Constructs an image processing model using a 2d array of pixels.
    * @param image 2d array of pixels which store access to r g b.
-   * @throws
    */
   public ImagePrModel(ImagePPM image) {
     this.image = image;
@@ -35,11 +37,12 @@ public class ImagePrModel implements ImageModel {
 
   @Override
   public void brighten(int constant) {
-    image.brighten(constant);
+    image.applyChanges(new mutateAll(constant));
   }
 
   @Override
   public void greyscale(String component) {
+    image.applyChanges(new greyScale(component));
 
   }
 
