@@ -31,9 +31,6 @@ public class Pixel {
   public String toString() {
     return rgb + "";
   }
-
-
-
 }
 
 

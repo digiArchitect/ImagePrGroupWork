@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestImagePPM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/ImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/ImagePPM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/Pixel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +42,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "/Users/jylahbah/Documents/GitHub/ImagePrGroupWork",
+    "last_opened_file_path": "/Users/archie.oconnell/Documents/GitHub/ImagePrGroupWork",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
@@ -66,6 +72,7 @@
       <updated>1654554442218</updated>
       <workItem from="1654554443858" duration="81000" />
       <workItem from="1654554535415" duration="10298000" />
+      <workItem from="1654630614251" duration="2116000" />
     </task>
     <servers />
   </component>

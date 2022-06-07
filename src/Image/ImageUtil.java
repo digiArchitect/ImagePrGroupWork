@@ -9,12 +9,15 @@ import java.io.FileInputStream;
 import Model.ImagePrModel;
 
 
+/*
+ * This class contains utility methods to read a PPM image from file and simply print its contents.
+ * Feel free to change this method as required.
+ */
+
 /**
- * This class contains utility methods to read a PPM image from file and simply print its contents. Feel free to change this method 
- *  as required.
+ * Utility methods to read a PPM image from a file and print its contents.
  */
 public class ImageUtil {
-
   /**
    * Read an image file in the PPM format and print the colors.
    *
@@ -49,19 +52,19 @@ public class ImageUtil {
         System.out.println("Invalid PPM file: plain RAW file should begin with P3");
     }
     int width = sc.nextInt();
-    System.out.println("Width of image: "+width);
+    System.out.println("Width of image: " + width);
     int height = sc.nextInt();
-    System.out.println("Height of image: "+height);
+    System.out.println("Height of image: " + height);
     int maxValue = sc.nextInt();
-    System.out.println("Maximum value of a color in this file (usually 255): "+maxValue);
+    System.out.println("Maximum value of a color in this file (usually 255): " + maxValue);
 
 
 
     List<List<Pixel>> imageVals = new ArrayList<>();
     
-    for (int i=0;i<height;i++) {
+    for (int i = 0; i < height; i++) {
       List<Pixel> row = new ArrayList<>();
-        for (int j=0;j<width;j++) {
+        for (int j = 0; j < width; j++) {
             int r = sc.nextInt();
             int g = sc.nextInt();
             int b = sc.nextInt();
@@ -71,12 +74,11 @@ public class ImageUtil {
             s.append(b);
             //PlaceHolder pixel values.
             row.add(new Pixel(Integer.parseInt(s.toString())));
-            System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
+            System.out.println("Color of pixel (" + j + "," + i +"): " + r + "," + g + "," + b);
         }
         imageVals.add(row);
     }
     return new ImagePPM(imageVals,filename,width,height,maxValue);
-
   }
 
   //demo main
