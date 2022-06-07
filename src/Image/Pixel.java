@@ -1,5 +1,9 @@
+package Image;
+
+import java.util.function.Function;
+
 /**
- Represents a Pixel of a PPM image.
+ Represents a Image.Pixel of a PPM image.
  */
 public class Pixel {
   int rgb;
@@ -23,10 +27,13 @@ public class Pixel {
         throw new IllegalArgumentException("Choose a valid color between 0, 1, and 2");
     }
   }
-  public void mutatePixels(Object constant) {
-
-
+  @Override
+  public String toString() {
+    return rgb + "";
   }
+
+
+
 }
 
 

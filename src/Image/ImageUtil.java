@@ -1,6 +1,12 @@
+package Image;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
+
+import Model.ImagePrModel;
 
 
 /**
@@ -12,9 +18,9 @@ public class ImageUtil {
   /**
    * Read an image file in the PPM format and print the colors.
    *
-   * @param filename the path of the file. 
+   * @param filename the path of the file.
    */
-  public static Pixel[][] readPPM(String filename) {
+  public static ImagePPM readPPM(String filename) {
     Scanner sc;
     
     try {
@@ -51,19 +57,25 @@ public class ImageUtil {
 
 
 
-    Pixel imageVals[][] = new Pixel[height][width];
+    List<List<Pixel>> imageVals = new ArrayList<>();
     
     for (int i=0;i<height;i++) {
+      List<Pixel> row = new ArrayList<>();
         for (int j=0;j<width;j++) {
             int r = sc.nextInt();
             int g = sc.nextInt();
             int b = sc.nextInt();
+            StringBuilder s = new StringBuilder();
+            s.append(r);
+            s.append(g);
+            s.append(b);
             //PlaceHolder pixel values.
-           imageVals[i][j] = new Pixel(r+g+b);
+            row.add(new Pixel(Integer.parseInt(s.toString())));
             System.out.println("Color of pixel ("+j+","+i+"): "+ r+","+g+","+b);
         }
+        imageVals.add(row);
     }
-    return imageVals;
+    return new ImagePPM(imageVals,filename,width,height,maxValue);
 
   }
 

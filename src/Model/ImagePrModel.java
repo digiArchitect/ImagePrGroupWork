@@ -1,18 +1,21 @@
+package Model;
+
 import java.io.File;
+
+import Image.ImagePPM;
+import Model.ImageModel;
 
 public class ImagePrModel implements ImageModel {
 
-  Pixel[][] imageVals;
-  String name;
-  File current;
+  ImagePPM image;
 
   /**
    * Constructs an image processing model using a 2d array of pixels.
-   * @param imageVals 2d array of pixels which store access to r g b.
+   * @param image 2d array of pixels which store access to r g b.
    * @throws
    */
-  public ImagePrModel(Pixel[][] imageVals) {
-    this.imageVals = imageVals;
+  public ImagePrModel(ImagePPM image) {
+    this.image = image;
   }
 
 
@@ -23,7 +26,7 @@ public class ImagePrModel implements ImageModel {
 
   @Override
   public void brighten(int constant) {
-
+    image.brighten(constant);
   }
 
   @Override
@@ -34,9 +37,6 @@ public class ImagePrModel implements ImageModel {
   @Override
   public void save(String fileLocation) {
 
-  }
-  public void create(String fileLocation) {
-    current = new File(fileLocation + name);
   }
 
 }
