@@ -78,7 +78,13 @@ public class ImagePrModelImpl implements ImagePrModel {
       }
       imageVals.add(row);
     }
-    images.put(fileName, new ImagePPM(imageVals,width,height,maxValue));
+
+    //Checks if the filename is already in the key if so remove it
+    if (images.get(fileName) != null) {
+      images.remove(fileName);
+    }
+    images.put(fileName, new ImagePPM(imageVals, width, height, maxValue));
+
   }
 
 
