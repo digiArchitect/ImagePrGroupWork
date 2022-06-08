@@ -29,12 +29,13 @@ public class TestImagePPM {
  }
 
 
+ /*
  @Test
  public void testBrighten() {
    s.brighten(5);
    Pixel p = lol.get(0).get(0);
    System.out.println(p.toString());
- }
+ }*/
 
 
 

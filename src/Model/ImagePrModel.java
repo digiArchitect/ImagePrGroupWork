@@ -1,54 +1,34 @@
 package Model;
 
-import java.io.File;
-
-import Image.ImagePPM;
-import Image.greyScale;
-import Image.mutateAll;
-import Model.ImageModel;
-
-
-public class ImagePrModel implements ImageModel {
-
-  ImagePPM image;
+public interface ImagePrModel {
+  /**
+   * Flips the image depending on the direction user inputs.
+   * @param direction The direction in which the user would like to flip the input.
+   * @throws IllegalArgumentException if provided direction is not "horizontal" or "vertical"
+   * @throws IllegalArgumentException if provided constant is null
+   */
+  void flipImage(String direction);
+  /**
+   * Brightens the image based off of a constant given to the user.
+   * @param constant the val which the user would like to see the image brightened. can be + || -
+   * @throws IllegalArgumentException if provided constant is null
+   */
+  void brighten(int constant);
+  /**
+   * Turns the image greyscale based off of which component the user would like.
+   * @param component Component used to define the value in which the image is greyscaled.
+   * @throws IllegalArgumentException if provided constant is null
+   * @throws IllegalArgumentException if component is not luma, value, or intensity.
+   */
+  void greyscale(String component);
+  /**
+   * saves a ppm to a specific file.
+   * @param fileLocation the fileLocation where the image will be saved.
+   */
+  void save(String fileLocation);
 
   /**
-   * Constructs an image processing model using a 2d array of pixels.
-   * @param image 2d array of pixels which store access to r g b.
+   * Creates an image based off of the imagevalues.
    */
-  public ImagePrModel(ImagePPM image) {
-    this.image = image;
-  }
-
-
-  @Override
-  public void flipImage(String direction) {
-    if (direction.equals("horizontal")) {
-      image.horizontal();
-
-    } else if (direction.equals("vertical")) {
-      image.vertical();
-
-    } else {
-      //Catch and throw an illegal state in the controller.
-      throw new IllegalArgumentException();
-    }
-  }
-
-  @Override
-  public void brighten(int constant) {
-    image.applyChanges(new mutateAll(constant));
-  }
-
-  @Override
-  public void greyscale(String component) {
-    image.applyChanges(new greyScale(component));
-
-  }
-
-  @Override
-  public void save(String fileLocation) {
-
-  }
 
 }

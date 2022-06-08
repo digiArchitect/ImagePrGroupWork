@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/TestImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestImagePPM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/ImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/ImagePPM.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/ImageUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/ImageUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ImageModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ImagePrModel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +51,14 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.ImagePrMain">
+    <configuration name="ImagePrMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
+      <module name="ImagePrGroupWork" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestImagePPM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
@@ -52,6 +70,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ImagePrMain" />
         <item itemvalue="JUnit.TestImagePPM" />
       </list>
     </recent_temporary>
@@ -67,6 +86,9 @@
       <workItem from="1654554443858" duration="81000" />
       <workItem from="1654554535415" duration="10298000" />
       <workItem from="1654630614251" duration="2116000" />
+      <workItem from="1654639919204" duration="267000" />
+      <workItem from="1654661677705" duration="1037000" />
+      <workItem from="1654703345362" duration="3982000" />
     </task>
     <servers />
   </component>

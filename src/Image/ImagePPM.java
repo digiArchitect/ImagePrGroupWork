@@ -47,14 +47,6 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-  /**
-   * Brightens or Darkens an image by a given increment to be added or subtracted from the
-   * image's pixels' RGB values.
-   * @param constant the amount to brighten (positive int) or darken (negative int) by.
-   */
-
-
-
   public void vertical() {
     imageVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
   }
@@ -65,7 +57,6 @@ public class ImagePPM {
       newVals.add(imageVals.get(x));
     }
     imageVals = newVals;
-
   }
 
   /**
@@ -96,8 +87,5 @@ public class ImagePPM {
     }
     imageVals = newList;
   }
-
-
-
 }
 

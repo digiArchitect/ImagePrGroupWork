@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.io.FileNotFoundException;
 import java.io.FileInputStream;
 
-import Model.ImagePrModel;
+import Model.ImagePrModelImpl;
 
 
 /*
@@ -92,7 +92,7 @@ public class ImageUtil {
           filename = "sample.ppm";
       }
       
-      ImagePrModel m = new ImagePrModel(ImageUtil.readPPM(filename));
+      ImagePrModelImpl m = new ImagePrModelImpl();
   }
 }
 
