@@ -18,14 +18,16 @@ import Model.ImagePrModelImpl;
  * Utility methods to read a PPM image from a file and print its contents.
  */
 public class ImageUtil {
+
   /**
    * Read an image file in the PPM format and print the colors.
    *
    * @param filename the path of the file.
    */
+  /*
   public static ImagePPM readPPM(String filename) {
     Scanner sc;
-    
+
     try {
         sc = new Scanner(new FileInputStream(filename));
     }
@@ -41,11 +43,11 @@ public class ImageUtil {
             builder.append(s).append(System.lineSeparator());
         }
     }
-    
+
     //now set up the scanner to read from the string we just built
     sc = new Scanner(builder.toString());
 
-    String token; 
+    String token;
 
     token = sc.next();
     if (!token.equals("P3")) {
@@ -61,7 +63,7 @@ public class ImageUtil {
 
 
     List<List<Pixel>> imageVals = new ArrayList<>();
-    
+
     for (int i = 0; i < height; i++) {
       List<Pixel> row = new ArrayList<>();
         for (int j = 0; j < width; j++) {
@@ -80,6 +82,8 @@ public class ImageUtil {
     }
     return new ImagePPM(imageVals,filename,width,height,maxValue);
   }
+
+   */
 
   //demo main
   public static void main(String []args) {

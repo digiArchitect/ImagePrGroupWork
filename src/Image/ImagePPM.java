@@ -1,5 +1,6 @@
 package Image;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -16,24 +17,21 @@ public class ImagePPM {
   /*
   image fields should be private, right?
    */
-  private List<List<Pixel>> imageVals;
-  private String name;
-  private int width;
-  private int height;
-  private int maxValue;
+  private final List<List<Pixel>> imageVals;
+  private final int width;
+  private final int height;
+  private final int maxValue;
 
   /**
    * Constructs a PPM image object.
    * @param imageVals the row and column grid of the pixels of the image.
-   * @param name the file name of the image.
    * @param width the width of the image iin pixels.
    * @param height the height of the image in pixels.
    * @param maxValue the max rgb value of the image.
    */
-  public ImagePPM(List<List<Pixel>> imageVals, String name, int width,
+  public ImagePPM(List<List<Pixel>> imageVals, int width,
                   int height, int maxValue) {
     this.imageVals = imageVals;
-    this.name = name;
     this.width = width;
     this.height = height;
     this.maxValue = maxValue;
@@ -47,33 +45,38 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-  public void vertical() {
-    imageVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
+  public ImagePPM vertical() {
+    List<List<Pixel>> newVals;
+    newVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
+    return newImage(newVals);
+
+
   }
 
-  public void horizontal() {
+  public ImagePPM horizontal() {
     List<List<Pixel>> newVals = new ArrayList<>();
     for (int x = imageVals.size() -1;  x > 0; x--) {
       newVals.add(imageVals.get(x));
     }
-    imageVals = newVals;
+    return newImage(newVals);
+
   }
 
   /**
-   * Given a function<T,T> apply it to the pixels within imageVals
+   * Given a function<T,T> apply it to the pixels within imageVals.
    * @param applyFunc The function that is used to change the pixel values.
    */
-  public void applyChanges (Function<Pixel,Pixel> applyFunc) {
+  public ImagePPM applyChanges (Function<Pixel,Pixel> applyFunc) {
     List<Pixel> mapList = flatten();
     mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
-    updateImageVals(mapList);
+    return newImage(updateImageVals(mapList));
   }
 
   /**
-   * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals
+   * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
    * @param flatlist The 1d arraylist whos data will be extracted.
    */
-  public void updateImageVals(List<Pixel> flatlist) {
+  public List<List<Pixel>> updateImageVals(List<Pixel> flatlist) {
     List<List<Pixel>> newList = new ArrayList<>();
 
     int count = 0;
@@ -85,7 +88,11 @@ public class ImagePPM {
       }
       newList.add(row);
     }
-    imageVals = newList;
+    return newList;
   }
+  private ImagePPM newImage(List<List<Pixel>> newVals) {
+    return new ImagePPM(newVals, width, height,maxValue);
+  }
+
 }
 
