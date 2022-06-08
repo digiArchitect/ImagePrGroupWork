@@ -2,14 +2,14 @@ package Controller;
 
 import java.util.Scanner;
 
-import Model.ImageModel;
+import Model.ImagePrModel;
 
 /**
  * Represents an Image Processor Controller, allowing the user to give inputs to the program,
  * which it will exchange for data and computation from the model.
  */
 public class ImagePrControllerImpl implements ImagePrController {
-  private ImageModel model;
+  private ImagePrModel model;
   private Appendable output;
   private Readable input;
 
@@ -17,7 +17,7 @@ public class ImagePrControllerImpl implements ImagePrController {
    * Constructs an Image Processor Controller, given a image processor model, a view, and
    * an input source.
    */
-  public ImagePrControllerImpl(Readable input,  Appendable output, ImageModel model) throws
+  public ImagePrControllerImpl(Readable input,  Appendable output, ImagePrModel model) throws
           IllegalArgumentException {
     if(model == null || output == null | input == null) {
       throw new IllegalArgumentException();
