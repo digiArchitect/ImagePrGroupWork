@@ -38,6 +38,15 @@ public class greyScale implements Function<Pixel,Pixel> {
     else if(component.equals("luma")){
       newVal = (int)(0.2126 * values[0] + 0.7152 * values[1] + 0.0722 * values[2]);
     }
+    else if(component.equals("red")) {
+      newVal = values[0];
+    }
+    else if(component.equals("green")) {
+      newVal = values[1];
+    }
+    else if(component.equals("blue")) {
+      newVal = values[2];
+    }
     //Just in case a bad input somehow passes its way through lolz.
     else {
       throw new IllegalArgumentException();
