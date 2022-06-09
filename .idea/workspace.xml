@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
 <<<<<<< Updated upstream
@@ -18,6 +19,9 @@
 >>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+>>>>>>> parent of 5a0230c (controller)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -99,8 +103,11 @@
       <workItem from="1654735301073" duration="623000" />
 =======
       <workItem from="1654726759569" duration="6648000" />
+<<<<<<< HEAD
       <workItem from="1654741485579" duration="1315000" />
 >>>>>>> 5a0230cf5c99c2e3ce457c310a46072c67c2b700
+=======
+>>>>>>> parent of 5a0230c (controller)
     </task>
     <servers />
   </component>
@@ -118,6 +125,7 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
 <<<<<<< Updated upstream
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -136,4 +144,6 @@
   </component>
 =======
 >>>>>>> Stashed changes
+=======
+>>>>>>> parent of 5a0230c (controller)
 </project>

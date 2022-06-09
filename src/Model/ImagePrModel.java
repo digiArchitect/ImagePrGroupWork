@@ -36,6 +36,5 @@ public interface ImagePrModel {
    */
   void save(String fileLocation, String newName) throws IOException;
 
-  void load(String fileLoc, String fileName) throws IOException;
 
 }
