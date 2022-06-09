@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImagePPM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImagePPM.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImageUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImageUtil.class" afterDir="false" />
@@ -13,6 +14,8 @@
       <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Image/greyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/greyScale.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ImagePrModel.java" afterDir="false" />
+=======
+>>>>>>> Stashed changes
       <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +118,7 @@
       </map>
     </option>
   </component>
+<<<<<<< Updated upstream
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -130,4 +134,6 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+=======
+>>>>>>> Stashed changes
 </project>
