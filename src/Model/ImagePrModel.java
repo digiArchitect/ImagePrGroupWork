@@ -38,4 +38,7 @@ public interface ImagePrModel {
 
   void load(String fileLoc, String fileName) throws IOException;
 
+  boolean hasKey(String s);
+
+  boolean hasEntries();
 }

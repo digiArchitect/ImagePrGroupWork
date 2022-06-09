@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Set;
+
 import Image.ImagePPM;
 import Image.Pixel;
 import Image.greyScale;
@@ -17,7 +19,7 @@ import Model.ImagePrModel;
 
 public class ImagePrModelImpl implements ImagePrModel {
 
-  HashMap<String, ImagePPM> images;
+  private HashMap<String, ImagePPM> images;
 
   /**
    * Constructs an image processing model using a 2d array of pixels.
@@ -124,6 +126,26 @@ public class ImagePrModelImpl implements ImagePrModel {
   @Override
   public void save(String fileLocation, String fileName) throws IOException {
    images.get(fileName).makeFile(fileLocation);
+  }
+
+  /**
+   * Returns whether the model has an image under a given key.
+   * @param s the given key.
+   * @return whether our model has this image.
+   */
+  public boolean hasKey(String s) {
+    for ( String key : images.keySet() ) {
+      return true;
+    }
+    return false;
+  }
+
+  /**
+   * Returns whether the model has any images loaded.
+   * @return whether the size of the imagegs hashmap is greater than zero.
+   */
+  public boolean hasEntries() {
+    return images.size() > 0;
   }
 
   /**

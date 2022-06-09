@@ -1,10 +1,12 @@
 package Controller;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Map;
 import java.util.Scanner;
-
 import Model.ImagePrModel;
+import static java.util.Map.entry;
 
 /**
  * Represents an Image Processor Controller, allowing the user to give inputs to the program,
@@ -38,103 +40,126 @@ public class ImagePrControllerImpl implements ImagePrController {
     boolean quit = false;
     String cmd;
     ArrayList<String> fields = new ArrayList<>();
-    int full = 3;
-    boolean brighten = false;
-    String[] commandsArray = {"load-image", "save-image", "red-component", "blue-component",
-    "green-component", "value-component", "luma-component", "intensity-component",
-            "horizontal-flip", "vertical-flip", "brighten"};
-    ArrayList<String> commandsList = new ArrayList<>(Arrays.asList(commandsArray));
-    welcomeMessage();
+    int full = 1;
+    boolean loaded = false;
 
     /*
 
-    possible commands:
-
-    THREE PARAMS
-
-    load-image image-path image-name
-    save-image image-path image-name
-    red-component image-name dest-image-name
-    blue-component image-name dest-image-name
-    green-component image-name dest-image-name
-    value-component image-name dest-image-name
-    luma-component image-name dest-image-name
-    intensity-component image-name dest-image-name
-    horizontal-flip image-name dest-image-name
-    vertical-flip image-name dest-image-name
-
-    FOUR PARAMS
-    brighten increment image-name dest-image-name
-
-    params :
-    all have two string params except for brightness, which takes an int and then two strings
      */
+    Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
+            entry("load-image", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
+            entry("save-image", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
+            entry("red-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("blue-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("green-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("value-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("luma-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("intensity-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("horizontal-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("vertical-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))));
+
+    //welcomeMessage();
 
     while(!quit) {
-      System.out.println("awaiting command:");
+
+      System.out.println();
+      System.out.println("AWAITING COMMAND ------------------");
       System.out.println();
 
       while(fields.size() < full) {
-        System.out.println("Size of fields taken in so far: " + fields.size());
-        System.out.println();
-        System.out.println("Fields:" + fields.toString());
-        System.out.println();
-        System.out.println("Amount of fields for this command: " + full);
-        System.out.println();
-
-
-
-        //try to read scanner
         try {
+
           cmd = fetch.next();
 
-          //quits if q
           if(cmd.equalsIgnoreCase("q") || cmd.equalsIgnoreCase("quit")) {
             System.out.println("terminated!");
             System.out.println();
             return;
           }
 
-          //checks brighten
-          if(brighten && fields.size() == 1){
-            try {
-              Integer.parseInt(cmd);
-              System.out.println("Adding the brightness increment to the array.");
-              fields.add(cmd);
-            }
-            catch (Exception e) {
-              System.out.println("What follows the 'brighten' command keyword must be an " +
-                      "integer.");
-              System.out.println();
-
-            }
-          }
-
-          //checks to see if it's a command
-          else if(fields.size() == 0) {
-            if(commandsList.contains(cmd)) {
-              fields.add(cmd);
-              if(cmd.equals("brighten")) {
-                full = 4;
-                brighten = true;
+          if (fields.size() == 0) {
+            if (commandsMap.containsKey(cmd)) {
+              if (loaded || cmd.equals("load-image")) {
+                fields.add(cmd);
+                full = commandsMap.get(cmd).size() + 1;
+                System.out.println("Command: " + cmd);
+                System.out.println("# of Fields: " + full);
+                System.out.println("Field types: " + commandsMap.get(cmd).toString());
+              } else {
+                System.out.println("You need to load an image " +
+                        "before processing any other commands");
               }
-            }
-            else {
-              System.out.println("Initial command is not recognized. Please choose one from the " +
+            } else {
+              System.out.println("Initial command is not recognized. " +
+                      "Please choose one from the " +
                       "list of accepted commands.");
               System.out.println();
-
             }
           }
 
           else {
-            fields.add(cmd);
-            System.out.println("Added the command to the fields array.");
-            System.out.println();
+            String inputType = (commandsMap.get(fields.get(0)).get(fields.size()-1));
+            String parentCommand = fields.get(0);
+            System.out.println("file type: " + inputType);
+            System.out.println("cmd: " + cmd);
+
+            switch (inputType) {
+
+              case("int"):
+                try {
+                  Integer.parseInt(cmd);
+                  System.out.println("Adding int to fields.");
+                  fields.add(cmd);
+                }
+                catch (Exception e) {
+                  throw new IllegalArgumentException("The input " + cmd + " needs to be a String!");
+                }
+                break;
+
+              case("img-name"):
+                if (model.hasKey(cmd) || parentCommand.equals("load-image")) {
+                  System.out.println("Adding image to fields.");
+                  fields.add(cmd);
+                }
+                else {
+                  System.out.println("No image exists by this name.");
+                }
+                break;
+              case("img-dest"):
+                if(model.hasKey(cmd) && !(parentCommand.equals("load-image"))) {
+                  System.out.println("Overwriting the image at " + cmd);
+                }
+                System.out.println("Adding destination name to fields.");
+                fields.add(cmd);
+                break;
+              case("img-path"):
+                System.out.println("IMAGE PATH" + cmd);
+                File f = new File(cmd);
+                if(parentCommand.equals("load-image")) {
+                  if(f.isFile()) {
+                    fields.add(cmd);
+                    System.out.println("Adding path to fields.");
+                  }
+                  else {
+                    System.out.println("The input" + cmd + " needs to be the route to a file!");
+                  }
+                }
+                else if(parentCommand.equals("save-image")) {
+                  if(f.isFile()) {
+                    System.out.println("Overwriting the file at " + cmd);
+                    System.out.println("Adding path to fields.");
+                    fields.add(cmd);
+                  }
+                  else {
+                    fields.add(cmd);
+                  }
+                }
+                break;
+            }
           }
         }
 
-        //nothing in scanner
         catch(Exception e) {
           throw new IllegalStateException("nothing in the scanner!");
         }
@@ -143,6 +168,7 @@ public class ImagePrControllerImpl implements ImagePrController {
       try {
         switch(fields.get(0)) {
           case("load-image"):
+            loaded = true;
             this.model.load(fields.get(1), fields.get(2));
             break;
           case("save-image"):
@@ -176,13 +202,15 @@ public class ImagePrControllerImpl implements ImagePrController {
             this.model.brighten(Integer.parseInt(fields.get(1)), fields.get(2), fields.get(3));
             break;
         }
-        System.out.println("command executed. ready for the next.");
+
+        System.out.println("COMMAND SUCCESSFULLY EXECUTED ----------------");
       }
       catch (Exception e){
-        System.out.println("File name is not recognized. please try again.");
+        System.out.println("FILE NAME IS NOT RECOGNIZED ----------------");
       }
-      full = 3;
-      brighten = false;
+
+      System.out.println();
+      full = 1;
       fields.clear();
     }
   }
