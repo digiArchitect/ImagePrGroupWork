@@ -54,8 +54,12 @@ public class greyScale implements Function<Pixel,Pixel> {
     p.append(newVal);
 
 
-    return new Pixel(Integer.parseInt(p.toString().repeat(3)));
+    return new Pixel(newVal,newVal,newVal);
   }
 
 
 }
+
+
+
+

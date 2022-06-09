@@ -72,12 +72,7 @@ public class ImagePrModelImpl implements ImagePrModel {
         int r = sc.nextInt();
         int g = sc.nextInt();
         int b = sc.nextInt();
-        StringBuilder s = new StringBuilder();
-        s.append(r);
-        s.append(g);
-        s.append(b);
-        //PlaceHolder pixel values.
-        row.add(new Pixel(Integer.parseInt(s.toString())));
+        row.add(new Pixel(r,g,b));
       }
       imageVals.add(row);
     }
@@ -85,6 +80,8 @@ public class ImagePrModelImpl implements ImagePrModel {
 
 
   }
+  // 9 3 5  6 6 4  9 9 8  = 9
+  //
 
 
   @Override

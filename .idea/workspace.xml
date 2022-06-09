@@ -3,6 +3,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+<<<<<<< Updated upstream
 <<<<<<< HEAD
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -27,6 +28,103 @@
       <workItem from="1654661677705" duration="1037000" />
       <workItem from="1654703345362" duration="4187000" />
       <workItem from="1654726759569" duration="6648000" />
+=======
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2ADqKvvKAWduKom07WJaoq25Asq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/archie.oconnell/Documents/GitHub/ImagePrGroupWork&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ImagePrMain">
+    <configuration name="ImagePrMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
+      <module name="ImagePrGroupWork" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestImagePPM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestImagePPM" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestPixel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestPixel" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ImagePrMain" />
+        <item itemvalue="JUnit.TestPixel" />
+        <item itemvalue="JUnit.TestImagePPM" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+      <created>1654554442218</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654554442218</updated>
+      <workItem from="1654554443858" duration="81000" />
+      <workItem from="1654554535415" duration="10298000" />
+      <workItem from="1654630614251" duration="2116000" />
+      <workItem from="1654639919204" duration="267000" />
+      <workItem from="1654661677705" duration="1037000" />
+      <workItem from="1654703345362" duration="4187000" />
+      <workItem from="1654726759569" duration="6648000" />
+      <workItem from="1654741485579" duration="1315000" />
+      <workItem from="1654801846713" duration="3534000" />
+>>>>>>> Stashed changes
     </task>
     <servers />
   </component>
@@ -38,14 +136,53 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Image/ImagePPM.java</url>
+          <line>92</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Image/greyScale.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java</url>
+          <line>181</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
-          <line>11</line>
-          <properties class="ImagePrMain" method="main">
+          <url>file://$PROJECT_DIR$/src/Model/ImagePrModelImpl.java</url>
+          <line>86</line>
+          <properties class="Model.ImagePrModelImpl" method="flipImage">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
-          <option name="timeStamp" value="2" />
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/Model/ImagePrModelImpl.java</url>
+          <line>103</line>
+          <properties class="Model.ImagePrModelImpl" method="brighten">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+<<<<<<< Updated upstream
+          <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
+          <line>11</line>
+          <properties class="ImagePrMain" method="main">
+=======
+          <url>file://$PROJECT_DIR$/src/Model/ImagePrModelImpl.java</url>
+          <line>109</line>
+          <properties class="Model.ImagePrModelImpl" method="greyscale">
+>>>>>>> Stashed changes
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="10" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
