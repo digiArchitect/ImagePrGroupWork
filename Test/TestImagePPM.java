@@ -16,7 +16,7 @@ public class TestImagePPM {
    two = new Pixel(222222222);
    three = new Pixel(333333333);
    four = new Pixel(444444444);
-   lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one,two))), 
+   lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one,two))),
            new ArrayList<>(Arrays.asList(three,four))));
 
    s = new ImagePPM(lol,"testttt",2,1,3);

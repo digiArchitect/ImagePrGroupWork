@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Test/TestImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/TestImagePPM.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -119,5 +121,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Image/ImageUtil.java</url>
+          <line>100</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

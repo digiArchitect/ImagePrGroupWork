@@ -1,4 +1,3 @@
-package Image;
 
 import java.awt.*;
 import java.io.File;
@@ -144,4 +143,3 @@ public class ImagePPM {
     w.close();
   }
 }
-

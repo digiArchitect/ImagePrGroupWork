@@ -15,5 +15,4 @@ public class rgbAll implements Function<Pixel,String> {
     }
     return p.toString();
   }
-
 }
