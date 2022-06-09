@@ -115,6 +115,12 @@ public class ImagePrModelImpl implements ImagePrModel {
     images.put(newName, newImage);
   }
 
+  /**
+   * Hello.
+   * @param fileLocation new path.
+   * @param fileName current name within our hashmap.
+   * @throws IOException boobs.
+   */
   @Override
   public void save(String fileLocation, String fileName) throws IOException {
    images.get(fileName).makeFile(fileLocation);

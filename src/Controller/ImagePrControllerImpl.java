@@ -146,7 +146,7 @@ public class ImagePrControllerImpl implements ImagePrController {
             this.model.load(fields.get(1), fields.get(2));
             break;
           case("save-image"):
-            this.model.load(fields.get(1), fields.get(2));
+            this.model.save(fields.get(1), fields.get(2));
             break;
           case("red-component"):
             this.model.greyscale("red", fields.get(1), fields.get(2));
