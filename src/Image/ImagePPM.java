@@ -55,16 +55,12 @@ public class ImagePPM {
     List<List<Pixel>> newVals;
     newVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
     return newImage(newVals);
-
-
   }
 
   public ImagePPM vertical() {
     List<List<Pixel>> newVals = new ArrayList<>(imageVals);
     Collections.reverse(newVals);
     return newImage(newVals);
-
-
   }
 
   /**
