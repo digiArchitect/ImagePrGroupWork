@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
 <<<<<<< HEAD
+<<<<<<< HEAD
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
 =======
 <<<<<<< HEAD
@@ -26,6 +27,9 @@
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
 >>>>>>> parent of 5a0230c (controller)
 >>>>>>> 9cf8afac2ee3106f38d6cbf7660f7dc69d1226e2
+=======
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+>>>>>>> parent of 5a0230c (controller)
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -108,8 +112,11 @@
 =======
       <workItem from="1654726759569" duration="6648000" />
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1654741485579" duration="1315000" />
 >>>>>>> 5a0230cf5c99c2e3ce457c310a46072c67c2b700
+=======
+>>>>>>> parent of 5a0230c (controller)
 =======
 >>>>>>> parent of 5a0230c (controller)
     </task>
@@ -129,6 +136,7 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
 <<<<<<< HEAD
 =======
 <<<<<<< HEAD
@@ -153,4 +161,6 @@
 =======
 >>>>>>> parent of 5a0230c (controller)
 >>>>>>> 9cf8afac2ee3106f38d6cbf7660f7dc69d1226e2
+=======
+>>>>>>> parent of 5a0230c (controller)
 </project>
