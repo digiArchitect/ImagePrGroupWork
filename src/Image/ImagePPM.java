@@ -108,23 +108,33 @@ public class ImagePPM {
    * @throws IOException if the file ever has an issue writing the code.
    */
   public void makeFile(String fileLocation) throws IOException {
-    FileWriter w = new FileWriter(new File(fileLocation));
-    StringBuilder s = new StringBuilder("");
+    File newFile = new File(fileLocation);
+    FileWriter w = new FileWriter(newFile);
+    StringBuilder s = new StringBuilder();
     s.append("P3\n");
     s.append(width);
     s.append(" ");
     s.append(height);
     s.append("\n");
-    s.append(maxValue);
-    s.append("\n");
+    w.write(s.toString());
     List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
     //Due to the way rgbAll works it adds a new line to the end of every pixel -> string.
     //So this is just removing that last line.
-    mapList.remove(mapList.size()- 1);
-    for (String val : mapList) {
-      s.append(val);
+    //mapList.remove(mapList.size()- 1);
+    w.write(mapList.toString());
+    int count = 0;
+    for (int x = 0;  x < height; x++) {
+      for (int y = 0; y < width; y++) {
+        s.append(mapList.get(count));
+        System.out.print(mapList.get(count));
+        count ++;
+      }
+      s.append("\n");
     }
+    s.append("\n");
+
     w.write(s.toString());
+
     w.close();
   }
 }

@@ -40,7 +40,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       sc = new Scanner(new FileInputStream(fileLoc));
     }
     catch (FileNotFoundException e) {
-      System.out.println("File "+ fileLoc + " not found!");
+      System.out.println("File "+fileLoc+ " not found!");
       throw new IllegalArgumentException();
     }
     StringBuilder builder = new StringBuilder();
@@ -73,12 +73,7 @@ public class ImagePrModelImpl implements ImagePrModel {
         int r = sc.nextInt();
         int g = sc.nextInt();
         int b = sc.nextInt();
-        StringBuilder s = new StringBuilder();
-        s.append(r);
-        s.append(g);
-        s.append(b);
-        //PlaceHolder pixel values.
-        row.add(new Pixel(Integer.parseInt(s.toString())));
+        row.add(new Pixel(r,g,b));
       }
       imageVals.add(row);
     }

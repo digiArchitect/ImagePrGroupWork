@@ -15,7 +15,6 @@ public class greyScale implements Function<Pixel,Pixel> {
   public greyScale(String component) {
     this.component = component;
   }
-  @Override
   public Pixel apply(Pixel pixel) {
 
     int newVal;
@@ -25,10 +24,6 @@ public class greyScale implements Function<Pixel,Pixel> {
     for(int x = 0; x < 3; x++) {
       values[x] = pixel.getChannel(x);
     }
-
-    //should be turned into a switch statement
-
-
     if(component.equals("value")) {
       newVal = Math.max(values[0],values[1]);
       newVal = Math.max(newVal , values[0]);
@@ -58,7 +53,7 @@ public class greyScale implements Function<Pixel,Pixel> {
     p.append(newVal);
 
 
-    return new Pixel(Integer.parseInt(p.toString().repeat(3)));
+    return new Pixel(newVal,newVal,newVal);
   }
 
 

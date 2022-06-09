@@ -11,11 +11,9 @@ public class rgbAll implements Function<Pixel,String> {
     for(int x = 0; x < 3; x++) {
       int newRgb = pixel.getChannel(x);
       p.append(newRgb);
-      if (x < 2) {
-        p.append(" ");
-      }
+      p.append(" ");
+
     }
-    p.append("\n");
     return p.toString();
   }
 
