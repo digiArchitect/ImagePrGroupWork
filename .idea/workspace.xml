@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Images/Koala.ppm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-blue-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-brighter-by-50.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-green-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-horizontal-vertical.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-horizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-intensity-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-luma-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-red-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-value-greyscale.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-vertical-horizontal.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Images/koala-vertical.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/balls3" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImagePPM.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImagePPM.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Image/ImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Image/ImagePPM.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

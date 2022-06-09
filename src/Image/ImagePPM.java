@@ -115,12 +115,16 @@ public class ImagePPM {
     s.append(" ");
     s.append(height);
     s.append("\n");
-    w.write(s.toString());
+    s.append(maxValue);
+    s.append("\n");
     List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
     //Due to the way rgbAll works it adds a new line to the end of every pixel -> string.
     //So this is just removing that last line.
     mapList.remove(mapList.size()- 1);
-    w.write(mapList.toString());
+    for (String val : mapList) {
+      s.append(val);
+    }
+    w.write(s.toString());
     w.close();
   }
 }
