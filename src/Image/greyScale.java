@@ -25,6 +25,10 @@ public class greyScale implements Function<Pixel,Pixel> {
     for(int x = 0; x < 3; x++) {
       values[x] = pixel.getChannel(x);
     }
+
+    //should be turned into a switch statement
+
+
     if(component.equals("value")) {
       newVal = Math.max(values[0],values[1]);
       newVal = Math.max(newVal , values[0]);
