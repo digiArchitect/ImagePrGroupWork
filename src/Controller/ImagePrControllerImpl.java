@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
+
 import Model.ImagePrModel;
+
 import static java.util.Map.entry;
 
 /**
@@ -13,17 +15,17 @@ import static java.util.Map.entry;
  * which it will exchange for data and computation from the model.
  */
 public class ImagePrControllerImpl implements ImagePrController {
-  private ImagePrModel model;
-  private Appendable output;
-  private Readable input;
+  private final ImagePrModel model;
+  private final Appendable output;
+  private final Readable input;
 
   /**
-   * Constructs an Image Processor Controller, given a image processor model, a view, and
+   * Constructs an Image Processor Controller, given an image processor model, a view, and
    * an input source.
    */
-  public ImagePrControllerImpl(Readable input,  Appendable output, ImagePrModel model) throws
+  public ImagePrControllerImpl(Readable input, Appendable output, ImagePrModel model) throws
           IllegalArgumentException {
-    if(model == null || output == null | input == null) {
+    if (model == null || output == null | input == null) {
       throw new IllegalArgumentException();
     }
     this.model = model;
@@ -37,8 +39,7 @@ public class ImagePrControllerImpl implements ImagePrController {
   @Override
   public void startProcessor() throws IllegalStateException {
     Scanner fetch = new Scanner(input);
-    boolean quit = false;
-    String cmd;
+    String arf;
     ArrayList<String> fields = new ArrayList<>();
     int full = 1;
     boolean loaded = false;
@@ -47,8 +48,8 @@ public class ImagePrControllerImpl implements ImagePrController {
 
      */
     Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
-            entry("load-image", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
-            entry("save-image", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
+            entry("load", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
+            entry("save", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
             entry("red-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("blue-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("green-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
@@ -59,33 +60,34 @@ public class ImagePrControllerImpl implements ImagePrController {
             entry("vertical-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))));
 
-    //welcomeMessage();
+    welcomeMessage();
 
-    while(!quit) {
+    while (true) {
 
       System.out.println();
       System.out.println("AWAITING COMMAND ------------------");
       System.out.println();
 
-      while(fields.size() < full) {
+      while (fields.size() < full) {
         try {
 
-          cmd = fetch.next();
+          arf = fetch.next();
 
-          if(cmd.equalsIgnoreCase("q") || cmd.equalsIgnoreCase("quit")) {
+          if (arf.equalsIgnoreCase("q") || arf.equalsIgnoreCase("quit")) {
             System.out.println("terminated!");
             System.out.println();
+            fetch.close();
             return;
           }
 
           if (fields.size() == 0) {
-            if (commandsMap.containsKey(cmd)) {
-              if (loaded || cmd.equals("load-image")) {
-                fields.add(cmd);
-                full = commandsMap.get(cmd).size() + 1;
-                System.out.println("Command: " + cmd);
-                System.out.println("# of Fields: " + full);
-                System.out.println("Field types: " + commandsMap.get(cmd).toString());
+            if (commandsMap.containsKey(arf)) {
+              if (loaded || arf.equals("load")) {
+                fields.add(arf);
+                full = commandsMap.get(arf).size() + 1;
+                System.out.println("Command: " + arf);
+                System.out.println("# of Fields: " + (full - 1));
+                System.out.println("Field types: " + commandsMap.get(arf).toString());
               } else {
                 System.out.println("You need to load an image " +
                         "before processing any other commands");
@@ -96,116 +98,113 @@ public class ImagePrControllerImpl implements ImagePrController {
                       "list of accepted commands.");
               System.out.println();
             }
-          }
-
-          else {
-            String inputType = (commandsMap.get(fields.get(0)).get(fields.size()-1));
+          } else {
             String parentCommand = fields.get(0);
-            System.out.println("file type: " + inputType);
-            System.out.println("cmd: " + cmd);
-
+            String inputType = (commandsMap.get(fields.get(0)).get(fields.size() - 1));
+            System.out.println("input type: " + inputType);
+            System.out.println("inputted command: " + arf);
             switch (inputType) {
-
-              case("int"):
+              case ("int"):
                 try {
-                  Integer.parseInt(cmd);
+                  Integer.parseInt(arf);
                   System.out.println("Adding int to fields.");
-                  fields.add(cmd);
-                }
-                catch (Exception e) {
-                  throw new IllegalArgumentException("The input " + cmd + " needs to be a String!");
+                  fields.add(arf);
+                } catch (Exception e) {
+                  throw new IllegalArgumentException("The input " + arf + " needs to be a String!");
                 }
                 break;
 
-              case("img-name"):
-                if (model.hasKey(cmd) || parentCommand.equals("load-image")) {
-                  System.out.println("Adding image to fields.");
-                  fields.add(cmd);
-                }
-                else {
+              case ("img-name"):
+                if (model.hasKey(arf) || parentCommand.equals("load")) {
+                  System.out.println("Adding img-name to fields.");
+                  fields.add(arf);
+                } else {
                   System.out.println("No image exists by this name.");
                 }
                 break;
-              case("img-dest"):
-                if(model.hasKey(cmd) && !(parentCommand.equals("load-image"))) {
-                  System.out.println("Overwriting the image at " + cmd);
+              case ("img-dest"):
+                if (model.hasKey(arf) && !(parentCommand.equals("load"))) {
+                  System.out.println("Overwriting the image at " + arf);
                 }
-                System.out.println("Adding destination name to fields.");
-                fields.add(cmd);
+                System.out.println("Adding img-dest to fields.");
+                fields.add(arf);
                 break;
-              case("img-path"):
-                System.out.println("IMAGE PATH" + cmd);
-                File f = new File(cmd);
-                if(parentCommand.equals("load-image")) {
-                  if(f.isFile()) {
-                    fields.add(cmd);
+              case ("file-path"):
+                File f = new File(arf);
+                if (parentCommand.equals("load")) {
+                  if (f.isFile()) {
+                    fields.add(arf);
                     System.out.println("Adding path to fields.");
+                  } else {
+                    System.out.println("The input" + arf + " needs to be the route to a file!");
                   }
-                  else {
-                    System.out.println("The input" + cmd + " needs to be the route to a file!");
-                  }
-                }
-                else if(parentCommand.equals("save-image")) {
-                  if(f.isFile()) {
-                    System.out.println("Overwriting the file at " + cmd);
+                } else if (parentCommand.equals("save")) {
+                  if (f.isFile()) {
+                    System.out.println("Overwriting the file at " + arf);
                     System.out.println("Adding path to fields.");
-                    fields.add(cmd);
-                  }
-                  else {
-                    fields.add(cmd);
+                    fields.add(arf);
+                  } else {
+                    fields.add(arf);
                   }
                 }
                 break;
+              default:
+                System.out.println("Input type not recognized.");
             }
           }
-        }
-
-        catch(Exception e) {
-          throw new IllegalStateException("nothing in the scanner!");
+        } catch (Exception e) {
+          throw new IllegalStateException("there's nothing in the scanner you moron");
         }
       }
 
       try {
-        switch(fields.get(0)) {
-          case("load-image"):
-            loaded = true;
+        switch (fields.get(0)) {
+          case ("load"):
             this.model.load(fields.get(1), fields.get(2));
             break;
-          case("save-image"):
+          case ("save"):
             this.model.save(fields.get(1), fields.get(2));
             break;
-          case("red-component"):
-            this.model.greyscale("red", fields.get(1), fields.get(2));
+          case ("red-component"):
+            this.model.greyscale("red",
+                    fields.get(1), fields.get(2));
             break;
-          case("blue-component"):
-            this.model.greyscale("blue", fields.get(1), fields.get(2));
+          case ("blue-component"):
+            this.model.greyscale("blue",
+                    fields.get(1), fields.get(2));
             break;
-          case("green-component"):
-            this.model.greyscale("green", fields.get(1), fields.get(2));
+          case ("green-component"):
+            this.model.greyscale("green",
+                    fields.get(1), fields.get(2));
             break;
-          case("value-component"):
-            this.model.greyscale("value", fields.get(1), fields.get(2));
+          case ("value-component"):
+            this.model.greyscale("value",
+                    fields.get(1), fields.get(2));
             break;
-          case("luma-component"):
-            this.model.greyscale("luma", fields.get(1), fields.get(2));
+          case ("luma-component"):
+            this.model.greyscale("luma",
+                    fields.get(1), fields.get(2));
             break;
-          case("intensity-component"):
-            this.model.greyscale("intenstiy", fields.get(1), fields.get(2));
+          case ("intensity-component"):
+            this.model.greyscale("intensity", fields.get(1), fields.get(2));
             break;
-          case("horizontal-flip"):
+          case ("horizontal-flip"):
             this.model.flipImage("horizontal", fields.get(1), fields.get(2));
             break;
-          case("vertical-flip"):
-            this.model.flipImage("vertical", fields.get(1), fields.get(2));
+          case ("vertical-flip"):
+            this.model.flipImage("vertical",
+                    fields.get(1), fields.get(2));
             break;
-          case("brighten"):
-            this.model.brighten(Integer.parseInt(fields.get(1)), fields.get(2), fields.get(3));
+          case ("brighten"):
+            this.model.brighten(Integer.parseInt(fields.get(1)),
+                    fields.get(2), fields.get(3));
             break;
         }
-
         System.out.println("COMMAND SUCCESSFULLY EXECUTED ----------------");
-      }
-      catch (Exception e){
+        if (fields.get(0).equals("load")) {
+          loaded = true;
+        }
+      } catch (Exception e) {
         System.out.println("FILE NAME IS NOT RECOGNIZED ----------------");
       }
 
@@ -217,7 +216,28 @@ public class ImagePrControllerImpl implements ImagePrController {
 
   private void welcomeMessage() {
 
-    System.out.println("Hellom, and welcom to the image pwocessor");
+    System.out.println(" ________________________\n" +
+            "|.----------------------.|\n" +
+            "||                      ||\n" +
+            "||                      ||\n" +
+            "||     .-\"````\"-.       ||\n" +
+            "||    /  _.._    `\\     ||\n" +
+            "||   / /`    `-.   ; . .||\n" +
+            "||   | |__  __  \\   |   ||\n" +
+            "||.-.| | e`/e`  |   |   ||\n" +
+            "||   | |  |     |   |'--||\n" +
+            "||   | |  '-    |   |   ||\n" +
+            "||   |  \\ --'  /|   |   ||\n" +
+            "||   |   `;---'\\|   |   ||\n" +
+            "||   |    |     |   |   ||\n" +
+            "||   |  .-'     |   |   ||\n" +
+            "||'--|/`        |   |--.||\n" +
+            "||   ;    .     ;  _.\\  ||\n" +
+            "||    `-.;_    /.-'     ||\n" +
+            "||         ````         ||\n" +
+            "||jgs___________________||\n" +
+            "'------------------------'");
+    System.out.println("Hello MARY HILMER, and welcom to the image pwocessor");
     System.out.println("this pwogram currently supports six commands,");
     System.out.println();
 
@@ -226,13 +246,12 @@ public class ImagePrControllerImpl implements ImagePrController {
             "and refer it to henceforth \n in the program by the given image name.");
     System.out.println();
 
-    System.out.println("red-component image-name dest-image-name: \n " +
+    System.out.println("_____-component image-name dest-image-name: \n " +
             "Create a greyscale image " +
-            "with the red-component of the image with the given name, \n " +
+            "with the ___-component of the image with the given name, \n " +
             "and refer to it henceforth " +
             "in the program by the given destination name. " +
-            "\n Similar commands for green, blue, value, luma, intensity components should be " +
-            "supported.");
+            "\n replace the ___ with red, green, blue, value, luma, or intensity.");
     System.out.println();
 
     System.out.println("horizontal-flip image-name dest-image-name: \n " +
