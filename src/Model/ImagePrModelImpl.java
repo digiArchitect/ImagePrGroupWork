@@ -87,17 +87,15 @@ public class ImagePrModelImpl implements ImagePrModel {
   public void flipImage(String direction, String filename, String newName) {
     ImagePPM newImage;
     if (direction.equals("horizontal")) {
-      newImage = images.get(filename).horizontal();
+      images.get(filename).horizontal(newName,images);
 
     } else if (direction.equals("vertical")) {
-      newImage = images.get(filename).vertical();
+      images.get(filename).vertical(newName,images);
 
     } else {
       //Catch and throw an illegal state in the controller.
       throw new IllegalArgumentException();
     }
-    images.put(newName, newImage);
-
   }
 
   @Override

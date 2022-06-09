@@ -1,4 +1,6 @@
 package Image;
+
+
 /**
  Represents a Image.Pixel of a PPM image.
  */
@@ -9,10 +11,14 @@ public class Pixel {
 
 
   public Pixel(int r, int g, int b) {
+    if(r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0) {
+      throw new IllegalArgumentException();
+    }
     this.r = r;
     this.g = g;
     this.b = b;
   }
+
 
   public int getChannel(int c) throws IllegalArgumentException {
     switch(c) {

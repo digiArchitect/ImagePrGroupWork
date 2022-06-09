@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -51,25 +52,30 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-  public ImagePPM horizontal() {
+  /**
+   * Given a name and a
+   * @param name
+   * @param imageDB
+   */
+  public void horizontal(String name, HashMap<String,ImagePPM> imageDB) {
+
     List<List<Pixel>> newVals;
     newVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
-    return newImage(newVals);
+    imageDB.put(name,newImage(newVals));
 
 
   }
 
-  public ImagePPM vertical() {
+  public void vertical(String name, HashMap<String,ImagePPM> imageDB) {
     List<List<Pixel>> newVals = new ArrayList<>(imageVals);
     Collections.reverse(newVals);
-    return newImage(newVals);
+    imageDB.put(name,newImage(newVals));
 
 
   }
 
   /**
    * Given a function<T,T> apply it to the pixels within imageVals.
-   *
    * @param applyFunc The function that is used to change the pixel values.
    */
   public ImagePPM applyChanges(Function<Pixel, Pixel> applyFunc) {
@@ -80,7 +86,6 @@ public class ImagePPM {
 
   /**
    * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
-   *
    * @param flatlist The 1d arraylist whos data will be extracted.
    */
   public List<List<Pixel>> updateImageVals(List<Pixel> flatlist) {
@@ -98,6 +103,11 @@ public class ImagePPM {
     return newList;
   }
 
+  /**
+   * Creates an image given a list of list of pixels.
+   * @param newVals the new Image's list.
+   * @return
+   */
   private ImagePPM newImage(List<List<Pixel>> newVals) {
     return new ImagePPM(newVals, width, height, maxValue);
   }
@@ -119,9 +129,6 @@ public class ImagePPM {
     s.append(maxValue);
     s.append("\n");
     List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
-    //Due to the way rgbAll works it adds a new line to the end of every pixel -> string.
-    //So this is just removing that last line.
-    //mapList.remove(mapList.size()- 1);
     int count = 0;
     for (int x = 0;  x < height; x++) {
       for (int y = 0; y < width; y++) {
