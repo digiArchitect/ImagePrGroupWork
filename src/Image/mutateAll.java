@@ -29,7 +29,6 @@ public class mutateAll implements Function<Pixel,Pixel>  {
 
       }
       values[x] = newRgb;
-      System.out.println(values[x]);
     }
 
     return new Pixel(values[0],values[1],values[2]);

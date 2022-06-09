@@ -6,6 +6,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -50,7 +51,7 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-  public ImagePPM vertical() {
+  public ImagePPM horizontal() {
     List<List<Pixel>> newVals;
     newVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
     return newImage(newVals);
@@ -58,12 +59,11 @@ public class ImagePPM {
 
   }
 
-  public ImagePPM horizontal() {
-    List<List<Pixel>> newVals = new ArrayList<>();
-    for (int x = imageVals.size() - 1; x > 0; x--) {
-      newVals.add(imageVals.get(x));
-    }
+  public ImagePPM vertical() {
+    List<List<Pixel>> newVals = new ArrayList<>(imageVals);
+    Collections.reverse(newVals);
     return newImage(newVals);
+
 
   }
 
@@ -116,17 +116,16 @@ public class ImagePPM {
     s.append(" ");
     s.append(height);
     s.append("\n");
-    w.write(s.toString());
+    s.append(maxValue);
+    s.append("\n");
     List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
     //Due to the way rgbAll works it adds a new line to the end of every pixel -> string.
     //So this is just removing that last line.
     //mapList.remove(mapList.size()- 1);
-    w.write(mapList.toString());
     int count = 0;
     for (int x = 0;  x < height; x++) {
       for (int y = 0; y < width; y++) {
         s.append(mapList.get(count));
-        System.out.print(mapList.get(count));
         count ++;
       }
       s.append("\n");
