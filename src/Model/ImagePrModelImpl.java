@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-
 import Image.ImagePPM;
 import Image.Pixel;
 import Image.greyScale;
@@ -39,7 +38,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       sc = new Scanner(new FileInputStream(fileLoc));
     }
     catch (FileNotFoundException e) {
-      System.out.println("File "+fileLoc+ " not found!");
+      System.out.println("File "+ fileLoc + " not found!");
       throw new IllegalArgumentException();
     }
     StringBuilder builder = new StringBuilder();
@@ -127,13 +126,18 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @param fileName the name of the file.
    * @param image the image to be appended
    */
+
+  /*
+
+  going to update thie method to be part of controller, checks whether there is alraedy something
+  there at file first and say are you sure you want to overrite this?
+
+   */
   private void newEntry(String fileName, ImagePPM image) {
     //Checks if the filename is already in the key if so remove it
     if (images.get(fileName) != null) {
       images.remove(fileName);
     }
     images.put(fileName, image);
-
   }
-
 }
