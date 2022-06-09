@@ -1,6 +1,9 @@
 package Image;
 
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -24,10 +27,11 @@ public class ImagePPM {
 
   /**
    * Constructs a PPM image object.
+   *
    * @param imageVals the row and column grid of the pixels of the image.
-   * @param width the width of the image iin pixels.
-   * @param height the height of the image in pixels.
-   * @param maxValue the max rgb value of the image.
+   * @param width     the width of the image iin pixels.
+   * @param height    the height of the image in pixels.
+   * @param maxValue  the max rgb value of the image.
    */
   public ImagePPM(List<List<Pixel>> imageVals, int width,
                   int height, int maxValue) {
@@ -39,6 +43,7 @@ public class ImagePPM {
 
   /**
    * Returns our 2D pixel grid as one List of pixels.
+   *
    * @return a List of pixels.
    */
   public List<Pixel> flatten() {
@@ -55,7 +60,7 @@ public class ImagePPM {
 
   public ImagePPM horizontal() {
     List<List<Pixel>> newVals = new ArrayList<>();
-    for (int x = imageVals.size() -1;  x > 0; x--) {
+    for (int x = imageVals.size() - 1; x > 0; x--) {
       newVals.add(imageVals.get(x));
     }
     return newImage(newVals);
@@ -64,9 +69,10 @@ public class ImagePPM {
 
   /**
    * Given a function<T,T> apply it to the pixels within imageVals.
+   *
    * @param applyFunc The function that is used to change the pixel values.
    */
-  public ImagePPM applyChanges (Function<Pixel,Pixel> applyFunc) {
+  public ImagePPM applyChanges(Function<Pixel, Pixel> applyFunc) {
     List<Pixel> mapList = flatten();
     mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
     return newImage(updateImageVals(mapList));
@@ -74,6 +80,7 @@ public class ImagePPM {
 
   /**
    * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
+   *
    * @param flatlist The 1d arraylist whos data will be extracted.
    */
   public List<List<Pixel>> updateImageVals(List<Pixel> flatlist) {
@@ -90,9 +97,31 @@ public class ImagePPM {
     }
     return newList;
   }
+
   private ImagePPM newImage(List<List<Pixel>> newVals) {
-    return new ImagePPM(newVals, width, height,maxValue);
+    return new ImagePPM(newVals, width, height, maxValue);
   }
 
+  /**
+   * Makes a new file using the Image's data.
+   * @param fileLocation The location to place this
+   * @throws IOException if the file ever has an issue writing the code.
+   */
+  public void makeFile(String fileLocation) throws IOException {
+    FileWriter w = new FileWriter(new File(fileLocation));
+    StringBuilder s = new StringBuilder("");
+    s.append("P3\n");
+    s.append(width);
+    s.append(" ");
+    s.append(height);
+    s.append("\n");
+    w.write(s.toString());
+    List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
+    //Due to the way rgbAll works it adds a new line to the end of every pixel -> string.
+    //So this is just removing that last line.
+    mapList.remove(mapList.size()- 1);
+    w.write(mapList.toString());
+    w.close();
+  }
 }
 

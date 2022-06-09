@@ -1,5 +1,7 @@
 package Model;
 
+import java.io.IOException;
+
 public interface ImagePrModel {
   /**
    * Flips the image depending on the direction user inputs.
@@ -32,7 +34,7 @@ public interface ImagePrModel {
    * @param newName the name of the transformed file.
    * @throws IllegalArgumentException if provided arguments are null || cannot be found.
    */
-  void save(String fileLocation, String newName);
+  void save(String fileLocation, String newName) throws IOException;
 
 
 }

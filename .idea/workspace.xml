@@ -78,7 +78,7 @@
       <workItem from="1654639919204" duration="267000" />
       <workItem from="1654661677705" duration="1037000" />
       <workItem from="1654703345362" duration="4187000" />
-      <workItem from="1654726759569" duration="3767000" />
+      <workItem from="1654726759569" duration="6648000" />
     </task>
     <servers />
   </component>
@@ -95,16 +95,5 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Model/ImagePrModelImpl.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

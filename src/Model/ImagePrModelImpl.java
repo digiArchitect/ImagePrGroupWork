@@ -1,7 +1,10 @@
 package Model;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -21,7 +24,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * Constructs an image processing model using a 2d array of pixels.
    */
   public ImagePrModelImpl() {
-    this.images = new HashMap<String, ImagePPM>();
+    this.images = new HashMap<>();
   }
 
   /**
@@ -78,12 +81,8 @@ public class ImagePrModelImpl implements ImagePrModel {
       }
       imageVals.add(row);
     }
+    newEntry(fileName, new ImagePPM(imageVals, width, height, maxValue));
 
-    //Checks if the filename is already in the key if so remove it
-    if (images.get(fileName) != null) {
-      images.remove(fileName);
-    }
-    images.put(fileName, new ImagePPM(imageVals, width, height, maxValue));
 
   }
 
@@ -118,7 +117,22 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   @Override
-  public void save(String fileLocation, String fileName) {
+  public void save(String fileLocation, String fileName) throws IOException {
+   images.get(fileName).makeFile(fileLocation);
+  }
+
+  /**
+   * Checks if a key is already in the hashmap if so overwrite it if not just add it.
+   * Used to deal with overwriting.
+   * @param fileName the name of the file.
+   * @param image the image to be appended
+   */
+  private void newEntry(String fileName, ImagePPM image) {
+    //Checks if the filename is already in the key if so remove it
+    if (images.get(fileName) != null) {
+      images.remove(fileName);
+    }
+    images.put(fileName, image);
 
   }
 
