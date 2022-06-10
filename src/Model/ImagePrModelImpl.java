@@ -134,7 +134,9 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   public boolean hasKey(String s) {
     for (String key : images.keySet() ) {
-      return true;
+      if(s.equals(key)) {
+        return true;
+      }
     }
     return false;
   }

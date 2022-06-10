@@ -106,16 +106,20 @@ public class ImagePrControllerImpl implements ImagePrController {
             switch (inputType) {
               case ("int"):
                 try {
+                  System.out.println("attempting to parse int for string.");
                   Integer.parseInt(arf);
                   System.out.println("Adding int to fields.");
                   fields.add(arf);
                 } catch (Exception e) {
-                  throw new IllegalArgumentException("The input " + arf + " needs to be a String!");
+                  System.out.println("The input " + arf + " needs to be a String!");
                 }
                 break;
-
               case ("img-name"):
                 if (model.hasKey(arf) || parentCommand.equals("load")) {
+                  System.out.println("arf: " + arf);
+                  System.out.println("model has key: " + model.hasKey(arf));
+                  System.out.println("parent command:" + parentCommand);
+                  System.out.println("or command is load: " + parentCommand.equals("load"));
                   System.out.println("Adding img-name to fields.");
                   fields.add(arf);
                 } else {
