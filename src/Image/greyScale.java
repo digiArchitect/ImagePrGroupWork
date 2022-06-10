@@ -46,5 +46,4 @@ public class greyScale implements Function<Pixel,Pixel> {
 
     return new Pixel(newVal,newVal,newVal);
   }
-
 }

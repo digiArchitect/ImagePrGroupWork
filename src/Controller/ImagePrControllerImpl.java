@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 import Model.ImagePrModel;
+import View.ImagePrView;
 
 import static java.util.Map.entry;
 
@@ -16,20 +17,20 @@ import static java.util.Map.entry;
  */
 public class ImagePrControllerImpl implements ImagePrController {
   private final ImagePrModel model;
-  private final Appendable output;
+  private final ImagePrView view;
   private final Readable input;
 
   /**
    * Constructs an Image Processor Controller, given an image processor model, a view, and
    * an input source.
    */
-  public ImagePrControllerImpl(Readable input, Appendable output, ImagePrModel model) throws
+  public ImagePrControllerImpl(Readable input, ImagePrView view, ImagePrModel model) throws
           IllegalArgumentException {
-    if (model == null || output == null | input == null) {
+    if (model == null || view == null | input == null) {
       throw new IllegalArgumentException();
     }
     this.model = model;
-    this.output = output;
+    this.view = view;
     this.input = input;
   }
 
@@ -155,7 +156,9 @@ public class ImagePrControllerImpl implements ImagePrController {
             this.model.load(fields.get(1), fields.get(2));
             break;
           case ("save"):
-            this.model.save(fields.get(1), fields.get(2));
+            this.view.save(fields.get(1), fields.get(2),
+                    this.model.getImageContents(fields.get(2)),
+                    this.model.getFlatten(fields.get(2)));
             break;
           case ("red-component"):
             this.model.greyscale("red",

@@ -32,19 +32,39 @@ public interface ImagePrModel {
    * @throws IllegalArgumentException if component is not luma, value, or intensity.
    */
   void greyscale(String component,String filename, String newname);
-  /**
-   * saves a ppm to a specific file.
-   * @param fileLocation the fileLocation where the image will be saved.
-   * @param newName the name of the transformed file.
-   * @throws IllegalArgumentException if provided arguments are null || cannot be found.
-   */
-  void save(String fileLocation, String newName) throws IOException;
 
+  /**
+   * Loads a file from a specific file location to a name in the hashamp.
+   * @param fileLoc the file location.
+   * @param fileName the file name.
+   * @throws IOException if something goes terribly wrong.
+   */
   void load(String fileLoc, String fileName) throws IOException;
 
+  /**
+   * Returns whether this model's hashmap has a key of the given string.
+   * @param s the given string.
+   * @return whether the hashmap has that key.
+   */
   boolean hasKey(String s);
 
-  boolean hasEntries();
-
+  /**
+   * Returns this model's hashmap.
+   * @return the hashmap.
+   */
   HashMap<String, ImagePPM> getHashMap();
+
+  /**
+   * Returns the contents of the image at this value in the hashmap.
+   * @param s the image name.
+   * @return the contents.
+   */
+  List<Integer> getImageContents(String s);
+
+  /**
+   * Returns the flat list of string pixels of the image at this value in the hashmap.
+   * @param s the image name.
+   * @return the list.
+   */
+  List<String> getFlatten(String s);
 }

@@ -15,6 +15,7 @@ import Image.Pixel;
 import Image.ReverseAll;
 import Image.greyScale;
 import Image.mutateAll;
+import Image.rgbAll;
 
 /**
  * An image processor's model, which performs operations on images stored within its HashMap of
@@ -126,17 +127,6 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   /**
-   * Hello.
-   * @param fileLocation the path of this new file.
-   * @param fileName current name within our hashmap.
-   * @throws IOException boobs.
-   */
-  @Override
-  public void save(String fileLocation, String fileName) throws IOException {
-   images.get(fileName).makeFile(fileLocation);
-  }
-
-  /**
    * Returns whether the model has an image under a given key.
    * @param s the given key.
    * @return whether our model has this image.
@@ -151,17 +141,30 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   /**
-   * Returns whether the model has any images loaded.
-   * @return whether the size of the image's hashmap is greater than zero.
+   * Returns this model's hashmap.
+   * @return the hashmap.
    */
-  public boolean hasEntries() {
-    return images.size() > 0;
-  }
-
-  //i don't think that this should exist - method purely for the purposes of testing ?
   @Override
   public HashMap<String, ImagePPM> getHashMap() {
     return new HashMap<String,ImagePPM>(images);
+  }
+
+  /**
+   * Returns the contents of an image at a specified name.
+   * @param s the image name.
+   * @return the contents.
+   */
+  public List<Integer> getImageContents(String s) {
+    return images.get(s).getContents();
+  }
+
+  /**
+   * Returns the flattened list of pixels of the image at a specified name.
+   * @param s the image name.
+   * @return the list of pixels.
+   */
+  public List<String> getFlatten(String s) {
+    return images.get(s).flatten().stream().map(new rgbAll()).collect(Collectors.toList());
   }
 
   /**

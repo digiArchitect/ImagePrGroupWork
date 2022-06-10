@@ -5,6 +5,8 @@ import Controller.ImagePrControllerImpl;
 import Controller.ImagePrControllerImplMock;
 import Model.ImagePrModel;
 import Model.ImagePrModelImpl;
+import View.ImagePrView;
+import View.ImagePrViewImpl;
 
 /**
  * Runs the program, allowing the user to upload PPM images and edit them using the
@@ -17,9 +19,9 @@ public class ImagePrMain {
    */
   public static void main(String args[]) {
     Readable input = new InputStreamReader(System.in);
-    Appendable output = System.out;
+    ImagePrView view = new ImagePrViewImpl();
     ImagePrModel model = new ImagePrModelImpl();
-    ImagePrController controller = new ImagePrControllerImpl(input, output, model);
+    ImagePrController controller = new ImagePrControllerImpl(input, view, model);
     controller.startProcessor();
   }
 }

@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 
 /**
- * Represents a PPM file, a text-based image format which reprsents images as the RGB values of
+ * Represents a PPM file, a text-based image format which represents images as the RGB values of
  * every pixel of each row.
  */
 public class ImagePPM {
@@ -52,47 +52,17 @@ public class ImagePPM {
   }
 
   /**
-   * Makes a new file using the Image's data.
-   * @param fileLocation The location to place this
-   * @throws IOException if the file ever has an issue writing the code.
-   */
-  public void makeFile(String fileLocation) throws IOException {
-    File newFile = new File(fileLocation);
-    FileWriter w = new FileWriter(newFile);
-    StringBuilder s = new StringBuilder();
-    s.append("P3\n");
-    s.append(width);
-    s.append(" ");
-    s.append(height);
-    s.append("\n");
-    s.append(maxValue);
-    s.append("\n");
-    List<String> mapList = flatten().stream().map(new rgbAll()).collect(Collectors.toList());
-    int count = 0;
-    for (int x = 0;  x < height; x++) {
-      for (int y = 0; y < width; y++) {
-        s.append(mapList.get(count));
-        count ++;
-      }
-      s.append("\n");
-    }
-    s.append("\n");
-    w.write(s.toString());
-    w.close();
-  }
-
-  /**
    * Returns important data points of this image, the width, height, and max value of its rgbs,
    * as an arraylist.
    * @return an ArrayList of the image's contents.
    */
   public List<Integer> getContents() {
-    return Arrays.asList(width,height,maxValue);
+    return Arrays.asList(width, height, maxValue);
   }
 
   /**
    * Returns this image's values.
-   * @return
+   * @return an arraylist of this image's pixels.
    */
   public List<List<Pixel>> getImageVals() {
     return new ArrayList<>(imageVals);
