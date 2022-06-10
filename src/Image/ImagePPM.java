@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 
 
@@ -16,10 +15,6 @@ import java.util.stream.Collectors;
  * every pixel of each row.
  */
 public class ImagePPM {
-
-  /*
-  image fields should be private, right?
-   */
   private final List<List<Pixel>> imageVals;
   private final int width;
   private final int height;
@@ -56,13 +51,6 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-
-
-
-
-
-
-
   /**
    * Makes a new file using the Image's data.
    * @param fileLocation The location to place this
@@ -89,21 +77,24 @@ public class ImagePPM {
       s.append("\n");
     }
     s.append("\n");
-
     w.write(s.toString());
-
     w.close();
   }
+
+  /**
+   * Returns important data points of this image, the width, height, and max value of its rgbs,
+   * as an arraylist.
+   * @return an ArrayList of the image's contents.
+   */
   public List<Integer> getContents() {
     return Arrays.asList(width,height,maxValue);
   }
+
+  /**
+   * Returns this image's values.
+   * @return
+   */
   public List<List<Pixel>> getImageVals() {
     return new ArrayList<>(imageVals);
   }
-
-  /*
-  if you do @Rule over a new TemporaryFolder() field
-then you can do folder.getRoot().getPath() to get a path to a temporary directory
-and that directory will be deleted once the program ends
-   */
 }

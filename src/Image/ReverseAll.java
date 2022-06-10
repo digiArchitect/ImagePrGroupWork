@@ -12,8 +12,7 @@ import java.util.function.Function;
 public class ReverseAll implements Function<List<Pixel>, List<Pixel>> {
   @Override
   public List<Pixel> apply(List<Pixel> pixels) {
-    List<Pixel> copiedPixel = new ArrayList<>();
-    Collections.copy(copiedPixel,pixels);
+    List<Pixel> copiedPixel = new ArrayList<>(pixels);
     Collections.reverse(copiedPixel);
     return copiedPixel;
   }

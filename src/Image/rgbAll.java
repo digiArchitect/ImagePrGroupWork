@@ -5,6 +5,11 @@ import java.util.function.Function;
  * Function class used to properly return the rgb values.
  */
 public class rgbAll implements Function<Pixel,String> {
+  /**
+   * Returns a String of this pixel's channels.
+   * @param pixel the function argument
+   * @return a string of this pixel's channels.
+   */
   @Override
   public String apply(Pixel pixel) {
     StringBuilder p = new StringBuilder();

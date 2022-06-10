@@ -7,9 +7,14 @@ import Model.ImagePrModel;
 import Model.ImagePrModelImpl;
 
 /**
- * Runs the program baby!!!
+ * Runs the program, allowing the user to upload PPM images and edit them using the
+ * image processor, and then save them.
  */
 public class ImagePrMain {
+  /**
+   * Runs the program.
+   * @param args the command line arguments.
+   */
   public static void main(String args[]) {
     Readable input = new InputStreamReader(System.in);
     Appendable output = System.out;

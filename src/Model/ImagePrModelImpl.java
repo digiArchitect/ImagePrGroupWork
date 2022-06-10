@@ -1,45 +1,43 @@
 package Model;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
 import Image.ImagePPM;
 import Image.Pixel;
 import Image.ReverseAll;
 import Image.greyScale;
 import Image.mutateAll;
-import Model.ImagePrModel;
 
+/**
+ * An image processor's model, which performs operations on images stored within its HashMap of
+ * images.
+ */
 public class ImagePrModelImpl implements ImagePrModel {
 
   private HashMap<String, ImagePPM> images;
 
   /**
-   * Constructs an image processing model using a 2d array of pixels.
+   * Constructs an image processing model with an empty HashMap of images.
    */
   public ImagePrModelImpl() {
     this.images = new HashMap<>();
   }
 
   /**
-   * Read an image file in the PPM format and print the colors.
+   * Read an image file in the PPM format and stores it in this model's hashmap.
    *
    * @param fileLoc the path of the file.
    */
   public void load(String fileLoc, String fileName) {
     Scanner sc;
-
     try {
       sc = new Scanner(new FileInputStream(fileLoc));
     }
@@ -50,15 +48,12 @@ public class ImagePrModelImpl implements ImagePrModel {
     StringBuilder builder = new StringBuilder();
     while (sc.hasNextLine()) {
       String s = sc.nextLine();
-      if (s.charAt(0)!='#') {
+      if (s.charAt(0) != '#') {
         builder.append(s).append(System.lineSeparator());
       }
     }
-
     sc = new Scanner(builder.toString());
-
     String token;
-
     token = sc.next();
     if (!token.equals("P3")) {
       throw new IllegalArgumentException("Invalid PPM file: plain RAW file should begin with P3");
@@ -66,11 +61,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     int width = sc.nextInt();
     int height = sc.nextInt();
     int maxValue = sc.nextInt();
-
-
-
     List<List<Pixel>> imageVals = new ArrayList<>();
-
     for (int i = 0; i < height; i++) {
       List<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
@@ -82,11 +73,15 @@ public class ImagePrModelImpl implements ImagePrModel {
       imageVals.add(row);
     }
     newEntry(fileName, new ImagePPM(imageVals, width, height, maxValue));
-
-
   }
 
 
+  /**
+   * Flips this image either vertically or horizontally, depending on the user input.
+   * @param direction The direction in which the user would like to flip the input.
+   * @param filename The name of the file in which the user would like to be flipped.
+   * @param newName the new name of the flipped image.
+   */
   @Override
   public void flipImage(String direction, String filename, String newName) {
     List<List<Pixel>> newVals;
@@ -104,12 +99,26 @@ public class ImagePrModelImpl implements ImagePrModel {
     images.put(newName, new ImagePPM(newVals,contents.get(0),contents.get(1), contents.get(2)));
   }
 
+  /**
+   * Brightens the image at the given file name by a certain integer constant amount.
+   * Can be negative or positive.
+   * @param constant the val which the user would like to see the image brightened. can be + || -
+   * @param filename The name of the file in which the user would like to be flipped
+   * @param newName the name of the transformed file.
+   */
   @Override
   public void brighten(int constant, String filename, String newName) {
     ImagePPM newImage = applyChanges(new mutateAll(constant),images.get(filename));
     images.put(newName, newImage);
   }
 
+  /**
+   * Greyscales the image at the given file name by a certain channel, depending on the
+   * user's input. Can be either the image's red, blue, green, luma, intensity, or value.
+   * @param component Component used to define the value in which the image is greyscaled.
+   * @param filename The name of the file in which the user would like to be flipped.
+   * @param newName the name of the transformed file.
+   */
   @Override
   public void greyscale(String component, String filename, String newName) {
     ImagePPM newImage = applyChanges(new greyScale(component),images.get(filename));
@@ -118,7 +127,7 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   /**
    * Hello.
-   * @param fileLocation new path.
+   * @param fileLocation the path of this new file.
    * @param fileName current name within our hashmap.
    * @throws IOException boobs.
    */
@@ -143,12 +152,13 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   /**
    * Returns whether the model has any images loaded.
-   * @return whether the size of the imagegs hashmap is greater than zero.
+   * @return whether the size of the image's hashmap is greater than zero.
    */
   public boolean hasEntries() {
     return images.size() > 0;
   }
 
+  //i don't think that this should exist - method purely for the purposes of testing ?
   @Override
   public HashMap<String, ImagePPM> getHashMap() {
     return new HashMap<String,ImagePPM>(images);
@@ -158,14 +168,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * Checks if a key is already in the hashmap if so overwrite it if not just add it.
    * Used to deal with overwriting.
    * @param fileName the name of the file.
-   * @param image the image to be appended
-   */
-
-  /*
-
-  going to update thie method to be part of controller, checks whether there is alraedy something
-  there at file first and say are you sure you want to overrite this?
-
+   * @param image the image to be appended.
    */
   private void newEntry(String fileName, ImagePPM image) {
     //Checks if the filename is already in the key if so remove it
@@ -177,7 +180,7 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   /**
    * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
-   * @param flatlist The 1d arraylist whos data will be extracted.
+   * @param flatlist The 1d arraylist whose data will be extracted.
    */
   private List<List<Pixel>> updateImageVals(List<Pixel> flatlist,int height,int width) {
     List<List<Pixel>> newList = new ArrayList<>();
@@ -192,6 +195,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     return newList;
   }
+
   /**
    * Given a function<T,T> apply it to the pixels within imageVals.
    * @param applyFunc The function that is used to change the pixel values.
@@ -202,10 +206,14 @@ public class ImagePrModelImpl implements ImagePrModel {
     return newImage(updateImageVals(mapList,p.getContents().get(1),p.getContents().get(0)),p);
   }
 
+  /**
+   * Returns a new image with the given pixels, and the given image's contents.
+   * @param newVals the new pixels of the image.
+   * @param r the original image being fed into it for contents.
+   * @return a new image with the same size and height (contents) as the given one.
+   */
   private ImagePPM newImage(List<List<Pixel>> newVals, ImagePPM r) {
     return new ImagePPM(newVals, r.getContents().get(0), r.getContents().get(1),
             r.getContents().get(2));
   }
-
-
 }

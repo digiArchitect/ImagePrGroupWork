@@ -65,7 +65,7 @@ public class ImagePrControllerImpl implements ImagePrController {
     while (true) {
 
       System.out.println();
-      System.out.println("AWAITING COMMAND ------------------");
+      System.out.println("~ ~ ~ ~ ~ awaiting command! ~ ~ ~ ~ ~");
       System.out.println();
 
       while (fields.size() < full) {
@@ -101,14 +101,10 @@ public class ImagePrControllerImpl implements ImagePrController {
           } else {
             String parentCommand = fields.get(0);
             String inputType = (commandsMap.get(fields.get(0)).get(fields.size() - 1));
-            System.out.println("input type: " + inputType);
-            System.out.println("inputted command: " + arf);
             switch (inputType) {
               case ("int"):
                 try {
-                  System.out.println("attempting to parse int for string.");
                   Integer.parseInt(arf);
-                  System.out.println("Adding int to fields.");
                   fields.add(arf);
                 } catch (Exception e) {
                   System.out.println("The input " + arf + " needs to be a String!");
@@ -116,11 +112,6 @@ public class ImagePrControllerImpl implements ImagePrController {
                 break;
               case ("img-name"):
                 if (model.hasKey(arf) || parentCommand.equals("load")) {
-                  System.out.println("arf: " + arf);
-                  System.out.println("model has key: " + model.hasKey(arf));
-                  System.out.println("parent command:" + parentCommand);
-                  System.out.println("or command is load: " + parentCommand.equals("load"));
-                  System.out.println("Adding img-name to fields.");
                   fields.add(arf);
                 } else {
                   System.out.println("No image exists by this name.");
@@ -130,7 +121,6 @@ public class ImagePrControllerImpl implements ImagePrController {
                 if (model.hasKey(arf) && !(parentCommand.equals("load"))) {
                   System.out.println("Overwriting the image at " + arf);
                 }
-                System.out.println("Adding img-dest to fields.");
                 fields.add(arf);
                 break;
               case ("file-path"):
@@ -138,14 +128,12 @@ public class ImagePrControllerImpl implements ImagePrController {
                 if (parentCommand.equals("load")) {
                   if (f.isFile()) {
                     fields.add(arf);
-                    System.out.println("Adding path to fields.");
                   } else {
                     System.out.println("The input" + arf + " needs to be the route to a file!");
                   }
                 } else if (parentCommand.equals("save")) {
                   if (f.isFile()) {
                     System.out.println("Overwriting the file at " + arf);
-                    System.out.println("Adding path to fields.");
                     fields.add(arf);
                   } else {
                     fields.add(arf);
@@ -209,7 +197,7 @@ public class ImagePrControllerImpl implements ImagePrController {
           loaded = true;
         }
       } catch (Exception e) {
-        System.out.println("FILE NAME IS NOT RECOGNIZED ----------------");
+        System.out.println("IMAGE NAME IS NOT RECOGNIZED ----------------");
       }
 
       System.out.println();
@@ -241,39 +229,72 @@ public class ImagePrControllerImpl implements ImagePrController {
             "||         ````         ||\n" +
             "||jgs___________________||\n" +
             "'------------------------'");
-    System.out.println("Hello MARY HILMER, and welcom to the image pwocessor");
-    System.out.println("this pwogram currently supports six commands,");
-    System.out.println();
+    System.out.println("Hello, and WELCOME to Jylah and Archie's image processor!");
+    System.out.println("this program currently supports eleven commands, which are \n" +
+            "listed below. If at any point the user submits invalid input, the scanner will \n" +
+                    "continue attempting to parse for valid values until it completes a \n" +
+            "method. Enter q or Q at any time to quit. \n Make sure to load an image " +
+            "before attempting to perform any image manipulations!");
 
-    System.out.println("load image-path image-name: \n Load an image " +
-            "from the specified path " +
-            "and refer it to henceforth \n in the program by the given image name.");
-    System.out.println();
-
-    System.out.println("_____-component image-name dest-image-name: \n " +
-            "Create a greyscale image " +
-            "with the ___-component of the image with the given name, \n " +
-            "and refer to it henceforth " +
-            "in the program by the given destination name. " +
-            "\n replace the ___ with red, green, blue, value, luma, or intensity.");
-    System.out.println();
-
-    System.out.println("horizontal-flip image-name dest-image-name: \n " +
-            "Flip an image horizontally " +
-            "to create a new image, \n referred to henceforth by the given destination name.");
-    System.out.println();
-
-    System.out.println("vertical-flip image-name dest-image-name: \n " +
-            "Flip an image vertically to " +
-            "create a new image, \n referred to henceforth by the given destination name.");
-    System.out.println();
-
-    System.out.println("brighten increment image-name dest-image-name: \n " +
-            "brighten the image by the " +
-            "given increment to create a new image, \n referred to henceforth by the given " +
-            "destination name. \n The increment may be positive (brightening) or negative " +
-            "(darkening)");
-    System.out.println();
+    System.out.println("COMMANDS:");
+    System.out.println("------------------------------------");
+    System.out.println("LOAD");
+    System.out.println("----------");
+    System.out.println("Command format:");
+    System.out.println("load image-path image-name");
+    System.out.println("Field Types:");
+    System.out.println("file path, string");
+    System.out.println("Description:");
+    System.out.println("Loads a file from your computer into the processor.");
+    System.out.println("----------");
+    System.out.println("SAVE");
+    System.out.println("----------");
+    System.out.println("Command format:");
+    System.out.println("save image-path image-name");
+    System.out.println("Field Types:");
+    System.out.println("file path, string");
+    System.out.println("Description:");
+    System.out.println("Saves a file from your processor to your computer.");
+    System.out.println("----------");
+    System.out.println("GREYSCALE");
+    System.out.println("----------");
+    System.out.println("Command format:");
+    System.out.println("______-channel image-name image-dest");
+    System.out.println("Field Types:");
+    System.out.println("string, string");
+    System.out.println("Description:");
+    System.out.println("Creates a greyscale image from the image at the given image-name" +
+            "\n via one of six channels: \n" +
+            "red \n" +
+            "blue \n" +
+            "green \n" +
+            "luma \n" +
+            "intensity \n" +
+            "value \n " +
+            "Replace the ______ in the format with any of these listed strings to " +
+            "\n call the command.");
+    System.out.println("----------");
+    System.out.println("BRIGHTEN");
+    System.out.println("----------");
+    System.out.println("Command format:");
+    System.out.println("brighten increment img-name img-dest");
+    System.out.println("Field Types:");
+    System.out.println("integer, string, string");
+    System.out.println("Description:");
+    System.out.println("Brightens or darkens an image, depending on the \n" +
+            "positive or negative integer value you enter..");
+    System.out.println("----------");
+    System.out.println("FLIP");
+    System.out.println("----------");
+    System.out.println("Command format:");
+    System.out.println("____-flip image-path image-name");
+    System.out.println("Field Types:");
+    System.out.println("string, string");
+    System.out.println("Description:");
+    System.out.println("Flips your image, either horizontally or vertically. \n" +
+            "Choose between by replacing the _____ in the format with either \n" +
+            "horizontal or vertical.");
+    System.out.println("");
   }
 }
 
