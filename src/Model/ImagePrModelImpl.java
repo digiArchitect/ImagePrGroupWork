@@ -149,6 +149,11 @@ public class ImagePrModelImpl implements ImagePrModel {
     return images.size() > 0;
   }
 
+  @Override
+  public HashMap<String, ImagePPM> getHashMap() {
+    return new HashMap<String,ImagePPM>(images);
+  }
+
   /**
    * Checks if a key is already in the hashmap if so overwrite it if not just add it.
    * Used to deal with overwriting.

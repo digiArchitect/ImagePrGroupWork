@@ -1,6 +1,10 @@
 package Model;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+
+import Image.ImagePPM;
 
 public interface ImagePrModel {
   /**
@@ -41,4 +45,6 @@ public interface ImagePrModel {
   boolean hasKey(String s);
 
   boolean hasEntries();
+
+  HashMap<String, ImagePPM> getHashMap();
 }
