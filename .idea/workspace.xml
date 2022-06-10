@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Test/ImagePrControllerTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-blue.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-brighter.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-darker.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-green.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-horizontal-flip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-intenstiy.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-luma.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-red.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-value.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-vertical-flip.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ImagePrControllerImplMock.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/Koala.ppm" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-blue-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-brighter-by-50.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-green-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-horizontal-vertical.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-horizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-intensity-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-luma-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-red-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-value-greyscale.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-vertical-horizontal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Images/koala-vertical.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
