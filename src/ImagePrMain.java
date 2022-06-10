@@ -2,6 +2,7 @@ import java.io.InputStreamReader;
 
 import Controller.ImagePrController;
 import Controller.ImagePrControllerImpl;
+import Controller.ImagePrControllerImplMock;
 import Model.ImagePrModel;
 import Model.ImagePrModelImpl;
 
@@ -13,7 +14,7 @@ public class ImagePrMain {
     Readable input = new InputStreamReader(System.in);
     Appendable output = System.out;
     ImagePrModel model = new ImagePrModelImpl();
-    ImagePrController controller = new ImagePrControllerImpl(input, output, model);
+    ImagePrController controller = new ImagePrControllerImplMock(input, output, model);
     controller.startProcessor();
   }
 }
