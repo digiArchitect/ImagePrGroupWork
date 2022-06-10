@@ -58,44 +58,10 @@ public class ImagePPM {
 
 
 
-  /**
-   * Given a function<T,T> apply it to the pixels within imageVals.
-   * @param applyFunc The function that is used to change the pixel values.
-   */
-  public ImagePPM applyChanges(Function<Pixel, Pixel> applyFunc) {
-    List<Pixel> mapList = flatten();
-    mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
-    return newImage(updateImageVals(mapList));
-  }
 
-  /**
-   * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
-   * @param flatlist The 1d arraylist whos data will be extracted.
-   */
-  public List<List<Pixel>> updateImageVals(List<Pixel> flatlist) {
-    List<List<Pixel>> newList = new ArrayList<>();
 
-    int count = 0;
-    for (int i = 0; i < height; i++) {
-      ArrayList<Pixel> row = new ArrayList<>();
-      for (int j = 0; j < width; j++) {
-        row.add(flatlist.get(count));
-        count++;
-      }
-      newList.add(row);
-    }
-    return newList;
-  }
 
-  /**
-   * Creates an image given a list of list of pixels.
-   * @param newVals the new Image's list.
-   * @return
-   *
-   */
-  private ImagePPM newImage(List<List<Pixel>> newVals) {
-    return new ImagePPM(newVals, width, height, maxValue);
-  }
+
 
   /**
    * Makes a new file using the Image's data.

@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import Image.ImagePPM;
@@ -105,13 +106,13 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   @Override
   public void brighten(int constant, String filename, String newName) {
-    ImagePPM newImage = images.get(filename).applyChanges(new mutateAll(constant));
+    ImagePPM newImage = applyChanges(new mutateAll(constant),images.get(filename));
     images.put(newName, newImage);
   }
 
   @Override
   public void greyscale(String component, String filename, String newName) {
-    ImagePPM newImage = images.get(filename).applyChanges(new greyScale(component));
+    ImagePPM newImage = applyChanges(new greyScale(component),images.get(filename));
     images.put(newName, newImage);
   }
 
@@ -132,7 +133,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @return whether our model has this image.
    */
   public boolean hasKey(String s) {
-    for ( String key : images.keySet() ) {
+    for (String key : images.keySet() ) {
       return true;
     }
     return false;
@@ -166,4 +167,38 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     images.put(fileName, image);
   }
+
+  /**
+   * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
+   * @param flatlist The 1d arraylist whos data will be extracted.
+   */
+  private List<List<Pixel>> updateImageVals(List<Pixel> flatlist,int height,int width) {
+    List<List<Pixel>> newList = new ArrayList<>();
+    int count = 0;
+    for (int i = 0; i < height; i++) {
+      ArrayList<Pixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        row.add(flatlist.get(count));
+        count++;
+      }
+      newList.add(row);
+    }
+    return newList;
+  }
+  /**
+   * Given a function<T,T> apply it to the pixels within imageVals.
+   * @param applyFunc The function that is used to change the pixel values.
+   */
+  private ImagePPM applyChanges(Function<Pixel, Pixel> applyFunc, ImagePPM p) {
+    List<Pixel> mapList = p.flatten();
+    mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
+    return newImage(updateImageVals(mapList,p.getContents().get(1),p.getContents().get(0)),p);
+  }
+
+  private ImagePPM newImage(List<List<Pixel>> newVals, ImagePPM r) {
+    return new ImagePPM(newVals, r.getContents().get(0), r.getContents().get(1),
+            r.getContents().get(2));
+  }
+
+
 }
