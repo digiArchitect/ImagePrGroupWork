@@ -6,13 +6,16 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import Image.ImagePPM;
 import Image.Pixel;
+import Image.ReverseAll;
 import Image.greyScale;
 import Image.mutateAll;
 import Model.ImagePrModel;
@@ -85,17 +88,19 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   @Override
   public void flipImage(String direction, String filename, String newName) {
-    ImagePPM newImage;
+    List<List<Pixel>> newVals;
+    List<List<Pixel>> oldVals = images.get(filename).getImageVals();
+    List<Integer> contents = images.get(filename).getContents();
     if (direction.equals("horizontal")) {
-      images.get(filename).horizontal(newName,images);
-
+      newVals = oldVals.stream().map(new ReverseAll()).collect(Collectors.toList());
     } else if (direction.equals("vertical")) {
-      images.get(filename).vertical(newName,images);
-
+      newVals = oldVals;
+      Collections.reverse(newVals);
     } else {
       //Catch and throw an illegal state in the controller.
       throw new IllegalArgumentException();
     }
+    images.put(newName, new ImagePPM(newVals,contents.get(0),contents.get(1), contents.get(2)));
   }
 
   @Override

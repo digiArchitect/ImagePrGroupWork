@@ -1,12 +1,11 @@
 package Image;
 
-import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
@@ -52,27 +51,7 @@ public class ImagePPM {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
-  /**
-   * Given a name and a
-   * @param name
-   * @param imageDB
-   */
-  public void horizontal(String name, HashMap<String,ImagePPM> imageDB) {
 
-    List<List<Pixel>> newVals;
-    newVals = imageVals.stream().map(new ReverseAll()).collect(Collectors.toList());
-    imageDB.put(name,newImage(newVals));
-
-
-  }
-
-  public void vertical(String name, HashMap<String,ImagePPM> imageDB) {
-    List<List<Pixel>> newVals = new ArrayList<>(imageVals);
-    Collections.reverse(newVals);
-    imageDB.put(name,newImage(newVals));
-
-
-  }
 
   /**
    * Given a function<T,T> apply it to the pixels within imageVals.
@@ -107,6 +86,7 @@ public class ImagePPM {
    * Creates an image given a list of list of pixels.
    * @param newVals the new Image's list.
    * @return
+   *
    */
   private ImagePPM newImage(List<List<Pixel>> newVals) {
     return new ImagePPM(newVals, width, height, maxValue);
@@ -143,4 +123,16 @@ public class ImagePPM {
 
     w.close();
   }
+  public List<Integer> getContents() {
+    return Arrays.asList(width,height,maxValue);
+  }
+  public List<List<Pixel>> getImageVals() {
+    return new ArrayList<>(imageVals);
+  }
+
+  /*
+  if you do @Rule over a new TemporaryFolder() field
+then you can do folder.getRoot().getPath() to get a path to a temporary directory
+and that directory will be deleted once the program ends
+   */
 }
