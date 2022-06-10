@@ -53,7 +53,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestPixel">
+  <component name="RunManager" selected="JUnit.TestImagePPM">
     <configuration name="ImagePrMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -81,9 +81,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImagePPM" />
         <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="Application.ImagePrMain" />
-        <item itemvalue="JUnit.TestImagePPM" />
       </list>
     </recent_temporary>
   </component>
@@ -104,6 +104,7 @@
       <workItem from="1654726759569" duration="6648000" />
       <workItem from="1654741485579" duration="1315000" />
       <workItem from="1654877605511" duration="2648000" />
+      <workItem from="1654880571588" duration="5272000" />
     </task>
     <servers />
   </component>

@@ -6,7 +6,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -33,9 +32,16 @@ public class ImagePPM {
    * @param width     the width of the image iin pixels.
    * @param height    the height of the image in pixels.
    * @param maxValue  the max rgb value of the image.
+   * @throws IllegalArgumentException if negative/zero values in the width and height
+   * @throws IllegalArgumentException for null imageValues.
+   * @throws IllegalArgumentException if maxValue < 0
    */
   public ImagePPM(List<List<Pixel>> imageVals, int width,
                   int height, int maxValue) {
+    //Should never happen but as a precuation.
+    if(imageVals == null || width < 1 || height < 1 ||maxValue < 0) {
+      throw new IllegalArgumentException();
+    }
     this.imageVals = imageVals;
     this.width = width;
     this.height = height;
@@ -44,7 +50,6 @@ public class ImagePPM {
 
   /**
    * Returns our 2D pixel grid as one List of pixels.
-   *
    * @return a List of pixels.
    */
   public List<Pixel> flatten() {
