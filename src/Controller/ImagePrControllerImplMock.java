@@ -19,6 +19,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
   private final Readable input;
   private final StringBuilder totalLog;
   private final StringBuilder successLog;
+  private final StringBuilder failLog;
   private final ArrayList<String> fakeHash;
 
   /**
@@ -34,6 +35,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
     this.input = input;
     this.totalLog = new StringBuilder();
     this.successLog = new StringBuilder();
+    this.failLog = new StringBuilder();
     this.fakeHash = new ArrayList<>();
   }
 
@@ -47,6 +49,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
     ArrayList<String> fields = new ArrayList<>();
     int full = 1;
     boolean loaded = false;
+    boolean fail;
     Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
             entry("load", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
             entry("save", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
@@ -65,6 +68,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
       while (fields.size() < full) {
         try {
 
+          fail = true;
           arf = fetch.next();
           totalLog.append("input: " + arf + "\n");
 
@@ -77,6 +81,9 @@ public class ImagePrControllerImplMock implements ImagePrController {
             System.out.println("success log: ");
             System.out.println("-------------");
             System.out.println(successLog);
+            System.out.println("fail log: ");
+            System.out.println("-------------");
+            System.out.println(failLog);
             fetch.close();
             return;
           }
@@ -86,6 +93,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
               if (loaded || arf.equals("load")) {
                 fields.add(arf);
                 successLog.append("Command: " + arf + "\n");
+                fail = false;
                 full = commandsMap.get(arf).size() + 1;
               }
             }
@@ -98,6 +106,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
                   Integer.parseInt(arf);
                   fields.add(arf);
                   successLog.append("String-int: " + arf + "\n");
+                  fail = false;
                 } catch (Exception e) {
                   //ignore
                 }
@@ -106,11 +115,13 @@ public class ImagePrControllerImplMock implements ImagePrController {
                 if (fakeHash.contains(arf) || parentCommand.equals("load")) {
                   fields.add(arf);
                   successLog.append("img-name: " + arf + "\n");
+                  fail = false;
                 }
                 break;
               case ("img-dest"):
                 fields.add(arf + "\n");
                 successLog.append("img-dest: " + arf + "\n");
+                fail = false;
                 break;
               case ("file-path"):
                 File f = new File(arf);
@@ -118,20 +129,27 @@ public class ImagePrControllerImplMock implements ImagePrController {
                   if (f.isFile()) {
                     fields.add(arf);
                     successLog.append("file-path: " + arf + "\n");
+                    fail = false;
                   }
                 } else if (parentCommand.equals("save")) {
                   fields.add(arf);
                   successLog.append(arf + "\n");
+                  fail = false;
                 }
                 break;
               default:
                 System.out.println("Input type not recognized.");
             }
           }
+
+          if(fail) {
+            failLog.append("FAIL INPUT: " + arf + "\n");
+          }
         } catch (Exception e) {
           throw new IllegalStateException("there's nothing in the scanner you moron");
         }
       }
+
 
       System.out.println("command executed");
 
@@ -144,7 +162,6 @@ public class ImagePrControllerImplMock implements ImagePrController {
       fields.clear();
     }
   }
-
 }
 
 
