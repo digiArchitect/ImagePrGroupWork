@@ -6,7 +6,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
-import Model.ImagePrModel;
+import model.ImagePrModel;
 
 import static java.util.Map.entry;
 
@@ -15,7 +15,6 @@ import static java.util.Map.entry;
  * which it will exchange for data and computation from the model.
  */
 public class ImagePrControllerImplMock implements ImagePrController {
-  private final ImagePrModel model;
   private final Readable input;
   private final StringBuilder totalLog;
   private final StringBuilder successLog;
@@ -31,7 +30,6 @@ public class ImagePrControllerImplMock implements ImagePrController {
     if (model == null || output == null | input == null) {
       throw new IllegalArgumentException();
     }
-    this.model = model;
     this.input = input;
     this.totalLog = new StringBuilder();
     this.successLog = new StringBuilder();
@@ -142,7 +140,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
             }
           }
 
-          if(fail) {
+          if (fail) {
             failLog.append("FAIL INPUT: " + arf + "\n");
           }
         } catch (Exception e) {
@@ -156,7 +154,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
       if (fields.get(0).equals("load")) {
         loaded = true;
       }
-      fakeHash.add(fields.get(fields.size()-1));
+      fakeHash.add(fields.get(fields.size() - 1));
 
       full = 1;
       fields.clear();

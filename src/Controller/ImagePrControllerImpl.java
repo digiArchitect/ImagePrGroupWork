@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
-import Model.ImagePrModel;
-import View.ImagePrView;
+import model.ImagePrModel;
+import view.ImagePrView;
 
 import static java.util.Map.entry;
 
@@ -194,6 +194,8 @@ public class ImagePrControllerImpl implements ImagePrController {
             this.model.brighten(Integer.parseInt(fields.get(1)),
                     fields.get(2), fields.get(3));
             break;
+          default:
+            throw new IllegalStateException("No command executed!");
         }
         System.out.println("COMMAND SUCCESSFULLY EXECUTED ----------------");
         if (fields.get(0).equals("load")) {

@@ -1,12 +1,12 @@
 import java.io.InputStreamReader;
+import java.io.StringReader;
 
 import Controller.ImagePrController;
 import Controller.ImagePrControllerImpl;
-import Controller.ImagePrControllerImplMock;
-import Model.ImagePrModel;
-import Model.ImagePrModelImpl;
-import View.ImagePrView;
-import View.ImagePrViewImpl;
+import model.ImagePrModel;
+import model.ImagePrModelImpl;
+import view.ImagePrView;
+import view.ImagePrViewImpl;
 
 /**
  * Runs the program, allowing the user to upload PPM images and edit them using the
@@ -17,8 +17,21 @@ public class ImagePrMain {
    * Runs the program.
    * @param args the command line arguments.
    */
-  public static void main(String args[]) {
-    Readable input = new InputStreamReader(System.in);
+  public static void main(String[] args) {
+    System.out.println(args);
+    Readable input;
+    if(args.length > 0) {
+      StringBuilder sb = new StringBuilder();
+      for(String s : args) {
+        sb.append(s + " ");
+      }
+      sb.append("q");
+      System.out.println(sb);
+      input = new StringReader(sb.toString());
+    }
+    else {
+      input = new InputStreamReader(System.in);
+    }
     ImagePrView view = new ImagePrViewImpl();
     ImagePrModel model = new ImagePrModelImpl();
     ImagePrController controller = new ImagePrControllerImpl(input, view, model);

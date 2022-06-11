@@ -1,4 +1,4 @@
-# Jylah and Archie's Image Processor
+# Jylah and Archie's image Processor
 
 Jylah and Archie's image processor is a text-based interactive image
 processor program that runs in java.
@@ -12,8 +12,12 @@ Downlad the zip from handins
 Upon opening the program, a console scanner will prompt you
 to deliver text input. You can copy and paste the following string
 (without the quotation marks) into the scanner input for a demo of
-the program's functionalities. Below is a walk-through of what each
+the program's functionalities. A bit below is a walk-through of what each
 separate command does.
+
+You can enter user input either through a command line argument, or through entering into the
+console with your keyboard.
+
 Upon opening the program, a welcome message will display, showing you the format
 of inputs and the different commands available to you, and then a console scanner will prompt you
 to deliver text input.
