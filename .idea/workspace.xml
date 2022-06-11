@@ -1,59 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/class-diagram.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/lmao.ppm" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/lol.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ImagePrGroupWork.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ImagePrGroupWork.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/ImagePrControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/TestImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/mangolol.ppm" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ImagePPM.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ReverseAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ReverseAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/rgbAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/rgbAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImagePPM.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-blue.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-brighter.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-brighter.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-darker.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-green.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-green.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-horizontal-flip.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-horizontal-flip.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-intenstiy.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-intenstiy.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-luma.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-luma.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-red.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-red.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-value.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-value.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-vertical-flip.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-vertical-flip.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes.ppm" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes.ppm" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ImagePrControllerImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/ImagePPM.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/ReverseAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/ReverseAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/greyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/GreyScale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/mutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/MutateAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Image/rgbAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/RgbAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ImagePrView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/View/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -230,7 +178,7 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Image/ImageUtil.java</url>
+          <url>file://$PROJECT_DIR$/src/image/ImageUtil.java</url>
           <line>100</line>
           <option name="timeStamp" value="4" />
         </line-breakpoint>

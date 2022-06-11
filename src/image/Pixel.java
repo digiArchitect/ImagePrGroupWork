@@ -50,7 +50,7 @@ public class Pixel {
    * @param e the other pixel.
    * @return whether the pixels are equal.
    */
-  public boolean equals(Pixel e) {
+  public boolean checkEquality(Pixel e) {
     return this.r == e.r && this.g == e.g && this.b == e.b;
   }
 

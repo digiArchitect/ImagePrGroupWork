@@ -1,7 +1,7 @@
 import java.io.StringReader;
 
-import Controller.ImagePrController;
-import Controller.ImagePrControllerImpl;
+import controller.ImagePrController;
+import controller.ImagePrControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.ImagePrView;

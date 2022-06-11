@@ -1,8 +1,8 @@
 import java.io.InputStreamReader;
 import java.io.StringReader;
 
-import Controller.ImagePrController;
-import Controller.ImagePrControllerImpl;
+import controller.ImagePrController;
+import controller.ImagePrControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.ImagePrView;
@@ -20,16 +20,15 @@ public class ImagePrMain {
   public static void main(String[] args) {
     System.out.println(args);
     Readable input;
-    if(args.length > 0) {
+    if (args.length > 0) {
       StringBuilder sb = new StringBuilder();
-      for(String s : args) {
+      for (String s : args) {
         sb.append(s + " ");
       }
       sb.append("q");
       System.out.println(sb);
       input = new StringReader(sb.toString());
-    }
-    else {
+    } else {
       input = new InputStreamReader(System.in);
     }
     ImagePrView view = new ImagePrViewImpl();
