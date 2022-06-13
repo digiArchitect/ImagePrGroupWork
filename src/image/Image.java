@@ -6,7 +6,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
 /**
  * Represents a PPM file, a text-based image format which represents images as the RGB values of
  * every pixel of each row.

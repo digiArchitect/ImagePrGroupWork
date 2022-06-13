@@ -36,6 +36,9 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param fileLoc the path of the file.
    */
+
+  //should take in an image, and delegate the file loading to the controller.
+
   public void load(String fileLoc, String fileName) {
     Scanner sc;
     try {
@@ -79,7 +82,7 @@ public class ImagePrModelImpl implements ImagePrModel {
   /**
    * Flips this image either vertically or horizontally, depending on the user input.
    * @param direction The direction in which the user would like to flip the input.
-   * @param filename The name of the file in which the user would like to be flipped.
+   * @param filename The name of the image the user would like to be flipped.
    * @param newName the new name of the flipped image.
    */
   @Override
@@ -100,7 +103,7 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   /**
-   * Brightens the image at the given file name by a certain integer constant amount.
+   * Brightens the image at the given name by a certain integer constant amount.
    * Can be negative or positive.
    * @param constant the val which the user would like to see the image brightened. can be + || -
    * @param filename The name of the file in which the user would like to be flipped
@@ -113,7 +116,7 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   /**
-   * Greyscales the image at the given file name by a certain channel, depending on the
+   * Greyscales the image at the given name by a certain channel, depending on the
    * user's input. Can be either the image's red, blue, green, luma, intensity, or value.
    * @param component Component used to define the value in which the image is greyscaled.
    * @param filename The name of the file in which the user would like to be flipped.
@@ -184,7 +187,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * Given a one dimensional array, change it until it becomes a 2d array suitable to be imageVals.
    * @param flatlist The 1d arraylist whose data will be extracted.
    */
-  private List<List<Pixel>> updateImageVals(List<Pixel> flatlist,int height,int width) {
+  private List<List<Pixel>> updateImageVals(List<Pixel> flatlist, int height,int width) {
     List<List<Pixel>> newList = new ArrayList<>();
     int count = 0;
     for (int i = 0; i < height; i++) {
@@ -207,6 +210,8 @@ public class ImagePrModelImpl implements ImagePrModel {
     mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
     return newImage(updateImageVals(mapList,p.getContents().get(1),p.getContents().get(0)),p);
   }
+
+  // this should not exist
 
   /**
    * Returns a new image with the given pixels, and the given image's contents.

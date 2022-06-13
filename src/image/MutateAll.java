@@ -2,6 +2,9 @@ package image;
 
 import java.util.function.Function;
 
+
+//needs a better name
+
 /**
  * Function class used to mutate all the Pixels within a list.
  */
