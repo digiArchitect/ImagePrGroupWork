@@ -6,7 +6,6 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Scanner;
 
-import model.ImagePrModel;
 
 import static java.util.Map.entry;
 
@@ -20,21 +19,20 @@ public class ImagePrControllerImplMock implements ImagePrController {
   private final StringBuilder successLog;
   private final StringBuilder failLog;
   private final ArrayList<String> fakeHash;
+  public Appendable log ;
 
   /**
    * Constructs an Image Processor Controller, given an image processor model, a view, and
    * an input source.
    */
-  public ImagePrControllerImplMock(Readable input, Appendable output, ImagePrModel model) throws
+  public ImagePrControllerImplMock(Readable input, Appendable log) throws
           IllegalArgumentException {
-    if (model == null || output == null | input == null) {
-      throw new IllegalArgumentException();
-    }
     this.input = input;
     this.totalLog = new StringBuilder();
     this.successLog = new StringBuilder();
     this.failLog = new StringBuilder();
     this.fakeHash = new ArrayList<>();
+    this.log = log;
   }
 
   /**
@@ -71,17 +69,14 @@ public class ImagePrControllerImplMock implements ImagePrController {
           totalLog.append("input: " + arf + "\n");
 
           if (arf.equalsIgnoreCase("q") || arf.equalsIgnoreCase("quit")) {
-            System.out.println("terminated!");
-            System.out.println();
-            System.out.println("total log: ");
-            System.out.println("-------------");
-            System.out.println(totalLog);
-            System.out.println("success log: ");
-            System.out.println("-------------");
-            System.out.println(successLog);
-            System.out.println("fail log: ");
-            System.out.println("-------------");
-            System.out.println(failLog);
+            log.append("total log: ");
+            log.append(totalLog);
+            log.append("success log: ");
+            log.append("-------------");
+            log.append(successLog);
+            log.append("fail log: ");
+            log.append("-------------");
+            log.append(failLog);
             fetch.close();
             return;
           }

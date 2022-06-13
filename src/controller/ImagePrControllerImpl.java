@@ -15,7 +15,7 @@ import static java.util.Map.entry;
  * Represents an Image Processor Controller, allowing the user to give inputs to the program,
  * which it will exchange for data and computation from the model.
  */
-public class ImagePrControllerImpl implements ImagePrController {
+public class ImagePrControllerImpl implements ImagePrController, ImagePrController {
   private final ImagePrModel model;
   private final ImagePrView view;
   private final Readable input;
