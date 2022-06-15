@@ -82,4 +82,11 @@ public interface ImagePrModel {
    * @param fileName the file name.
    */
   void kernelMutate(String component, String fileLoc, String fileName);
+  /**
+   * Mutates the image based off a kernel
+   * @param component which type of kenel mutation one would like to do.
+   * @param fileLoc the file location.
+   * @param fileName the file name.
+   */
+  void colorTransform(String component, String fileLoc, String fileName);
 }

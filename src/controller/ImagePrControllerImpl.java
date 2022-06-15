@@ -61,7 +61,9 @@ public class ImagePrControllerImpl implements ImagePrController {
             entry("vertical-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))),
             entry("blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
+            entry("sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("greyscale", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
 
     welcomeMessage();
@@ -205,6 +207,14 @@ public class ImagePrControllerImpl implements ImagePrController {
             this.model.kernelMutate("blur",
                     fields.get(1), fields.get(2));
             break;
+          case ("sepia"):
+            this.model.colorTransform("sepia",
+                    fields.get(1), fields.get(2));
+            break;
+          case ("greyscale"):
+            this.model.colorTransform("greyscale",
+                    fields.get(1), fields.get(2));
+            break;
           default:
             throw new IllegalStateException("No command executed!");
         }
@@ -213,6 +223,7 @@ public class ImagePrControllerImpl implements ImagePrController {
           loaded = true;
         }
       } catch (Exception e) {
+        System.out.println(e.getMessage());
         System.out.println("IMAGE NAME IS NOT RECOGNIZED ----------------");
       }
 

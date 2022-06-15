@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import image.Image;
+import image.MatrixMultiplication;
 import image.Pixel;
 import image.ReverseAll;
 import image.GreyScale;
@@ -216,6 +217,36 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   }
 
+  @Override
+  public void colorTransform(String component, String fileLoc, String fileName) {
+    Double[][] matrix;
+    if(component.equals("sepia")) {
+      matrix = new Double[][]{
+              new Double[]{
+                      0.393, 0.769, 0.189},
+              new Double[]{
+                      0.349, 0.686, 0.168},
+              new Double[]{
+                      0.272, 0.534, 0.131}};
+
+
+    }
+    else if (component.equals("greyscale")) {
+      matrix = new Double[][]{
+              new Double[]{
+                      0.2126, 0.7152, 0.0722},
+              new Double[]{
+                      0.2126, 0.7152, 0.0722},
+              new Double[]{
+                      0.2126, 0.7152, 0.0722}};
+    }
+    else {
+      throw new IllegalArgumentException();
+    }
+    images.put(fileName,applyChanges(new MatrixMultiplication(matrix),images.get(fileLoc)));
+
+  }
+
   /**
    * Checks if a key is already in the hashmap if so overwrite it if not just add it.
    * Used to deal with overwriting.
@@ -320,4 +351,6 @@ public class ImagePrModelImpl implements ImagePrModel {
     return new Image(newVals, r.getContents().get(0), r.getContents().get(1),
             r.getContents().get(2));
   }
+
+
 }
