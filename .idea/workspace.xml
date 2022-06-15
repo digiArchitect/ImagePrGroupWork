@@ -62,7 +62,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestPixel">
+  <component name="RunManager" selected="Application.john">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -160,6 +160,7 @@
       <workItem from="1654902584005" duration="1249000" />
       <workItem from="1654903970626" duration="3236000" />
       <workItem from="1655149449031" duration="625000" />
+      <workItem from="1655252987754" duration="316000" />
     </task>
     <servers />
   </component>

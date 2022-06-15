@@ -59,7 +59,10 @@ public class ImagePrControllerImpl implements ImagePrController {
             entry("intensity-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("horizontal-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("vertical-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))));
+            entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))),
+            entry("blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
+
 
     welcomeMessage();
 
@@ -193,6 +196,14 @@ public class ImagePrControllerImpl implements ImagePrController {
           case ("brighten"):
             this.model.brighten(Integer.parseInt(fields.get(1)),
                     fields.get(2), fields.get(3));
+            break;
+          case ("sharpen"):
+            this.model.kernelMutate("sharpen",
+                    fields.get(1), fields.get(2));
+            break;
+          case ("blur"):
+            this.model.kernelMutate("blur",
+                    fields.get(1), fields.get(2));
             break;
           default:
             throw new IllegalStateException("No command executed!");
