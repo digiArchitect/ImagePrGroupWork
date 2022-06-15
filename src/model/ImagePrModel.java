@@ -4,7 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import image.Image;
+import image.ImageImpl;
 
 /**
  * The model of our image processor, which performs visual operations on our images
@@ -59,7 +59,7 @@ public interface ImagePrModel {
    * Returns this model's hashmap.
    * @return the hashmap.
    */
-  HashMap<String, Image> getHashMap();
+  HashMap<String, ImageImpl> getHashMap();
 
   /**
    * Returns the contents of the image at this value in the hashmap.

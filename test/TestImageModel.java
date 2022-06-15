@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import image.Image;
-import image.Pixel;
+import image.ImageImpl;
+import pixel.Pixel;
 import model.ImagePrModelImpl;
 
 import org.junit.Test;
@@ -21,11 +21,11 @@ public class TestImageModel {
   ImagePrModelImpl impOne = new ImagePrModelImpl();
   ImagePrModelImpl impTwo = new ImagePrModelImpl();
 
-  Image m;
-  Image a;
-  Image r;
-  Image i;
-  Image o;
+  ImageImpl m;
+  ImageImpl a;
+  ImageImpl r;
+  ImageImpl i;
+  ImageImpl o;
 
 
   List<List<Pixel>> lol;
@@ -69,11 +69,11 @@ public class TestImageModel {
             new ArrayList<>(Arrays.asList(five, six, seven, eight))));
     allBlack = new ArrayList<>(Arrays.asList(three, three, three, three));
     allWhite = new ArrayList<>(Arrays.asList(five, five, five, five));
-    m = new Image(lol, 2, 2, 255);
-    a = new Image(peter, 2, 1, 255);
-    r = new Image(griffin, 1, 1, 100);
-    i = new Image(family, 2, 4, 0);
-    o = new Image(guy, 4, 2, 30);
+    m = new ImageImpl(lol, 2, 2, 255);
+    a = new ImageImpl(peter, 2, 1, 255);
+    r = new ImageImpl(griffin, 1, 1, 100);
+    i = new ImageImpl(family, 2, 4, 0);
+    o = new ImageImpl(guy, 4, 2, 30);
   }
 
   @Test

@@ -2,7 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/image/ImageImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/GreyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/GreyScale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/MatrixMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/MatrixMultiplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/MutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/MutateAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pixel/Pixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/ReverseAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/ReverseAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/RgbAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/RgbAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -164,6 +179,7 @@
       <workItem from="1655149449031" duration="625000" />
       <workItem from="1655252987754" duration="3071000" />
       <workItem from="1655313299206" duration="244000" />
+      <workItem from="1655317777535" duration="74000" />
     </task>
     <servers />
   </component>

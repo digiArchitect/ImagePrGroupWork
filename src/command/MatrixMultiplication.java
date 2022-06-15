@@ -1,6 +1,8 @@
-package image;
+package command;
 
 import java.util.function.Function;
+
+import pixel.Pixel;
 
 public class MatrixMultiplication implements Function<Pixel,Pixel> {
   Double[][] matrix;

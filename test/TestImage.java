@@ -6,8 +6,8 @@ import java.util.Arrays;
 import java.util.List;
 
 
-import image.Pixel;
-import image.Image;
+import image.ImageImpl;
+import pixel.Pixel;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,11 +15,11 @@ import static org.junit.Assert.assertEquals;
  * Tests the image class.
  */
 public class TestImage {
-  Image s;
-  Image u;
-  Image p;
-  Image e;
-  Image r;
+  ImageImpl s;
+  ImageImpl u;
+  ImageImpl p;
+  ImageImpl e;
+  ImageImpl r;
 
 
   List<List<Pixel>> lol;
@@ -60,36 +60,36 @@ public class TestImage {
     ));
     guy = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one, two, three, four))),
             new ArrayList<>(Arrays.asList(five, six, seven, eight))));
-    s = new Image(lol, 2, 2, 255);
-    u = new Image(peter, 2, 1, 255);
-    p = new Image(griffin, 1, 1, 100);
-    e = new Image(family, 2, 4, 0);
-    r = new Image(guy, 4, 2, 30);
+    s = new ImageImpl(lol, 2, 2, 255);
+    u = new ImageImpl(peter, 2, 1, 255);
+    p = new ImageImpl(griffin, 1, 1, 100);
+    e = new ImageImpl(family, 2, 4, 0);
+    r = new ImageImpl(guy, 4, 2, 30);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void nullImageVals() {
-    new Image(null, 1, 1, 5);
+    new ImageImpl(null, 1, 1, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void smallWidth() {
-    new Image(lol, 0, 1, 5);
+    new ImageImpl(lol, 0, 1, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void smallHeight() {
-    new Image(lol, 1, 0, 5);
+    new ImageImpl(lol, 1, 0, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void smallMaxValue() {
-    new Image(lol, 1, 1, -1);
+    new ImageImpl(lol, 1, 1, -1);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void allBadParens() {
-    new Image(null, 0, 0, -1);
+    new ImageImpl(null, 0, 0, -1);
   }
 
 

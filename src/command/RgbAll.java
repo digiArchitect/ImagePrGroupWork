@@ -1,6 +1,8 @@
-package image;
+package command;
 
 import java.util.function.Function;
+
+import pixel.Pixel;
 
 /**
  * Function class used to properly return the rgb values.

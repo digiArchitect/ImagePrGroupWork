@@ -1,7 +1,7 @@
-package image;
+package pixel;
 
 /**
- Represents a Pixel of an Image.
+ Represents a Pixel of an ImageImpl.
  */
 public class Pixel {
   int r;

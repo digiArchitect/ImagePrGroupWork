@@ -9,13 +9,13 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-import image.Image;
-import image.MatrixMultiplication;
-import image.Pixel;
-import image.ReverseAll;
-import image.GreyScale;
-import image.MutateAll;
-import image.RgbAll;
+import image.ImageImpl;
+import command.MatrixMultiplication;
+import pixel.Pixel;
+import command.ReverseAll;
+import command.GreyScale;
+import command.MutateAll;
+import command.RgbAll;
 
 /**
  * An image processor's model, which performs operations on images stored within its HashMap of
@@ -28,7 +28,7 @@ import image.RgbAll;
  */
 public class ImagePrModelImpl implements ImagePrModel {
 
-  private HashMap<String, Image> images;
+  private HashMap<String, ImageImpl> images;
 
   /**
    * Constructs an image processing model with an empty HashMap of images.
@@ -77,7 +77,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       }
       imageVals.add(row);
     }
-    newEntry(fileName, new Image(imageVals, width, height, maxValue));
+    newEntry(fileName, new ImageImpl(imageVals, width, height, maxValue));
   }
 
 
@@ -102,7 +102,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       //Catch and throw an illegal state in the controller.
       throw new IllegalArgumentException();
     }
-    images.put(newName, new Image(newVals, contents.get(0), contents.get(1), contents.get(2)));
+    images.put(newName, new ImageImpl(newVals, contents.get(0), contents.get(1), contents.get(2)));
   }
 
   /**
@@ -115,7 +115,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   @Override
   public void brighten(int constant, String filename, String newName) {
-    Image newImage = applyChanges(new MutateAll(constant), images.get(filename));
+    ImageImpl newImage = applyChanges(new MutateAll(constant), images.get(filename));
     images.put(newName, newImage);
   }
 
@@ -129,7 +129,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   @Override
   public void greyscale(String component, String filename, String newName) {
-    Image newImage = applyChanges(new GreyScale(component), images.get(filename));
+    ImageImpl newImage = applyChanges(new GreyScale(component), images.get(filename));
     images.put(newName, newImage);
   }
 
@@ -154,7 +154,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @return the hashmap.
    */
   @Override
-  public HashMap<String, Image> getHashMap() {
+  public HashMap<String, ImageImpl> getHashMap() {
     return new HashMap<>(images);
   }
 
@@ -181,7 +181,7 @@ public class ImagePrModelImpl implements ImagePrModel {
   @Override
   public void kernelMutate(String component, String filename, String newName) {
     Double[][] kernelValues;
-    Image g;
+    ImageImpl g;
 
     if (component.equals("sharpen")) {
       kernelValues = new Double[][]{
@@ -254,7 +254,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @param fileName the name of the file.
    * @param image    the image to be appended.
    */
-  private void newEntry(String fileName, Image image) {
+  private void newEntry(String fileName, ImageImpl image) {
     //Checks if the filename is already in the key if so remove it
     if (images.get(fileName) != null) {
       images.remove(fileName);
@@ -286,13 +286,13 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param applyFunc The function that is used to change the pixel values.
    */
-  private Image applyChanges(Function<Pixel, Pixel> applyFunc, Image p) {
+  private ImageImpl applyChanges(Function<Pixel, Pixel> applyFunc, ImageImpl p) {
     List<Pixel> mapList = p.flatten();
     mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
     return newImage(updateImageVals(mapList, p.getContents().get(1), p.getContents().get(0)), p);
   }
 
-  private Image kernelHelper(Double[][] imageValues, Image p) {
+  private ImageImpl kernelHelper(Double[][] imageValues, ImageImpl p) {
     List<List<Pixel>> imageVals = p.getImageVals();
     int width = p.getContents().get(0);
     int height = p.getContents().get(1);
@@ -347,8 +347,8 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @param r       the original image being fed into it for contents.
    * @return a new image with the same size and height (contents) as the given one.
    */
-  private Image newImage(List<List<Pixel>> newVals, Image r) {
-    return new Image(newVals, r.getContents().get(0), r.getContents().get(1),
+  private ImageImpl newImage(List<List<Pixel>> newVals, ImageImpl r) {
+    return new ImageImpl(newVals, r.getContents().get(0), r.getContents().get(1),
             r.getContents().get(2));
   }
 

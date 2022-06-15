@@ -10,7 +10,7 @@ import java.util.Scanner;
 import static java.util.Map.entry;
 
 /**
- * Represents an Image Processor Controller, allowing the user to give inputs to the program,
+ * Represents an ImageImpl Processor Controller, allowing the user to give inputs to the program,
  * which it will exchange for data and computation from the model.
  */
 public class ImagePrControllerImplMock implements ImagePrController {
@@ -22,7 +22,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
   public Appendable log ;
 
   /**
-   * Constructs an Image Processor Controller, given an image processor model, a view, and
+   * Constructs an ImageImpl Processor Controller, given an image processor model, a view, and
    * an input source.
    */
   public ImagePrControllerImplMock(Readable input, Appendable log) throws

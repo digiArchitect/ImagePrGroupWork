@@ -1,9 +1,11 @@
-package image;
+package command;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.function.Function;
+
+import pixel.Pixel;
 
 
 //needs a better name
