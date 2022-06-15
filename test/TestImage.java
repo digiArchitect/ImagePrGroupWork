@@ -7,7 +7,7 @@ import java.util.List;
 
 
 import image.ImageImpl;
-import pixel.Pixel;
+import pixel.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 
@@ -22,33 +22,33 @@ public class TestImage {
   ImageImpl r;
 
 
-  List<List<Pixel>> lol;
-  List<List<Pixel>> peter;
-  List<List<Pixel>> griffin;
-  List<List<Pixel>> family;
-  List<List<Pixel>> guy;
+  List<List<PixelImpl>> lol;
+  List<List<PixelImpl>> peter;
+  List<List<PixelImpl>> griffin;
+  List<List<PixelImpl>> family;
+  List<List<PixelImpl>> guy;
 
 
-  Pixel one;
-  Pixel two;
-  Pixel three;
-  Pixel four;
-  Pixel five;
-  Pixel six;
-  Pixel seven;
-  Pixel eight;
+  PixelImpl one;
+  PixelImpl two;
+  PixelImpl three;
+  PixelImpl four;
+  PixelImpl five;
+  PixelImpl six;
+  PixelImpl seven;
+  PixelImpl eight;
 
   @Before
   public void setUp() {
 
-    one = new Pixel(111, 111, 111);
-    two = new Pixel(222, 222, 222);
-    three = new Pixel(0, 0, 0);
-    four = new Pixel(50, 25, 12);
-    five = new Pixel(255, 255, 255);
-    six = new Pixel(202, 101, 10);
-    seven = new Pixel(18, 50, 240);
-    eight = new Pixel(1, 2, 3);
+    one = new PixelImpl(111, 111, 111);
+    two = new PixelImpl(222, 222, 222);
+    three = new PixelImpl(0, 0, 0);
+    four = new PixelImpl(50, 25, 12);
+    five = new PixelImpl(255, 255, 255);
+    six = new PixelImpl(202, 101, 10);
+    seven = new PixelImpl(18, 50, 240);
+    eight = new PixelImpl(1, 2, 3);
     lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one, two))),
             new ArrayList<>(Arrays.asList(three, four))));
     peter = new ArrayList<>(List.of((new ArrayList<>(Arrays.asList(one, two)))));

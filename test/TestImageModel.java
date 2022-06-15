@@ -5,7 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import image.ImageImpl;
-import pixel.Pixel;
+import pixel.PixelImpl;
 import model.ImagePrModelImpl;
 
 import org.junit.Test;
@@ -28,35 +28,35 @@ public class TestImageModel {
   ImageImpl o;
 
 
-  List<List<Pixel>> lol;
-  List<List<Pixel>> peter;
-  List<List<Pixel>> griffin;
-  List<List<Pixel>> family;
-  List<List<Pixel>> guy;
+  List<List<PixelImpl>> lol;
+  List<List<PixelImpl>> peter;
+  List<List<PixelImpl>> griffin;
+  List<List<PixelImpl>> family;
+  List<List<PixelImpl>> guy;
 
 
-  Pixel one;
-  Pixel two;
-  Pixel three;
-  Pixel four;
-  Pixel five;
-  Pixel six;
-  Pixel seven;
-  Pixel eight;
-  List<Pixel> allBlack;
-  List<Pixel> allWhite;
+  PixelImpl one;
+  PixelImpl two;
+  PixelImpl three;
+  PixelImpl four;
+  PixelImpl five;
+  PixelImpl six;
+  PixelImpl seven;
+  PixelImpl eight;
+  List<PixelImpl> allBlack;
+  List<PixelImpl> allWhite;
 
   @Before
   public void setUp() {
 
-    one = new Pixel(111, 111, 111);
-    two = new Pixel(222, 222, 222);
-    three = new Pixel(0, 0, 0);
-    four = new Pixel(50, 25, 12);
-    five = new Pixel(255, 255, 255);
-    six = new Pixel(202, 101, 10);
-    seven = new Pixel(18, 50, 240);
-    eight = new Pixel(1, 2, 3);
+    one = new PixelImpl(111, 111, 111);
+    two = new PixelImpl(222, 222, 222);
+    three = new PixelImpl(0, 0, 0);
+    four = new PixelImpl(50, 25, 12);
+    five = new PixelImpl(255, 255, 255);
+    six = new PixelImpl(202, 101, 10);
+    seven = new PixelImpl(18, 50, 240);
+    eight = new PixelImpl(1, 2, 3);
     lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one, two))),
             new ArrayList<>(Arrays.asList(three, four))));
     peter = new ArrayList<>(List.of((new ArrayList<>(Arrays.asList(one, two)))));
@@ -95,7 +95,7 @@ public class TestImageModel {
     }
   }
 
-  private boolean arrayEquals(List<Pixel> one, List<Pixel> two) {
+  private boolean arrayEquals(List<PixelImpl> one, List<PixelImpl> two) {
     boolean b = true;
     for (int x = 0; x < one.size(); x++) {
       b &= one.get(x).checkEquality(two.get(x));
@@ -130,7 +130,7 @@ public class TestImageModel {
     impTwo.brighten(55, "rizz", "hey");
     assertTrue(impTwo.hasKey("hey"));
     assertTrue(arrayEquals(impTwo.getHashMap().get("hey").flatten(),
-            List.of(new Pixel(166, 166, 166))));
+            List.of(new PixelImpl(166, 166, 166))));
   }
 
   @Test
@@ -146,24 +146,24 @@ public class TestImageModel {
     impOne.greyscale("red", "res", "red");
     assertTrue(impOne.hasKey("red"));
     assertTrue(arrayEquals(impOne.getHashMap().get("red").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(50, 50, 50)))));
+            new ArrayList<>(Arrays.asList(one, two, three, new PixelImpl(50, 50, 50)))));
     impOne.greyscale("green", "res", "green");
     assertTrue(impOne.hasKey("green"));
     assertTrue(arrayEquals(impOne.getHashMap().get("green").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(25, 25, 25)))));
+            new ArrayList<>(Arrays.asList(one, two, three, new PixelImpl(25, 25, 25)))));
     impOne.greyscale("blue", "res", "blue");
     assertTrue(impOne.hasKey("blue"));
     assertTrue(arrayEquals(impOne.getHashMap().get("blue").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(12, 12, 12)))));
+            new ArrayList<>(Arrays.asList(one, two, three, new PixelImpl(12, 12, 12)))));
     impOne.greyscale("intensity", "res", "intensity");
     assertTrue(impOne.hasKey("intensity"));
     assertTrue(arrayEquals(impOne.getHashMap().get("intensity").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(29, 29, 29)))));
+            new ArrayList<>(Arrays.asList(one, two, three, new PixelImpl(29, 29, 29)))));
     assertFalse(impOne.hasKey("value"));
     impOne.greyscale("value", "res", "value");
     assertTrue(impOne.hasKey("value"));
     assertTrue(arrayEquals(impOne.getHashMap().get("intensity").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(50, 50, 50)))));
+            new ArrayList<>(Arrays.asList(one, two, three, new PixelImpl(50, 50, 50)))));
 
   }
 

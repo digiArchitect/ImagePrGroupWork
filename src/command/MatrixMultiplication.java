@@ -2,9 +2,9 @@ package command;
 
 import java.util.function.Function;
 
-import pixel.Pixel;
+import pixel.PixelImpl;
 
-public class MatrixMultiplication implements Function<Pixel,Pixel> {
+public class MatrixMultiplication implements Function<PixelImpl, PixelImpl> {
   Double[][] matrix;
 
   public MatrixMultiplication(Double[][] matrix) {
@@ -12,7 +12,7 @@ public class MatrixMultiplication implements Function<Pixel,Pixel> {
   }
 
   @Override
-  public Pixel apply(Pixel pixel) {
+  public PixelImpl apply(PixelImpl pixel) {
     int[] newRgb = new int[3];
     for (int x = 0; x < 3; x++) {
       for (int y = 0; y < 3; y++) {
@@ -24,7 +24,7 @@ public class MatrixMultiplication implements Function<Pixel,Pixel> {
         newRgb[x] = 0;
       }
     }
-    return new Pixel(newRgb[0], newRgb[1], newRgb[2]);
+    return new PixelImpl(newRgb[0], newRgb[1], newRgb[2]);
   }
     
 }

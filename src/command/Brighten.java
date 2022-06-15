@@ -2,7 +2,7 @@ package command;
 
 import java.util.function.Function;
 
-import pixel.Pixel;
+import pixel.PixelImpl;
 
 
 //needs a better name
@@ -10,14 +10,14 @@ import pixel.Pixel;
 /**
  * Function class used to mutate all the Pixels within a list.
  */
-public class MutateAll implements Function<Pixel,Pixel>  {
+public class Brighten implements Function<PixelImpl, PixelImpl>  {
   int constant;
 
   /**
-   * Constructs MutateAll with constant which is used to mutate all the values in the list.
+   * Constructs Brighten with constant which is used to mutate all the values in the list.
    * @param constant positive or negative value which mutates the function.
    */
-  public MutateAll(int constant) {
+  public Brighten(int constant) {
     this.constant = constant;
   }
 
@@ -27,7 +27,7 @@ public class MutateAll implements Function<Pixel,Pixel>  {
    * @return a new pixel with the constant added to each of its color channels.
    */
   @Override
-  public Pixel apply(Pixel pixel) {
+  public PixelImpl apply(PixelImpl pixel) {
     StringBuilder p = new StringBuilder();
     int[] values = new int[3];
     for (int x = 0; x < 3; x++) {
@@ -39,6 +39,6 @@ public class MutateAll implements Function<Pixel,Pixel>  {
       }
       values[x] = newRgb;
     }
-    return new Pixel(values[0], values[1], values[2]);
+    return new PixelImpl(values[0], values[1], values[2]);
   }
 }

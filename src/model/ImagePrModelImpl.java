@@ -11,16 +11,11 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import image.ImageImpl;
 import command.MatrixMultiplication;
-import pixel.Pixel;
+import pixel.PixelImpl;
 import command.ReverseAll;
 import command.GreyScale;
-import command.MutateAll;
+import command.Brighten;
 import command.RgbAll;
-
-/**
- * An image processor's model, which performs operations on images stored within its HashMap of
- * images.
- */
 
 /**
  * An image processor's model, which performs operations on images stored within its HashMap of
@@ -66,14 +61,14 @@ public class ImagePrModelImpl implements ImagePrModel {
     int width = sc.nextInt();
     int height = sc.nextInt();
     int maxValue = sc.nextInt();
-    List<List<Pixel>> imageVals = new ArrayList<>();
+    List<List<PixelImpl>> imageVals = new ArrayList<>();
     for (int i = 0; i < height; i++) {
-      List<Pixel> row = new ArrayList<>();
+      List<PixelImpl> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         int r = sc.nextInt();
         int g = sc.nextInt();
         int b = sc.nextInt();
-        row.add(new Pixel(r, g, b));
+        row.add(new PixelImpl(r, g, b));
       }
       imageVals.add(row);
     }
@@ -90,8 +85,8 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   @Override
   public void flipImage(String direction, String filename, String newName) {
-    List<List<Pixel>> newVals;
-    List<List<Pixel>> oldVals = images.get(filename).getImageVals();
+    List<List<PixelImpl>> newVals;
+    List<List<PixelImpl>> oldVals = images.get(filename).getImageVals();
     List<Integer> contents = images.get(filename).getContents();
     if (direction.equals("horizontal")) {
       newVals = oldVals.stream().map(new ReverseAll()).collect(Collectors.toList());
@@ -115,7 +110,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   @Override
   public void brighten(int constant, String filename, String newName) {
-    ImageImpl newImage = applyChanges(new MutateAll(constant), images.get(filename));
+    ImageImpl newImage = applyChanges(new Brighten(constant), images.get(filename));
     images.put(newName, newImage);
   }
 
@@ -267,11 +262,11 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param flatlist The 1d arraylist whose data will be extracted.
    */
-  private List<List<Pixel>> updateImageVals(List<Pixel> flatlist, int height, int width) {
-    List<List<Pixel>> newList = new ArrayList<>();
+  private List<List<PixelImpl>> updateImageVals(List<PixelImpl> flatlist, int height, int width) {
+    List<List<PixelImpl>> newList = new ArrayList<>();
     int count = 0;
     for (int i = 0; i < height; i++) {
-      ArrayList<Pixel> row = new ArrayList<>();
+      ArrayList<PixelImpl> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         row.add(flatlist.get(count));
         count++;
@@ -286,23 +281,23 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param applyFunc The function that is used to change the pixel values.
    */
-  private ImageImpl applyChanges(Function<Pixel, Pixel> applyFunc, ImageImpl p) {
-    List<Pixel> mapList = p.flatten();
+  private ImageImpl applyChanges(Function<PixelImpl, PixelImpl> applyFunc, ImageImpl p) {
+    List<PixelImpl> mapList = p.flatten();
     mapList = mapList.stream().map(applyFunc).collect(Collectors.toList());
     return newImage(updateImageVals(mapList, p.getContents().get(1), p.getContents().get(0)), p);
   }
 
   private ImageImpl kernelHelper(Double[][] imageValues, ImageImpl p) {
-    List<List<Pixel>> imageVals = p.getImageVals();
+    List<List<PixelImpl>> imageVals = p.getImageVals();
     int width = p.getContents().get(0);
     int height = p.getContents().get(1);
-    List<List<Pixel>> newVals = new ArrayList<>();
+    List<List<PixelImpl>> newVals = new ArrayList<>();
     int centerX = (int) (imageValues[0].length * 0.5 - 0.5);
     int centerY = (int) (imageValues[0].length * 0.5 - 0.5);
     for (int x = 0; x < height; x++) {
-      List<Pixel> row = new ArrayList<>();
+      List<PixelImpl> row = new ArrayList<>();
       for (int y = 0; y < width; y++) {
-        HashMap<Pixel, Double> neighborVals = new HashMap<>();
+        HashMap<PixelImpl, Double> neighborVals = new HashMap<>();
         for (int a = centerX * -1; a <= centerX; a++) {
           for (int b = centerY * -1; b <= centerY; b++) {
             if (validPosition(x + a, y + b, height, width)) {
@@ -322,10 +317,10 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
 
-  private Pixel calcNeighbors(HashMap<Pixel, Double> neighborVals) {
+  private PixelImpl calcNeighbors(HashMap<PixelImpl, Double> neighborVals) {
     int[] newPixel = new int[3];
     for (int x = 0; x < 3; x++) {
-      for (Pixel e : neighborVals.keySet()) {
+      for (PixelImpl e : neighborVals.keySet()) {
         int newVal = (int)(e.getChannel(x) * neighborVals.get(e));
         newPixel[x] += newVal;
         if (newPixel[x] > 255) {
@@ -336,7 +331,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       }
     }
 
-    return new Pixel(newPixel[0], newPixel[1], newPixel[2]);
+    return new PixelImpl(newPixel[0], newPixel[1], newPixel[2]);
   }
 
 
@@ -347,7 +342,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @param r       the original image being fed into it for contents.
    * @return a new image with the same size and height (contents) as the given one.
    */
-  private ImageImpl newImage(List<List<Pixel>> newVals, ImageImpl r) {
+  private ImageImpl newImage(List<List<PixelImpl>> newVals, ImageImpl r) {
     return new ImageImpl(newVals, r.getContents().get(0), r.getContents().get(1),
             r.getContents().get(2));
   }

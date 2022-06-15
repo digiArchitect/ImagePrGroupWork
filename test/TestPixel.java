@@ -1,65 +1,65 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import pixel.Pixel;
+import pixel.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 
 
 /**
- * Class for testing a Pixel class.
+ * Class for testing a PixelImpl class.
  */
 public class TestPixel {
-  Pixel p;
-  Pixel p2;
-  Pixel p3;
+  PixelImpl p;
+  PixelImpl p2;
+  PixelImpl p3;
 
   @Before
   public void setup() {
 
-    p = new Pixel(123, 245, 183);
-    p2 = new Pixel(17, 38, 240);
-    p3 = new Pixel(4, 5, 6);
+    p = new PixelImpl(123, 245, 183);
+    p2 = new PixelImpl(17, 38, 240);
+    p3 = new PixelImpl(4, 5, 6);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallRed() {
-    new Pixel(-1, 5, 5);
+    new PixelImpl(-1, 5, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallGreen() {
-    new Pixel(5, -1, 5);
+    new PixelImpl(5, -1, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallBlue() {
-    new Pixel(5, 5, -1);
+    new PixelImpl(5, 5, -1);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigRed() {
-    new Pixel(256, 5, 5);
+    new PixelImpl(256, 5, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigGreen() {
-    new Pixel(5, 256, 5);
+    new PixelImpl(5, 256, 5);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigBlue() {
-    new Pixel(5, 5, 256);
+    new PixelImpl(5, 5, 256);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAllSmall() {
-    new Pixel(-1, -1, -1);
+    new PixelImpl(-1, -1, -1);
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAllBig() {
-    new Pixel(256, 256, 256);
+    new PixelImpl(256, 256, 256);
   }
 
   @Test

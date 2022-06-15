@@ -6,14 +6,14 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import pixel.Pixel;
+import pixel.PixelImpl;
 
 /**
  * Represents a PPM file, a text-based image format which represents images as the RGB values of
  * every pixel of each row.
  */
 public class ImageImpl implements Image {
-  private final List<List<Pixel>> imageVals;
+  private final List<List<PixelImpl>> imageVals;
   private final int width;
   private final int height;
   private final int maxValue;
@@ -29,7 +29,7 @@ public class ImageImpl implements Image {
    * @throws IllegalArgumentException for null imageValues.
    * @throws IllegalArgumentException if maxValue < 0
    */
-  public ImageImpl(List<List<Pixel>> imageVals, int width,
+  public ImageImpl(List<List<PixelImpl>> imageVals, int width,
                    int height, int maxValue) {
     //Should never happen but as a precuation.
     if (imageVals == null || width < 1 || height < 1 || maxValue < 0) {
@@ -45,7 +45,7 @@ public class ImageImpl implements Image {
    * Returns our 2D pixel grid as one List of pixels.
    * @return a List of pixels.
    */
-  public List<Pixel> flatten() {
+  public List<PixelImpl> flatten() {
     return imageVals.stream().flatMap(Collection::stream).collect(Collectors.toList());
   }
 
@@ -62,7 +62,7 @@ public class ImageImpl implements Image {
    * Returns this image's values.
    * @return an arraylist of this image's pixels.
    */
-  public List<List<Pixel>> getImageVals() {
+  public List<List<PixelImpl>> getImageVals() {
     return new ArrayList<>(imageVals);
   }
 }
