@@ -1,8 +1,9 @@
-package command;
+package model.command;
 
 import java.util.function.Function;
 
-import pixel.PixelImpl;
+import model.pixel.Pixel;
+import model.pixel.PixelImpl;
 
 
 //needs a better name
@@ -10,7 +11,7 @@ import pixel.PixelImpl;
 /**
  * Function class used to mutate all the Pixels within a list.
  */
-public class Brighten implements Function<PixelImpl, PixelImpl>  {
+public class Brighten implements Function<Pixel, Pixel>  {
   int constant;
 
   /**
@@ -27,7 +28,7 @@ public class Brighten implements Function<PixelImpl, PixelImpl>  {
    * @return a new pixel with the constant added to each of its color channels.
    */
   @Override
-  public PixelImpl apply(PixelImpl pixel) {
+  public Pixel apply(Pixel pixel) {
     StringBuilder p = new StringBuilder();
     int[] values = new int[3];
     for (int x = 0; x < 3; x++) {

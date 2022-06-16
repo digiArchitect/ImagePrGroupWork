@@ -1,10 +1,11 @@
-package command;
+package model.command;
 
 import java.util.function.Function;
 
-import pixel.PixelImpl;
+import model.pixel.Pixel;
+import model.pixel.PixelImpl;
 
-public class MatrixMultiplication implements Function<PixelImpl, PixelImpl> {
+public class MatrixMultiplication implements Function<Pixel, Pixel> {
   Double[][] matrix;
 
   public MatrixMultiplication(Double[][] matrix) {
@@ -12,7 +13,7 @@ public class MatrixMultiplication implements Function<PixelImpl, PixelImpl> {
   }
 
   @Override
-  public PixelImpl apply(PixelImpl pixel) {
+  public Pixel apply(Pixel pixel) {
     int[] newRgb = new int[3];
     for (int x = 0; x < 3; x++) {
       for (int y = 0; y < 3; y++) {
@@ -26,5 +27,4 @@ public class MatrixMultiplication implements Function<PixelImpl, PixelImpl> {
     }
     return new PixelImpl(newRgb[0], newRgb[1], newRgb[2]);
   }
-    
 }

@@ -6,8 +6,10 @@ import java.util.Arrays;
 import java.util.List;
 
 
-import image.ImageImpl;
-import pixel.PixelImpl;
+import model.image.Image;
+import model.image.ImageImpl;
+import model.pixel.Pixel;
+import model.pixel.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 
@@ -15,28 +17,28 @@ import static org.junit.Assert.assertEquals;
  * Tests the image class.
  */
 public class TestImage {
-  ImageImpl s;
-  ImageImpl u;
-  ImageImpl p;
-  ImageImpl e;
-  ImageImpl r;
+  Image s;
+  Image u;
+  Image p;
+  Image e;
+  Image r;
 
 
-  List<List<PixelImpl>> lol;
-  List<List<PixelImpl>> peter;
-  List<List<PixelImpl>> griffin;
-  List<List<PixelImpl>> family;
-  List<List<PixelImpl>> guy;
+  List<List<Pixel>> lol;
+  List<List<Pixel>> peter;
+  List<List<Pixel>> griffin;
+  List<List<Pixel>> family;
+  List<List<Pixel>> guy;
 
 
-  PixelImpl one;
-  PixelImpl two;
-  PixelImpl three;
-  PixelImpl four;
-  PixelImpl five;
-  PixelImpl six;
-  PixelImpl seven;
-  PixelImpl eight;
+  Pixel one;
+  Pixel two;
+  Pixel three;
+  Pixel four;
+  Pixel five;
+  Pixel six;
+  Pixel seven;
+  Pixel eight;
 
   @Before
   public void setUp() {

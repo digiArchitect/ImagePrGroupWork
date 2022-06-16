@@ -1,13 +1,14 @@
-package command;
+package model.command;
 
 import java.util.function.Function;
 
-import pixel.PixelImpl;
+import model.pixel.Pixel;
+import model.pixel.PixelImpl;
 
 /**
  * Function class used to make a PixelImpl grey.
  */
-public class GreyScale implements Function<PixelImpl, PixelImpl> {
+public class GreyScale implements Function<Pixel, Pixel> {
   String component;
 
   /**
@@ -23,7 +24,7 @@ public class GreyScale implements Function<PixelImpl, PixelImpl> {
    * @param pixel the pixel.
    * @return a new gray pixel.
    */
-  public PixelImpl apply(PixelImpl pixel) {
+  public PixelImpl apply(Pixel pixel) {
 
     int newVal;
     StringBuilder p = new StringBuilder();

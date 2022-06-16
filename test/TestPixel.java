@@ -1,7 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import pixel.PixelImpl;
+import model.pixel.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 

@@ -45,9 +45,6 @@ public class ImagePrControllerImpl implements ImagePrController {
     int full = 1;
     boolean loaded = false;
 
-    /*
-
-     */
     Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
             entry("load", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
             entry("save", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
@@ -117,14 +114,14 @@ public class ImagePrControllerImpl implements ImagePrController {
                 }
                 break;
               case ("img-name"):
-                if (model.hasKey(arf) || parentCommand.equals("load")) {
+                if (model.hasImage(arf) || parentCommand.equals("load")) {
                   fields.add(arf);
                 } else {
                   System.out.println("No image exists by this name.");
                 }
                 break;
               case ("img-dest"):
-                if (model.hasKey(arf) && !(parentCommand.equals("load"))) {
+                if (model.hasImage(arf) && !(parentCommand.equals("load"))) {
                   System.out.println("Overwriting the image at " + arf);
                 }
                 fields.add(arf);
@@ -224,7 +221,7 @@ public class ImagePrControllerImpl implements ImagePrController {
         }
       } catch (Exception e) {
         System.out.println(e.getMessage());
-        System.out.println("IMAGE NAME IS NOT RECOGNIZED ----------------");
+        System.out.println("IMAGE FILE IS NOT RECOGNIZED ----------------");
       }
 
       System.out.println();

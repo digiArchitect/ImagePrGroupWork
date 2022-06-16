@@ -4,13 +4,26 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import image.ImageImpl;
+import model.image.Image;
 
 /**
  * The model of our image processor, which performs visual operations on our images
  * through manipulating their pixels.
  */
 public interface ImagePrModel {
+
+
+  //real shit
+
+  boolean hasCommand(String s);
+
+  boolean hasImage(String s);
+
+
+
+
+
+  //old shit
 
   /**
    * Flips the image depending on the direction user inputs.
@@ -49,17 +62,10 @@ public interface ImagePrModel {
   void load(String fileLoc, String fileName) throws IOException;
 
   /**
-   * Returns whether this model's hashmap has a key of the given string.
-   * @param s the given string.
-   * @return whether the hashmap has that key.
-   */
-  boolean hasKey(String s);
-
-  /**
    * Returns this model's hashmap.
    * @return the hashmap.
    */
-  HashMap<String, ImageImpl> getHashMap();
+  HashMap<String, Image> getHashMap();
 
   /**
    * Returns the contents of the image at this value in the hashmap.

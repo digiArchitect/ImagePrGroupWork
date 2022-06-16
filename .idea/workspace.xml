@@ -2,19 +2,48 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pixel/PixelImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/1x1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/ACommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/Command.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/PixelFunc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/AMapCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/BrightenCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/grayscale/AGrayScaleChannelCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/grayscale/GrayScaleBlueCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/grayscale/GrayScaleGreenCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/map/grayscale/GrayScaleRedCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/reorder/AOrderCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/reorder/HorizontalFlipCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/command/reorder/VerticalFlipCommand.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/image/Image.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/pixel/Pixel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/command/GreyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/GreyScale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/command/MatrixMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/MatrixMultiplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/command/MutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/Brighten.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/command/ReverseAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/ReverseAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/command/RgbAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/command/RgbAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/ImageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/ImageImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/ReverseAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/rgbAll.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/command/Brighten.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/Brighten.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/command/GreyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/GreyScale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/command/MatrixMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/MatrixMultiplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/command/ReverseAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/reorder/ReverseAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/command/RgbAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/RgbAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/Image.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/ImageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/ImageImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pixel/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pixel/Pixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pixel/Pixel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pixel/PixelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/pixel/PixelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
     </list>
@@ -26,8 +55,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -87,16 +116,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestImageController.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ImagePrGroupWork" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImageController" />
-      <option name="METHOD_NAME" value="testConstructor" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestImageController.testResults" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
@@ -126,6 +145,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestImageModel.testFlipImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestImageModel" />
+      <option name="METHOD_NAME" value="testFlipImage" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestPixel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
@@ -137,7 +166,7 @@
     </configuration>
     <list>
       <item itemvalue="Application.john" />
-      <item itemvalue="JUnit.TestImageController.testConstructor" />
+      <item itemvalue="JUnit.TestImageModel.testFlipImage" />
       <item itemvalue="JUnit.TestImageController.testResults" />
       <item itemvalue="JUnit.TestImageController.testValidMock" />
       <item itemvalue="JUnit.TestImageModel" />
@@ -145,11 +174,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImageModel.testFlipImage" />
         <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestImageController.testResults" />
         <item itemvalue="JUnit.TestImageController.testValidMock" />
-        <item itemvalue="JUnit.TestImageController.testConstructor" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +208,8 @@
       <workItem from="1655149449031" duration="625000" />
       <workItem from="1655252987754" duration="3071000" />
       <workItem from="1655313299206" duration="244000" />
-      <workItem from="1655317777535" duration="963000" />
+      <workItem from="1655317777535" duration="11306000" />
+      <workItem from="1655357303860" duration="6083000" />
     </task>
     <servers />
   </component>
@@ -207,6 +237,15 @@
           <url>file://$PROJECT_DIR$/src/image/ImageUtil.java</url>
           <line>100</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
+          <line>19</line>
+          <properties class="ImagePrMain" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="5" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

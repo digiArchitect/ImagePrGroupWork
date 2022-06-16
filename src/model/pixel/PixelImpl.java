@@ -1,13 +1,12 @@
-package pixel;
+package model.pixel;
 
 /**
  Represents a PixelImpl of an ImageImpl.
  */
-public class PixelImpl {
+public class PixelImpl implements Pixel {
   int r;
   int g;
   int b;
-
 
   /**
    * Constructs a pixel given a red, blue, and green value.
@@ -50,8 +49,10 @@ public class PixelImpl {
    * @param e the other pixel.
    * @return whether the pixels are equal.
    */
-  public boolean checkEquality(PixelImpl e) {
-    return this.r == e.r && this.g == e.g && this.b == e.b;
+  public boolean checkEquality(Pixel e) {
+    return this.getChannel(0) == e.getChannel(0)
+            && this.getChannel(1) == e.getChannel(1)
+            && this.getChannel(2) == e.getChannel(2);
   }
 
 }

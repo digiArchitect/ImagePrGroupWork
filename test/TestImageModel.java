@@ -1,11 +1,14 @@
 import org.junit.Before;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import image.ImageImpl;
-import pixel.PixelImpl;
+import model.image.Image;
+import model.image.ImageImpl;
+import model.pixel.Pixel;
+import model.pixel.PixelImpl;
 import model.ImagePrModelImpl;
 
 import org.junit.Test;
@@ -21,30 +24,30 @@ public class TestImageModel {
   ImagePrModelImpl impOne = new ImagePrModelImpl();
   ImagePrModelImpl impTwo = new ImagePrModelImpl();
 
-  ImageImpl m;
-  ImageImpl a;
-  ImageImpl r;
-  ImageImpl i;
-  ImageImpl o;
+  Image m;
+  Image a;
+  Image r;
+  Image i;
+  Image o;
 
 
-  List<List<PixelImpl>> lol;
-  List<List<PixelImpl>> peter;
-  List<List<PixelImpl>> griffin;
-  List<List<PixelImpl>> family;
-  List<List<PixelImpl>> guy;
+  List<List<Pixel>> lol;
+  List<List<Pixel>> peter;
+  List<List<Pixel>> griffin;
+  List<List<Pixel>> family;
+  List<List<Pixel>> guy;
 
 
-  PixelImpl one;
-  PixelImpl two;
-  PixelImpl three;
-  PixelImpl four;
-  PixelImpl five;
-  PixelImpl six;
-  PixelImpl seven;
-  PixelImpl eight;
-  List<PixelImpl> allBlack;
-  List<PixelImpl> allWhite;
+  Pixel one;
+  Pixel two;
+  Pixel three;
+  Pixel four;
+  Pixel five;
+  Pixel six;
+  Pixel seven;
+  Pixel eight;
+  List<Pixel> allBlack;
+  List<Pixel> allWhite;
 
   @Before
   public void setUp() {
@@ -77,7 +80,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testLoad() {
+  public void testLoad() throws IOException {
     assertFalse(impOne.hasKey("res"));
     assertFalse(impOne.hasKey("rizz"));
     impOne.load("res/lol.ppm", "res");
@@ -95,7 +98,7 @@ public class TestImageModel {
     }
   }
 
-  private boolean arrayEquals(List<PixelImpl> one, List<PixelImpl> two) {
+  private boolean arrayEquals(List<Pixel> one, List<Pixel> two) {
     boolean b = true;
     for (int x = 0; x < one.size(); x++) {
       b &= one.get(x).checkEquality(two.get(x));
@@ -104,7 +107,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testFlipImage() {
+  public void testFlipImage() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.flipImage("horizontal", "res", "newRes");
@@ -117,7 +120,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testBrighten() {
+  public void testBrighten() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.brighten(255, "res", "newRes");
@@ -134,7 +137,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testGreyscale() {
+  public void testGreyscale() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.greyscale("luma", "res", "luma");
@@ -168,7 +171,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testHasKey() {
+  public void testHasKey() throws IOException {
     assertFalse(impOne.hasKey("res"));
     impOne.load("res/lol.ppm", "res");
     assertTrue(impOne.hasKey("res"));
