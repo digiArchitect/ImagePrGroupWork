@@ -163,7 +163,7 @@ public class ImagePrControllerImpl implements ImagePrController {
           case ("save"):
             this.view.save(fields.get(1), fields.get(2),
                     this.model.getImageContents(fields.get(2)),
-                    this.model.getFlatten(fields.get(2)));
+                    this.model.getHashMap());
             break;
           case ("red-component"):
             this.model.greyscale("red",

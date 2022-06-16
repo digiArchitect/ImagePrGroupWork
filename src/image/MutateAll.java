@@ -8,7 +8,7 @@ import java.util.function.Function;
 /**
  * Function class used to mutate all the Pixels within a list.
  */
-public class MutateAll implements Function<Pixel,Pixel>  {
+public class MutateAll extends AbstractApply implements  Function<Pixel,Pixel>  {
   int constant;
 
   /**
@@ -26,17 +26,17 @@ public class MutateAll implements Function<Pixel,Pixel>  {
    */
   @Override
   public Pixel apply(Pixel pixel) {
-    StringBuilder p = new StringBuilder();
+
     int[] values = new int[3];
     for (int x = 0; x < 3; x++) {
       int newRgb = pixel.getChannel(x) + constant;
-      if (newRgb > 255) {
-        newRgb = 255;
-      } else if (newRgb < 0) {
-        newRgb = 0;
-      }
-      values[x] = newRgb;
+      values[x] = clamp(newRgb);
+
     }
-    return new Pixel(values[0], values[1], values[2]);
+    return properRGB(values);
+
+
+
   }
+
 }

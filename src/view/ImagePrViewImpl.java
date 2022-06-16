@@ -1,9 +1,18 @@
 package view;
 
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+
+import javax.imageio.ImageIO;
+
+import image.FunctionUtils;
+import image.Image;
+import image.Pixel;
 
 /**
  * Represents the view of the image processor, allowing us to see our image once we've
@@ -14,7 +23,36 @@ public class ImagePrViewImpl implements ImagePrView {
    * Saves the image to the user's computer.
    */
   @Override
-  public void save(String fileLocation, String fileName,
+
+  public void save(String fileLoc, String fileName,List<Integer> contents, HashMap<String, Image> images) throws IOException{
+    String fileType = fileLoc.split("[.]")[1];
+    if(Arrays.asList(FunctionUtils.supported).contains(fileType)) {
+      saveSupported(fileLoc,contents,images.get(fileName).flatten(),fileType);
+    }
+    else if(fileType.equals("ppm")) {
+      savePPM(fileLoc,contents,FunctionUtils.getFlatten(images,fileName));
+    }
+    else {
+      throw new IllegalArgumentException();
+    }
+  }
+
+  private void saveSupported(String fileLocation,
+                             List<Integer> contents, List<Pixel> imageVals,String fileType)
+          throws IOException{
+    BufferedImage b = new BufferedImage(contents.get(0),contents.get(1),BufferedImage.TYPE_INT_RGB);
+    int count = 0;
+    for (int x = 0;  x < contents.get(1); x++) {
+      for (int y = 0; y < contents.get(0); y++) {
+        b.setRGB(y,x,imageVals.get(count).getRGB());
+        count ++;
+      }
+    }
+    ImageIO.write(b,fileType,new File(fileLocation));
+
+  }
+
+  private void savePPM(String fileLocation,
                    List<Integer> contents, List<String> mapList) throws IOException {
     File newFile = new File(fileLocation);
     FileWriter w = new FileWriter(newFile);
@@ -38,4 +76,5 @@ public class ImagePrViewImpl implements ImagePrView {
     w.write(s.toString());
     w.close();
   }
+
 }

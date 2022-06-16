@@ -2,7 +2,7 @@ package image;
 
 import java.util.function.Function;
 
-public class MatrixMultiplication implements Function<Pixel,Pixel> {
+public class MatrixMultiplication extends AbstractApply implements Function<Pixel,Pixel> {
   Double[][] matrix;
 
   public MatrixMultiplication(Double[][] matrix) {
@@ -16,13 +16,10 @@ public class MatrixMultiplication implements Function<Pixel,Pixel> {
       for (int y = 0; y < 3; y++) {
         newRgb[x] += (int)(pixel.getChannel(y) * matrix[x][y]);
       }
-      if (newRgb[x] > 255) {
-        newRgb[x] = 255;
-      } else if (newRgb[x] < 0) {
-        newRgb[x] = 0;
-      }
+      newRgb[x] = clamp(newRgb[x]);
+
     }
-    return new Pixel(newRgb[0], newRgb[1], newRgb[2]);
+    return properRGB(newRgb);
   }
     
 }

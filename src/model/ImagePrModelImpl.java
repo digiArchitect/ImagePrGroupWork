@@ -1,14 +1,21 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import javax.imageio.ImageIO;
+
+import image.FunctionUtils;
 import image.Image;
 import image.MatrixMultiplication;
 import image.Pixel;
@@ -42,7 +49,19 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param fileLoc the path of the file.
    */
-  public void load(String fileLoc, String fileName) {
+  public void load(String fileLoc, String fileName) throws IOException{
+    String fileType = fileLoc.split("[.]")[1];
+    if(Arrays.asList(FunctionUtils.supported).contains(fileType)) {
+      loadSupported(fileLoc,fileName);
+    }
+    else if(fileType.equals("ppm")) {
+      loadPPM(fileLoc,fileName);
+    }
+    else {
+      throw new IllegalArgumentException();
+    }
+  }
+  public void loadPPM(String fileLoc, String fileName) {
     Scanner sc;
     try {
       sc = new Scanner(new FileInputStream(fileLoc));
@@ -70,14 +89,32 @@ public class ImagePrModelImpl implements ImagePrModel {
     for (int i = 0; i < height; i++) {
       List<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
-        int r = sc.nextInt();
-        int g = sc.nextInt();
-        int b = sc.nextInt();
-        row.add(new Pixel(r, g, b));
+          int[] vals = new int[]{sc.nextInt(), sc.nextInt(), sc.nextInt()};
+          row.add(FunctionUtils.properRGB(vals));
+        }
+
+      imageVals.add(row);
+    }
+    newEntry(fileName, new Image(imageVals, width, height, maxValue));
+  }
+
+  private void loadSupported(String fileLoc, String fileName) throws IOException {
+    BufferedImage t =  ImageIO.read(new FileInputStream(fileLoc));
+    int width = t.getWidth();
+    int height = t.getHeight();
+    int maxValue = 255;
+    List<List<Pixel>> imageVals = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        int rgb = t.getRGB(j,i);
+        Pixel p = new Pixel(rgb);
+          row.add(p);
       }
       imageVals.add(row);
     }
     newEntry(fileName, new Image(imageVals, width, height, maxValue));
+
   }
 
 
@@ -168,15 +205,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     return images.get(s).getContents();
   }
 
-  /**
-   * Returns the flattened list of pixels of the image at a specified name.
-   *
-   * @param s the image name.
-   * @return the list of pixels.
-   */
-  public List<String> getFlatten(String s) {
-    return images.get(s).flatten().stream().map(new RgbAll()).collect(Collectors.toList());
-  }
+
 
   @Override
   public void kernelMutate(String component, String filename, String newName) {
@@ -305,7 +334,7 @@ public class ImagePrModelImpl implements ImagePrModel {
         HashMap<Pixel, Double> neighborVals = new HashMap<>();
         for (int a = centerX * -1; a <= centerX; a++) {
           for (int b = centerY * -1; b <= centerY; b++) {
-            if (validPosition(x + a, y + b, height, width)) {
+            if (FunctionUtils.validPosition(x + a, y + b, height, width)) {
               neighborVals.put(imageVals.get(x + a).get(y + b), imageValues[centerX + a][centerY + b]);
             }
           }
@@ -317,9 +346,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     return newImage(newVals, p);
   }
 
-  private boolean validPosition(int x, int y, int height, int width) {
-    return x >= 0 && y >= 0 && x < height - 1 && y < width - 1;
-  }
+
 
 
   private Pixel calcNeighbors(HashMap<Pixel, Double> neighborVals) {
@@ -328,15 +355,11 @@ public class ImagePrModelImpl implements ImagePrModel {
       for (Pixel e : neighborVals.keySet()) {
         int newVal = (int)(e.getChannel(x) * neighborVals.get(e));
         newPixel[x] += newVal;
-        if (newPixel[x] > 255) {
-          newPixel[x] = 255;
-        } else if (newPixel[x] < 0) {
-          newPixel[x] = 0;
-        }
+        newPixel[x] = FunctionUtils.clamp(newPixel[x]);
       }
     }
 
-    return new Pixel(newPixel[0], newPixel[1], newPixel[2]);
+    return FunctionUtils.properRGB(newPixel);
   }
 
 

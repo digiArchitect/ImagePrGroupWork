@@ -68,12 +68,7 @@ public interface ImagePrModel {
    */
   List<Integer> getImageContents(String s);
 
-  /**
-   * Returns the flat list of string pixels of the image at this value in the hashmap.
-   * @param s the image name.
-   * @return the list.
-   */
-  List<String> getFlatten(String s);
+
 
   /**
    * Mutates the image based off a kernel

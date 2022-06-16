@@ -4,25 +4,15 @@ package image;
  Represents a Pixel of an Image.
  */
 public class Pixel {
-  int r;
-  int g;
-  int b;
+  int rgb;
 
 
   /**
    * Constructs a pixel given a red, blue, and green value.
-   * @param r red value.
-   * @param g blue value.
-   * @param b green value.
-   * @throws IllegalArgumentException if any value is below zero or above 255.
+   * @param rgb the 32 bit rgb
    */
-  public Pixel(int r, int g, int b) throws IllegalArgumentException {
-    if (r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0) {
-      throw new IllegalArgumentException();
-    }
-    this.r = r;
-    this.g = g;
-    this.b = b;
+  public Pixel(int rgb)  {
+    this.rgb = rgb;
   }
 
   /**
@@ -34,15 +24,23 @@ public class Pixel {
   public int getChannel(int c) throws IllegalArgumentException {
     switch (c) {
       case 0:
-        return r;
+       return  (rgb & 0xff0000) >> 16;
       case 1:
-        return g;
+        return (rgb & 0xff00) >> 8;
       case 2:
-        return b;
+        return  rgb & 0xff;
       default:
         throw new IllegalArgumentException("Choose a valid color between 0, 1, and 2");
     }
   }
+
+  /**
+   * Returns the pixel's rgb
+   * @return the rgb.
+   */
+    public int getRGB() {
+      return rgb;
+    }
 
   /**
    * Tests whether a pixel is equal to another pixel by seeing if all of their
@@ -51,7 +49,7 @@ public class Pixel {
    * @return whether the pixels are equal.
    */
   public boolean checkEquality(Pixel e) {
-    return this.r == e.r && this.g == e.g && this.b == e.b;
+    return this.rgb == e.rgb;
   }
 
 }
