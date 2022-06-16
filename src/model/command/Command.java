@@ -7,4 +7,6 @@ import model.image.Image;
 
 public interface Command extends Function<Image, Image> {
   void setFields(ArrayList<String> f);
+
+  int numOfParams();
 }

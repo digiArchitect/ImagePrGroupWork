@@ -19,8 +19,8 @@ public abstract class AMapCommand extends ACommand {
   /**
    * Constructs a Command with Map Command characteristics.
    */
-  public AMapCommand() {
-    super();
+  public AMapCommand(int params) {
+    super(params);
   }
 
   /**

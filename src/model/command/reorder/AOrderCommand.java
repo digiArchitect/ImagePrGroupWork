@@ -17,7 +17,7 @@ public abstract class AOrderCommand extends ACommand {
    * Constructs a Command.
    */
   public AOrderCommand() {
-    super();
+    super(2);
   }
 
   /**

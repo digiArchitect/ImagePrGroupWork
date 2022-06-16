@@ -12,11 +12,12 @@ public abstract class ACommand implements Command {
   protected List<Integer> contents;
   protected List<List<Pixel>> imageVals;
   protected List<List<Pixel>> newImageVals;
+  protected int params;
 
   /**
    * Constructs a command with an empty set of fields.
    */
-  public ACommand() {
+  public ACommand(int params) {
     this.fields = new ArrayList<>();
   }
 
@@ -28,5 +29,9 @@ public abstract class ACommand implements Command {
     for(String s : f) {
       fields.add(s);
     }
+  }
+
+  public int numOfParams() {
+    return params;
   }
 }

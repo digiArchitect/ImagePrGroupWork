@@ -12,7 +12,7 @@ public class BrightenCommand extends AMapCommand {
    * Constructs a Map Command with a Brighten lambda.
    */
   public BrightenCommand() {
-    super();
+    super(3);
     this.lambda = (n) -> {
       int[] values = new int[3];
       for (int x = 0; x < 3; x++) {

@@ -45,24 +45,6 @@ public class ImagePrControllerImpl implements ImagePrController {
     int full = 1;
     boolean loaded = false;
 
-    Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
-            entry("load", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
-            entry("save", new ArrayList<>(Arrays.asList("file-path", "img-name"))),
-            entry("red-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("blue-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("green-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("value-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("luma-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("intensity-component", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("horizontal-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("vertical-flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))),
-            entry("blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("greyscale", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-            entry("sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
-
-
     welcomeMessage();
 
     while (true) {
@@ -73,82 +55,81 @@ public class ImagePrControllerImpl implements ImagePrController {
 
       while (fields.size() < full) {
         try {
-
           arf = fetch.next();
-
-          if (arf.equalsIgnoreCase("q") || arf.equalsIgnoreCase("quit")) {
-            System.out.println("terminated!");
-            System.out.println();
-            fetch.close();
-            return;
-          }
-
-          if (fields.size() == 0) {
-            if (commandsMap.containsKey(arf)) {
-              if (loaded || arf.equals("load")) {
-                fields.add(arf);
-                full = commandsMap.get(arf).size() + 1;
-                System.out.println("Command: " + arf);
-                System.out.println("# of Fields: " + (full - 1));
-                System.out.println("Field types: " + commandsMap.get(arf).toString());
-              } else {
-                System.out.println("You need to load an image " +
-                        "before processing any other commands");
-              }
-            } else {
-              System.out.println("Initial command is not recognized. " +
-                      "Please choose one from the " +
-                      "list of accepted commands.");
-              System.out.println();
-            }
-          } else {
-            String parentCommand = fields.get(0);
-            String inputType = (commandsMap.get(fields.get(0)).get(fields.size() - 1));
-            switch (inputType) {
-              case ("int"):
-                try {
-                  Integer.parseInt(arf);
-                  fields.add(arf);
-                } catch (Exception e) {
-                  System.out.println("The input " + arf + " needs to be a String!");
-                }
-                break;
-              case ("img-name"):
-                if (model.hasImage(arf) || parentCommand.equals("load")) {
-                  fields.add(arf);
-                } else {
-                  System.out.println("No image exists by this name.");
-                }
-                break;
-              case ("img-dest"):
-                if (model.hasImage(arf) && !(parentCommand.equals("load"))) {
-                  System.out.println("Overwriting the image at " + arf);
-                }
-                fields.add(arf);
-                break;
-              case ("file-path"):
-                File f = new File(arf);
-                if (parentCommand.equals("load")) {
-                  if (f.isFile()) {
-                    fields.add(arf);
-                  } else {
-                    System.out.println("The input" + arf + " needs to be the route to a file!");
-                  }
-                } else if (parentCommand.equals("save")) {
-                  if (f.isFile()) {
-                    System.out.println("Overwriting the file at " + arf);
-                    fields.add(arf);
-                  } else {
-                    fields.add(arf);
-                  }
-                }
-                break;
-              default:
-                System.out.println("Input type not recognized.");
-            }
-          }
         } catch (Exception e) {
           throw new IllegalStateException("there's nothing in the scanner you moron");
+        }
+
+        if (arf.equalsIgnoreCase("q") || arf.equalsIgnoreCase("quit")) {
+          System.out.println("terminated!");
+          System.out.println();
+          fetch.close();
+          return;
+        }
+
+        if (fields.size() == 0) {
+          if (model.hasCommand(arf)) {
+            if (loaded || arf.equals("load")) {
+              fields.add(arf);
+              full = commandsMap.get(arf).size() + 1;
+              System.out.println("Command: " + arf);
+              System.out.println("# of Fields: " + (full - 1));
+              System.out.println("Field types: " + commandsMap.get(arf).toString());
+            } else {
+              System.out.println("You need to load an image " +
+                      "before processing any other commands");
+            }
+          } else {
+            System.out.println("Initial command is not recognized. " +
+                    "Please choose one from the " +
+                    "list of accepted commands.");
+            System.out.println();
+          }
+        } else {
+          String parentCommand = fields.get(0);
+          String inputType = (commandsMap.get(fields.get(0)).get(fields.size() - 1));
+          switch (inputType) {
+            case ("int"):
+              try {
+                Integer.parseInt(arf);
+                fields.add(arf);
+              } catch (Exception e) {
+                System.out.println("The input " + arf + " needs to be a String!");
+              }
+              break;
+            case ("img-name"):
+              if (model.hasImage(arf) || parentCommand.equals("load")) {
+                fields.add(arf);
+              } else {
+                System.out.println("No image exists by this name.");
+              }
+              break;
+            case ("img-dest"):
+              if (model.hasImage(arf) && !(parentCommand.equals("load"))) {
+                System.out.println("Overwriting the image at " + arf);
+              }
+              fields.add(arf);
+              break;
+            case ("file-path"):
+              File f = new File(arf);
+              if (parentCommand.equals("load")) {
+                if (f.isFile()) {
+                  fields.add(arf);
+                } else {
+                  System.out.println("The input" + arf + " needs to be the route to a file!");
+                }
+              } else if (parentCommand.equals("save")) {
+                if (f.isFile()) {
+                  System.out.println("Overwriting the file at " + arf);
+                  fields.add(arf);
+                } else {
+                  fields.add(arf);
+                }
+              }
+              break;
+            default:
+              System.out.println("Input type not recognized.");
+          }
         }
       }
 
@@ -256,7 +237,7 @@ public class ImagePrControllerImpl implements ImagePrController {
     System.out.println("Hello, and WELCOME to Jylah and Archie's image processor!");
     System.out.println("this program currently supports eleven commands, which are \n" +
             "listed below. If at any point the user submits invalid input, the scanner will \n" +
-                    "continue attempting to parse for valid values until it completes a \n" +
+            "continue attempting to parse for valid values until it completes a \n" +
             "method. Enter q or Q at any time to quit. \n Make sure to load an image " +
             "before attempting to perform any image manipulations!");
 

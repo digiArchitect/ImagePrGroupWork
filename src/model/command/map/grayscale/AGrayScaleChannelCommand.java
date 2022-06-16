@@ -13,7 +13,7 @@ public abstract class AGrayScaleChannelCommand extends AMapCommand {
    * @param channel the color channel that all pixels will be mutated depending on.
    */
   public AGrayScaleChannelCommand(int channel) {
-    super();
+    super(2);
     this.lambda = (n) -> {
       int newVal;
       StringBuilder p = new StringBuilder();
