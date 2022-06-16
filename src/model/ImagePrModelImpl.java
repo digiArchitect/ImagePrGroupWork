@@ -1,14 +1,20 @@
 package model;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Scanner;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+
+import javax.imageio.ImageIO;
 import image.Image;
 import image.MatrixMultiplication;
 import image.Pixel;
@@ -17,10 +23,7 @@ import image.GreyScale;
 import image.MutateAll;
 import image.RgbAll;
 
-/**
- * An image processor's model, which performs operations on images stored within its HashMap of
- * images.
- */
+
 
 /**
  * An image processor's model, which performs operations on images stored within its HashMap of
@@ -42,7 +45,22 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @param fileLoc the path of the file.
    */
-  public void load(String fileLoc, String fileName) {
+  public void load(String fileLoc, String fileName) throws IOException{
+    String fileType = fileLoc.split("[.]")[1];
+    String[] supported = new String[] {
+            "jpg", "png", "bmp"
+    };
+    if(Arrays.asList(supported).contains(fileType)) {
+      loadSupported(fileLoc,fileName);
+    }
+    else if(fileType.equals("ppm")) {
+      loadPPM(fileLoc,fileName);
+    }
+    else {
+      throw new IllegalArgumentException();
+    }
+  }
+  private void loadPPM(String fileLoc, String fileName) {
     Scanner sc;
     try {
       sc = new Scanner(new FileInputStream(fileLoc));
@@ -78,6 +96,33 @@ public class ImagePrModelImpl implements ImagePrModel {
       imageVals.add(row);
     }
     newEntry(fileName, new Image(imageVals, width, height, maxValue));
+  }
+  private void loadSupported(String fileLoc, String fileName) throws IOException {
+    BufferedImage t =  ImageIO.read(new FileInputStream(fileLoc));
+    int width = t.getWidth();
+    int height = t.getHeight();
+    int maxValue = 255;
+    List<List<Pixel>> imageVals = new ArrayList<>();
+    for (int i = 0; i < height; i++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int j = 0; j < width; j++) {
+        try {
+          int rgb = t.getRGB(i, j);
+          int red = (rgb & 0xff0000) >> 16;
+          int green = (rgb & 0xff00) >> 8;
+          int blue = rgb & 0xff;
+          row.add(new Pixel(red, green, blue));
+        } catch (Exception e) {
+          System.out.println(height);
+          System.out.println(width);
+          System.out.println("Height " + i + " width " + j);
+        }
+
+        imageVals.add(row);
+      }
+    }
+    newEntry(fileName, new Image(imageVals, width, height, maxValue));
+
   }
 
 
