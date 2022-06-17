@@ -4,7 +4,7 @@ package image;
  Represents a Pixel of an Image.
  */
 public class Pixel {
-  int rgb;
+  private int rgb;
 
 
   /**

@@ -9,7 +9,7 @@ import java.util.function.Function;
  * Function class used to mutate all the Pixels within a list.
  */
 public class MutateAll extends AbstractApply implements  Function<Pixel,Pixel>  {
-  int constant;
+  private int constant;
 
   /**
    * Constructs MutateAll with constant which is used to mutate all the values in the list.

@@ -1,7 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/cuteness-blur.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cuteness-sepia.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cuteness-sharp.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cuteness.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cutest.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cutestblurry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/cutestsharp.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/mangoes-sepia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/superblur.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/FunctionUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/GreyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/GreyScale.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/MutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/MutateAll.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Pixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -52,8 +82,8 @@
       <recent name="$PROJECT_DIR$/res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/res" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Images" />
       <recent name="$PROJECT_DIR$/src/Image" />
       <recent name="$PROJECT_DIR$/src" />
@@ -70,12 +100,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestImageController.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TestImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImageController" />
-      <option name="METHOD_NAME" value="testConstructor" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="TestImage" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -90,21 +119,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestImageController.testValidMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ImagePrGroupWork" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImageController" />
-      <option name="METHOD_NAME" value="testValidMock" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestImageModel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="TestImageModel" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestImageModel.testFlipImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestImageModel" />
+      <option name="METHOD_NAME" value="testFlipImage" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,19 +149,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.john" />
-      <item itemvalue="JUnit.TestImageController.testConstructor" />
+      <item itemvalue="JUnit.TestImage" />
+      <item itemvalue="JUnit.TestImageModel.testFlipImage" />
       <item itemvalue="JUnit.TestImageController.testResults" />
-      <item itemvalue="JUnit.TestImageController.testValidMock" />
       <item itemvalue="JUnit.TestImageModel" />
       <item itemvalue="JUnit.TestPixel" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImage" />
+        <item itemvalue="JUnit.TestImageModel.testFlipImage" />
         <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestImageController.testResults" />
-        <item itemvalue="JUnit.TestImageController.testValidMock" />
-        <item itemvalue="JUnit.TestImageController.testConstructor" />
       </list>
     </recent_temporary>
   </component>
@@ -163,6 +192,9 @@
       <workItem from="1655252987754" duration="3071000" />
       <workItem from="1655313299206" duration="244000" />
       <workItem from="1655353036227" duration="10519000" />
+      <workItem from="1655481528707" duration="667000" />
+      <workItem from="1655482877970" duration="3177000" />
+      <workItem from="1655488177459" duration="1216000" />
     </task>
     <servers />
   </component>
@@ -188,28 +220,36 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>111</line>
+          <line>121</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>92</line>
+          <line>117</line>
           <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>109</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>110</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/view/ImagePrViewImpl.java</url>
           <line>46</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/test/TestImageModel.java</url>
+          <line>111</line>
+          <properties class="TestImageModel" method="testFlipImage">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
+          <line>19</line>
+          <properties class="ImagePrMain" method="main">
+            <option name="EMULATED" value="true" />
+            <option name="WATCH_EXIT" value="false" />
+          </properties>
+          <option name="timeStamp" value="17" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

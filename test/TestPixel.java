@@ -1,6 +1,7 @@
 import org.junit.Before;
 import org.junit.Test;
 
+import image.FunctionUtils;
 import image.Pixel;
 
 import static org.junit.Assert.assertEquals;
@@ -13,53 +14,53 @@ public class TestPixel {
   Pixel p;
   Pixel p2;
   Pixel p3;
+  FunctionUtils fu;
 
   @Before
   public void setup() {
-
-    p = new Pixel(123, 245, 183);
-    p2 = new Pixel(17, 38, 240);
-    p3 = new Pixel(4, 5, 6);
+    p = fu.properRGB(new int[]{123, 245, 183});
+    p2 = fu.properRGB(new int[]{17, 38, 240});
+    p3 = fu.properRGB(new int[]{4, 5, 6});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallRed() {
-    new Pixel(-1, 5, 5);
+    fu.properRGB(new int[]{-1, 5, 5});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallGreen() {
-    new Pixel(5, -1, 5);
+    fu.properRGB(new int[]{5, -1, 5});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testSmallBlue() {
-    new Pixel(5, 5, -1);
+    fu.properRGB(new int[]{5, 5, -1});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigRed() {
-    new Pixel(256, 5, 5);
+    fu.properRGB(new int[]{256, 5, 5});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigGreen() {
-    new Pixel(5, 256, 5);
+    fu.properRGB(new int[]{5, 256, 5});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testBigBlue() {
-    new Pixel(5, 5, 256);
+    fu.properRGB(new int[]{5, 5, 256});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAllSmall() {
-    new Pixel(-1, -1, -1);
+    fu.properRGB(new int[]{-1, -1, -1});
   }
 
   @Test(expected = IllegalArgumentException.class)
   public void testAllBig() {
-    new Pixel(256, 256, 256);
+    fu.properRGB(new int[]{256, 256, 256});
   }
 
   @Test

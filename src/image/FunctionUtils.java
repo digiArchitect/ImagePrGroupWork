@@ -30,6 +30,7 @@ public class FunctionUtils {
     Pixel f = new Pixel(((values[0]&0x0ff)<<16)|((values[1]&0x0ff)<<8)|(values[2]&0x0ff));
     return f;
   }
+
   public static boolean validPosition(int x, int y, int height, int width) {
     return x >= 0 && y >= 0 && x < height - 1 && y < width - 1;
   }

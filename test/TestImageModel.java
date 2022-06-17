@@ -1,9 +1,11 @@
 import org.junit.Before;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import image.FunctionUtils;
 import image.Image;
 import image.Pixel;
 import model.ImagePrModelImpl;
@@ -45,18 +47,21 @@ public class TestImageModel {
   Pixel eight;
   List<Pixel> allBlack;
   List<Pixel> allWhite;
+  FunctionUtils fu;
+
+
 
   @Before
   public void setUp() {
-
-    one = new Pixel(111, 111, 111);
-    two = new Pixel(222, 222, 222);
-    three = new Pixel(0, 0, 0);
-    four = new Pixel(50, 25, 12);
-    five = new Pixel(255, 255, 255);
-    six = new Pixel(202, 101, 10);
-    seven = new Pixel(18, 50, 240);
-    eight = new Pixel(1, 2, 3);
+    fu = new FunctionUtils();
+    one = fu.properRGB(new int[]{111, 111, 111});
+    two = fu.properRGB(new int[]{222, 222, 222});
+    three = fu.properRGB(new int[]{0, 0, 0});
+    four = fu.properRGB(new int[]{50, 25, 12});
+    five = fu.properRGB(new int[]{255, 255, 255});
+    six = fu.properRGB(new int[]{202, 101, 10});
+    seven = fu.properRGB(new int[]{18, 50, 240});
+    eight = fu.properRGB(new int[]{1, 2, 3});
     lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one, two))),
             new ArrayList<>(Arrays.asList(three, four))));
     peter = new ArrayList<>(List.of((new ArrayList<>(Arrays.asList(one, two)))));
@@ -77,7 +82,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testLoad() {
+  public void testLoad() throws IOException {
     assertFalse(impOne.hasKey("res"));
     assertFalse(impOne.hasKey("rizz"));
     impOne.load("res/lol.ppm", "res");
@@ -104,7 +109,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testFlipImage() {
+  public void testFlipImage() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.flipImage("horizontal", "res", "newRes");
@@ -117,7 +122,7 @@ public class TestImageModel {
   }
 
   @Test
-  public void testBrighten() {
+  public void testBrighten() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.brighten(255, "res", "newRes");
@@ -130,11 +135,11 @@ public class TestImageModel {
     impTwo.brighten(55, "rizz", "hey");
     assertTrue(impTwo.hasKey("hey"));
     assertTrue(arrayEquals(impTwo.getHashMap().get("hey").flatten(),
-            List.of(new Pixel(166, 166, 166))));
+            List.of(fu.properRGB(new int[]{166, 166, 166}))));
   }
 
   @Test
-  public void testGreyscale() {
+  public void testGreyscale() throws IOException {
     impOne.load("res/lol.ppm", "res");
     impTwo.load("res/lmao.ppm", "rizz");
     impOne.greyscale("luma", "res", "luma");
@@ -146,29 +151,29 @@ public class TestImageModel {
     impOne.greyscale("red", "res", "red");
     assertTrue(impOne.hasKey("red"));
     assertTrue(arrayEquals(impOne.getHashMap().get("red").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(50, 50, 50)))));
+            new ArrayList<>(Arrays.asList(one, two, three, fu.properRGB(new int[]{50, 50, 50})))));
     impOne.greyscale("green", "res", "green");
     assertTrue(impOne.hasKey("green"));
     assertTrue(arrayEquals(impOne.getHashMap().get("green").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(25, 25, 25)))));
+            new ArrayList<>(Arrays.asList(one, two, three, fu.properRGB(new int[]{25, 25, 25})))));
     impOne.greyscale("blue", "res", "blue");
     assertTrue(impOne.hasKey("blue"));
     assertTrue(arrayEquals(impOne.getHashMap().get("blue").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(12, 12, 12)))));
+            new ArrayList<>(Arrays.asList(one, two, three, fu.properRGB(new int[]{12, 12, 12})))));
     impOne.greyscale("intensity", "res", "intensity");
     assertTrue(impOne.hasKey("intensity"));
     assertTrue(arrayEquals(impOne.getHashMap().get("intensity").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(29, 29, 29)))));
+            new ArrayList<>(Arrays.asList(one, two, three, fu.properRGB(new int[]{29, 29, 29})))));
     assertFalse(impOne.hasKey("value"));
     impOne.greyscale("value", "res", "value");
     assertTrue(impOne.hasKey("value"));
     assertTrue(arrayEquals(impOne.getHashMap().get("intensity").flatten(),
-            new ArrayList<>(Arrays.asList(one, two, three, new Pixel(50, 50, 50)))));
+            new ArrayList<>(Arrays.asList(one, two, three, fu.properRGB(new int[]{50, 50, 50})))));
 
   }
 
   @Test
-  public void testHasKey() {
+  public void testHasKey() throws IOException {
     assertFalse(impOne.hasKey("res"));
     impOne.load("res/lol.ppm", "res");
     assertTrue(impOne.hasKey("res"));

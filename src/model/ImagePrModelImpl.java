@@ -176,6 +176,7 @@ public class ImagePrModelImpl implements ImagePrModel {
    * @param s the given key.
    * @return whether our model has this image.
    */
+  @Override
   public boolean hasKey(String s) {
     for (String key : images.keySet()) {
       if (s.equals(key)) {
@@ -300,7 +301,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     List<List<Pixel>> newList = new ArrayList<>();
     int count = 0;
     for (int i = 0; i < height; i++) {
-      ArrayList<Pixel> row = new ArrayList<>();
+      List<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         row.add(flatlist.get(count));
         count++;

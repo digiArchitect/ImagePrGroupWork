@@ -7,7 +7,7 @@ import java.util.function.Function;
  * Function class used to make a Pixel grey.
  */
 public class GreyScale extends AbstractApply implements Function<Pixel,Pixel> {
-  String component;
+  private String component;
 
   /**
    * Constructs greyScale class utilizing the calculation for which the pixel will be turned gray.

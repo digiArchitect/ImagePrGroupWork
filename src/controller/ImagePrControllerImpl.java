@@ -65,7 +65,6 @@ public class ImagePrControllerImpl implements ImagePrController {
             entry("greyscale", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
-
     welcomeMessage();
 
     while (true) {
