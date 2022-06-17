@@ -41,14 +41,6 @@ public interface ImagePrModel {
   void greyscale(String component,String filename, String newname);
 
   /**
-   * Loads a file from a specific file location to a name in the hashamp.
-   * @param fileLoc the file location.
-   * @param fileName the file name.
-   * @throws IOException if something goes terribly wrong.
-   */
-  void load(String fileLoc, String fileName) throws IOException;
-
-  /**
    * Returns whether this model's hashmap has a key of the given string.
    * @param s the given string.
    * @return whether the hashmap has that key.

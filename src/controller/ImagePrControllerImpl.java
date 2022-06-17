@@ -168,7 +168,7 @@ public class ImagePrControllerImpl implements ImagePrController {
       try {
         switch (fields.get(0)) {
           case ("load"):
-            this.model.load(fields.get(1), fields.get(2));
+            load(fields.get(1), fields.get(2));
             break;
           case ("save"):
             this.view.save(fields.get(1), fields.get(2),
@@ -343,7 +343,7 @@ public class ImagePrControllerImpl implements ImagePrController {
    *
    * @param fileLoc the path of the file.
    */
-  public void load(String fileLoc, String fileName) throws IOException {
+  private void load(String fileLoc, String fileName) throws IOException {
     String fileType = fileLoc.split("[.]")[1];
     if (fileTypeSupported(fileType)) {
       loadSupported(fileLoc, fileName);
@@ -355,11 +355,11 @@ public class ImagePrControllerImpl implements ImagePrController {
   }
 
   /**
-   * Loads a ppm image.
+   * Loads a ppm image into the model's hashmap.
    * @param fileLoc the file source of the image to be loaded.
    * @param imageName the name of the image to be put in the HashMap.
    */
-  public void loadPPM(String fileLoc, String imageName) {
+  private void loadPPM(String fileLoc, String imageName) {
     Scanner sc;
     try {
       sc = new Scanner(new FileInputStream(fileLoc));
@@ -419,7 +419,6 @@ public class ImagePrControllerImpl implements ImagePrController {
     }
     this.model.newEntry(imageName, new Image(imageVals, width, height, maxValue));
   }
-
 }
 
 

@@ -2,15 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/autumnleaves.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/autumnleaves2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/AbstractApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/AbstractApply.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/FunctionUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
