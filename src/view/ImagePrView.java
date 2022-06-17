@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 
 import image.Image;
+import image.ImageImpl;
 
 /**
  * Represents the view for our image processor.

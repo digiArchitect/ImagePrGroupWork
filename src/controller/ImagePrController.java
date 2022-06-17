@@ -18,4 +18,19 @@ public interface ImagePrController {
    * @throws IOException if the file cannot be read.
    */
   void load(String fileLoc, String imageName) throws IOException;
+
+  /**
+   * Loads a ppm image into the model's hashmap.
+   * @param fileLoc the file source of the image to be loaded.
+   * @param imageName the name of the image to be put in the HashMap.
+   */
+  void loadPPM(String fileLoc, String imageName) throws IOException;
+
+  /**
+   * Loads an image file into the model's hashmap.
+   * @param fileLoc the file source of the image to be loaded.
+   * @param imageName the name for the image to be put into the hashmap under.
+   * @throws IOException if unable to read the file input stream of the fileLoc.
+   */
+  void loadSupported(String fileLoc, String imageName) throws IOException;
 }

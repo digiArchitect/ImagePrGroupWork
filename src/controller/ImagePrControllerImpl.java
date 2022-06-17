@@ -13,7 +13,7 @@ import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import image.Image;
+import image.ImageImpl;
 import image.Pixel;
 import image.PixelImpl;
 import model.ImagePrModel;
@@ -393,7 +393,7 @@ public class ImagePrControllerImpl implements ImagePrController {
 
       imageVals.add(row);
     }
-    this.model.newEntry(imageName, new Image(imageVals, width, height, maxValue));
+    this.model.newEntry(imageName, new ImageImpl(imageVals, width, height, maxValue));
   }
 
   /**
@@ -417,7 +417,7 @@ public class ImagePrControllerImpl implements ImagePrController {
       }
       imageVals.add(row);
     }
-    this.model.newEntry(imageName, new Image(imageVals, width, height, maxValue));
+    this.model.newEntry(imageName, new ImageImpl(imageVals, width, height, maxValue));
   }
 }
 

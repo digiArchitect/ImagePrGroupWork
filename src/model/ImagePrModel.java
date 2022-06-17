@@ -1,10 +1,10 @@
 package model;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
 import image.Image;
+import image.ImageImpl;
 
 /**
  * The model of our image processor, which performs visual operations on our images
@@ -77,5 +77,10 @@ public interface ImagePrModel {
    */
   void colorTransform(String component, String fileLoc, String fileName);
 
-  public void newEntry(String imageName, Image image);
+  /**
+   * Loads a new image into the hashmap.
+   * @param imageName the name of the image.
+   * @param image the image.
+   */
+   void newEntry(String imageName, Image image);
 }

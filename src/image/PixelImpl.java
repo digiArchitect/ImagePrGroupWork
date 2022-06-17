@@ -1,7 +1,7 @@
 package image;
 
 /**
- Represents a PixelImpl of an Image.
+ Represents a PixelImpl of an ImageImpl.
  */
 public class PixelImpl implements Pixel {
   private int rgb;
