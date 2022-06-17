@@ -3,13 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/ACommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/ACommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/Command.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/map/AMapCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/map/AMapCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/map/BrightenCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/map/BrightenCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/map/grayscale/AGrayScaleChannelCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/map/grayscale/AGrayScaleChannelCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/command/reorder/AOrderCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/command/reorder/AOrderCommand.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,6 +168,7 @@
       <workItem from="1655317777535" duration="11306000" />
       <workItem from="1655357303860" duration="6456000" />
       <workItem from="1655365559129" duration="26000" />
+      <workItem from="1655397568664" duration="648000" />
     </task>
     <servers />
   </component>
