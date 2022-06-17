@@ -1,12 +1,11 @@
 package image;
 
-import java.util.Arrays;
 import java.util.function.Function;
 
 /**
  * Function class used to make a Pixel grey.
  */
-public class GreyScale extends AbstractApply implements Function<Pixel,Pixel> {
+public class GreyScale extends AbstractApply implements Function<Pixel, Pixel> {
   private String component;
 
   /**
@@ -51,8 +50,6 @@ public class GreyScale extends AbstractApply implements Function<Pixel,Pixel> {
     }
     newVal = clamp(newVal);
 
-
-
-    return properRGB(new int[] {newVal,newVal,newVal});
+    return new PixelImpl(new int[] {newVal,newVal,newVal});
   }
 }

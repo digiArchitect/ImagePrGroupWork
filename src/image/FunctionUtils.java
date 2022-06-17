@@ -46,12 +46,12 @@ public class FunctionUtils {
    * @param values the r, g, b values given.
    * @return a pixel with the color of these values.
    */
-  public static Pixel properRGB(int[] values) {
+  public static int properRGB(int[] values) {
     StringBuilder p = new StringBuilder();
     p.append(values[0] << 16);
     p.append(values[1] << 8);
     p.append(values[2]);
-    Pixel f = new Pixel(((values[0]&0x0ff)<<16)|((values[1]&0x0ff)<<8)|(values[2]&0x0ff));
+    int f = ((values[0]&0x0ff)<<16)|((values[1]&0x0ff)<<8)|(values[2]&0x0ff);
     return f;
   }
 

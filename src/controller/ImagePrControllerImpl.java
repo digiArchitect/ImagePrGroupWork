@@ -13,9 +13,9 @@ import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import image.FunctionUtils;
 import image.Image;
 import image.Pixel;
+import image.PixelImpl;
 import model.ImagePrModel;
 import view.ImagePrView;
 
@@ -343,7 +343,7 @@ public class ImagePrControllerImpl implements ImagePrController {
    *
    * @param fileLoc the path of the file.
    */
-  private void load(String fileLoc, String fileName) throws IOException {
+  public void load(String fileLoc, String fileName) throws IOException {
     String fileType = fileLoc.split("[.]")[1];
     if (fileTypeSupported(fileType)) {
       loadSupported(fileLoc, fileName);
@@ -359,7 +359,7 @@ public class ImagePrControllerImpl implements ImagePrController {
    * @param fileLoc the file source of the image to be loaded.
    * @param imageName the name of the image to be put in the HashMap.
    */
-  private void loadPPM(String fileLoc, String imageName) {
+  public void loadPPM(String fileLoc, String imageName) {
     Scanner sc;
     try {
       sc = new Scanner(new FileInputStream(fileLoc));
@@ -388,7 +388,7 @@ public class ImagePrControllerImpl implements ImagePrController {
       List<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         int[] vals = new int[]{sc.nextInt(), sc.nextInt(), sc.nextInt()};
-        row.add(FunctionUtils.properRGB(vals));
+        row.add(new PixelImpl(vals));
       }
 
       imageVals.add(row);
@@ -402,7 +402,7 @@ public class ImagePrControllerImpl implements ImagePrController {
    * @param imageName the name for the image to be put into the hashmap under.
    * @throws IOException if unable to read the file input stream of the fileLoc.
    */
-  private void loadSupported(String fileLoc, String imageName) throws IOException {
+  public void loadSupported(String fileLoc, String imageName) throws IOException {
     BufferedImage t = ImageIO.read(new FileInputStream(fileLoc));
     int width = t.getWidth();
     int height = t.getHeight();
@@ -412,7 +412,7 @@ public class ImagePrControllerImpl implements ImagePrController {
       List<Pixel> row = new ArrayList<>();
       for (int j = 0; j < width; j++) {
         int rgb = t.getRGB(j, i);
-        Pixel p = new Pixel(rgb);
+        Pixel p = new PixelImpl(rgb);
         row.add(p);
       }
       imageVals.add(row);

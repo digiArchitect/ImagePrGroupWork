@@ -2,13 +2,25 @@ package image;
 
 import java.util.function.Function;
 
-public class MatrixMultiplication extends AbstractApply implements Function<Pixel,Pixel> {
+/**
+ * Performs an operation on a pixel using a kernel matrix.
+ */
+public class MatrixMultiplication extends AbstractApply implements Function<Pixel, Pixel> {
   Double[][] matrix;
 
+  /**
+   * Constructs a Matrix Multiplication function.
+   * @param matrix the matrix used for the mutation.
+   */
   public MatrixMultiplication(Double[][] matrix) {
     this.matrix = matrix;
   }
 
+  /**
+   * Returns a new pixel of the matrix operation being performed on the given one.
+   * @param pixel the given pixel.
+   * @return the new pixel.
+   */
   @Override
   public Pixel apply(Pixel pixel) {
     int[] newRgb = new int[3];
@@ -19,7 +31,7 @@ public class MatrixMultiplication extends AbstractApply implements Function<Pixe
       newRgb[x] = clamp(newRgb[x]);
 
     }
-    return properRGB(newRgb);
+    return new PixelImpl(newRgb);
   }
     
 }

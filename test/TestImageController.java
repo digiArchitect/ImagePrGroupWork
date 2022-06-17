@@ -23,8 +23,10 @@ public class TestImageController {
   ImagePrModel model;
   ImagePrView view;
   ImagePrController controller;
-  String[] lines;
 
+  /**
+   * Sets up variables to be used for the tests.
+   */
   @Before
   public void setup() {
     out = new StringBuilder();
@@ -32,6 +34,9 @@ public class TestImageController {
     view = new ImagePrViewImpl();
   }
 
+  /**
+   * Tests that the controller constructor works.
+   */
   @Test
   public void testConstructor() {
     input = new StringReader("q");
@@ -40,6 +45,9 @@ public class TestImageController {
     assertTrue(out != null);
   }
 
+  /**
+   * Tests with a Mock.
+   */
   @Test
   public void testValidMock() {
     input = new StringReader("g g g g g g q q hello load b b 23r2dsjkafhdsk q");
@@ -48,6 +56,10 @@ public class TestImageController {
     assertTrue(log.length() == 0);
   }
 
+  /**
+   * Tests that the controller correctly takes in all kinds of user input without
+   * needing to throw exceptions.
+   */
   @Test
   public void testResults() {
     try {

@@ -8,6 +8,7 @@ import java.util.List;
 
 import image.FunctionUtils;
 import image.Pixel;
+import image.PixelImpl;
 import image.Image;
 
 import static org.junit.Assert.assertEquals;
@@ -40,17 +41,20 @@ public class TestImage {
   Pixel eight;
   FunctionUtils fu;
 
+  /**
+   * The variables used for theses tests.
+   */
   @Before
   public void setUp() {
     fu = new FunctionUtils();
-    one = fu.properRGB(new int[]{111, 111, 111});
-    two = fu.properRGB(new int[]{222, 222, 222});
-    three = fu.properRGB(new int[]{0, 0, 0});
-    four = fu.properRGB(new int[]{50, 25, 12});
-    five = fu.properRGB(new int[]{255, 255, 255});
-    six = fu.properRGB(new int[]{202, 101, 10});
-    seven = fu.properRGB(new int[]{18, 50, 240});
-    eight = fu.properRGB(new int[]{1, 2, 3});
+    one = new PixelImpl(new int[]{111, 111, 111});
+    two = new PixelImpl(new int[]{222, 222, 222});
+    three = new PixelImpl(new int[]{0, 0, 0});
+    four = new PixelImpl(new int[]{50, 25, 12});
+    five = new PixelImpl(new int[]{255, 255, 255});
+    six = new PixelImpl(new int[]{202, 101, 10});
+    seven = new PixelImpl(new int[]{18, 50, 240});
+    eight = new PixelImpl(new int[]{1, 2, 3});
     lol = new ArrayList<>(Arrays.asList((new ArrayList<>(Arrays.asList(one, two))),
             new ArrayList<>(Arrays.asList(three, four))));
     peter = new ArrayList<>(List.of((new ArrayList<>(Arrays.asList(one, two)))));

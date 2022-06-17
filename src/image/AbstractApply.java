@@ -18,7 +18,7 @@ public abstract class AbstractApply {
    * @param values the R G B integers.
    * @return a pixel with that value as its color.
    */
-  protected Pixel properRGB(int[] values) {
+  protected int properRGB(int[] values) {
     return FunctionUtils.properRGB(values);
   }
 }

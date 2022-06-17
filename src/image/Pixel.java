@@ -1,46 +1,19 @@
 package image;
 
-/**
- Represents a Pixel of an Image.
- */
-public class Pixel {
-  private int rgb;
-
-
-  /**
-   * Constructs a pixel given a red, blue, and green value.
-   * @param rgb the 32 bit rgb
-   */
-  public Pixel(int rgb)  {
-    this.rgb = rgb;
-  }
-
+public interface Pixel {
   /**
    * Returns the pixel's specified channel value.
    * @param c the channel.
    * @return the number for the channel.
    * @throws IllegalArgumentException if a channel besides r,g,b is requested.
    */
-  public int getChannel(int c) throws IllegalArgumentException {
-    switch (c) {
-      case 0:
-       return  (rgb & 0xff0000) >> 16;
-      case 1:
-        return (rgb & 0xff00) >> 8;
-      case 2:
-        return  rgb & 0xff;
-      default:
-        throw new IllegalArgumentException("Choose a valid color between 0, 1, and 2");
-    }
-  }
+  int getChannel(int c);
 
   /**
    * Returns the pixel's rgb
    * @return the rgb.
    */
-    public int getRGB() {
-      return rgb;
-    }
+  int hashCode();
 
   /**
    * Tests whether a pixel is equal to another pixel by seeing if all of their
@@ -48,8 +21,5 @@ public class Pixel {
    * @param e the other pixel.
    * @return whether the pixels are equal.
    */
-  public boolean checkEquality(Pixel e) {
-    return this.rgb == e.rgb;
-  }
-
+  boolean equals(Pixel e);
 }

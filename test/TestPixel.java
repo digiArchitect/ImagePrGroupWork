@@ -2,67 +2,97 @@ import org.junit.Before;
 import org.junit.Test;
 
 import image.FunctionUtils;
-import image.Pixel;
+import image.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 
 
 /**
- * Class for testing a Pixel class.
+ * Class for testing a PixelImpl class.
  */
 public class TestPixel {
-  Pixel p;
-  Pixel p2;
-  Pixel p3;
+  PixelImpl p;
+  PixelImpl p2;
+  PixelImpl p3;
   FunctionUtils fu;
 
+  /**
+   * Sets up variables to be used for the tests.
+   */
   @Before
   public void setup() {
-    p = fu.properRGB(new int[]{123, 245, 183});
-    p2 = fu.properRGB(new int[]{17, 38, 240});
-    p3 = fu.properRGB(new int[]{4, 5, 6});
+    p = new PixelImpl(new int[]{123, 245, 183});
+    p2 = new PixelImpl(new int[]{17, 38, 240});
+    p3 = new PixelImpl(new int[]{4, 5, 6});
   }
 
+  /**
+   * Tests constructing a pixel with a red value too small.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testSmallRed() {
-    fu.properRGB(new int[]{-1, 5, 5});
+    new PixelImpl(new int[]{-1, 5, 5});
   }
 
+  /**
+   * Tests constructing a pixel with a green value too small.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testSmallGreen() {
-    fu.properRGB(new int[]{5, -1, 5});
+    new PixelImpl(new int[]{5, -1, 5});
   }
 
+  /**
+   * Tests constructing a pixel with a blue value too small.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testSmallBlue() {
-    fu.properRGB(new int[]{5, 5, -1});
+    new PixelImpl(new int[]{5, 5, -1});
   }
 
+  /**
+   * Tests constructing a pixel with a red value too high.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testBigRed() {
-    fu.properRGB(new int[]{256, 5, 5});
+    new PixelImpl(new int[]{256, 5, 5});
   }
 
+  /**
+   * Tests constructing a pixel with a green value too high.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testBigGreen() {
-    fu.properRGB(new int[]{5, 256, 5});
+    new PixelImpl(new int[]{5, 256, 5});
   }
 
+  /**
+   * Tests constructing a pixel with a blue value too high.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testBigBlue() {
-    fu.properRGB(new int[]{5, 5, 256});
+    new PixelImpl(new int[]{5, 5, 256});
   }
 
+  /**
+   * Tests constructing a pixel with rgb values too low.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testAllSmall() {
-    fu.properRGB(new int[]{-1, -1, -1});
+    new PixelImpl(new int[]{-1, -1, -1});
   }
 
+  /**
+   * Tests constructing a pixel with rgb values too high.
+   */
   @Test(expected = IllegalArgumentException.class)
   public void testAllBig() {
-    fu.properRGB(new int[]{256, 256, 256});
+    new PixelImpl(new int[]{256, 256, 256});
   }
 
+  /**
+   * Tests the getChannel method on pixels.
+   */
   @Test
   public void testGetChannel() {
     assertEquals(6, p3.getChannel(2));

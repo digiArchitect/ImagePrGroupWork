@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -154,6 +155,11 @@ public class ImagePrControllerImplMock implements ImagePrController {
       full = 1;
       fields.clear();
     }
+  }
+
+  @Override
+  public void load(String fileLoc, String imageName) throws IOException {
+
   }
 }
 
