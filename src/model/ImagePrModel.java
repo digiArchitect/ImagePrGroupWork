@@ -84,4 +84,6 @@ public interface ImagePrModel {
    * @param fileName the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
+
+  public void newEntry(String imageName, Image image);
 }

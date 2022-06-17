@@ -2,35 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/res/cuteness-blur.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cuteness-sepia.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cuteness-sharp.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cuteness.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cutest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cutestblurry.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/cutestsharp.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/mangoes-sepia.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/superblur.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/autumnleaves.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/autumnleaves2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/Pixel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/greyScale.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Image/mutateAll.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/image/AbstractApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/AbstractApply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/FunctionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/GreyScale.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/GreyScale.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/MutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/MutateAll.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Pixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -218,25 +198,10 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>121</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>117</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/view/ImagePrViewImpl.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/test/TestImageModel.java</url>
           <line>111</line>
-          <properties class="TestImageModel" method="testFlipImage">
+          <properties class="TestImageModel">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
