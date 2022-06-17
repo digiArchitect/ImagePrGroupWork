@@ -9,7 +9,9 @@ import java.util.List;
 import controller.ImagePrController;
 import controller.ImagePrControllerImpl;
 import image.FunctionUtils;
+import image.Image;
 import image.ImageImpl;
+import image.Pixel;
 import image.PixelImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
@@ -33,30 +35,30 @@ public class TestImageModel {
           impOne);
   ImagePrController controlImpTwo = new ImagePrControllerImpl(new StringReader("q"), viewImp,
           impTwo);
-  ImageImpl m;
-  ImageImpl a;
-  ImageImpl r;
-  ImageImpl i;
-  ImageImpl o;
+  Image m;
+  Image a;
+  Image r;
+  Image i;
+  Image o;
 
 
-  List<List<PixelImpl>> lol;
-  List<List<PixelImpl>> peter;
-  List<List<PixelImpl>> griffin;
-  List<List<PixelImpl>> family;
-  List<List<PixelImpl>> guy;
+  List<List<Pixel>> lol;
+  List<List<Pixel>> peter;
+  List<List<Pixel>> griffin;
+  List<List<Pixel>> family;
+  List<List<Pixel>> guy;
 
 
-  PixelImpl one;
-  PixelImpl two;
-  PixelImpl three;
-  PixelImpl four;
-  PixelImpl five;
-  PixelImpl six;
-  PixelImpl seven;
-  PixelImpl eight;
-  List<PixelImpl> allBlack;
-  List<PixelImpl> allWhite;
+  Pixel one;
+  Pixel two;
+  Pixel three;
+  Pixel four;
+  Pixel five;
+  Pixel six;
+  Pixel seven;
+  Pixel eight;
+  List<Pixel> allBlack;
+  List<Pixel> allWhite;
   FunctionUtils fu;
 
 
@@ -124,7 +126,7 @@ public class TestImageModel {
    * @param two the second array.
    * @return whether they are equal.
    */
-  private boolean arrayEquals(List<PixelImpl> one, List<PixelImpl> two) {
+  private boolean arrayEquals(List<Pixel> one, List<Pixel> two) {
     boolean b = true;
     for (int x = 0; x < one.size(); x++) {
       b &= one.get(x).equals(two.get(x));

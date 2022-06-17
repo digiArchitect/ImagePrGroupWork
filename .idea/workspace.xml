@@ -2,18 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/image/ImageImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/PixelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/image/PixelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/MatrixMultiplication.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/MatrixMultiplication.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,7 +73,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestPixel">
+  <component name="RunManager" selected="JUnit.TestImage">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -139,11 +137,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImage" />
+        <item itemvalue="JUnit.TestImageController" />
         <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="JUnit.TestPixel.testSmallRed" />
         <item itemvalue="JUnit.TestImageModel" />
-        <item itemvalue="JUnit.TestImageController" />
-        <item itemvalue="JUnit.TestImage" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +175,7 @@
       <workItem from="1655481528707" duration="667000" />
       <workItem from="1655482877970" duration="3177000" />
       <workItem from="1655488177459" duration="1216000" />
-      <workItem from="1655502200230" duration="5042000" />
+      <workItem from="1655502200230" duration="5275000" />
     </task>
     <servers />
   </component>

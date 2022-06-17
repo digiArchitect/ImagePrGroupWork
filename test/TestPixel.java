@@ -2,6 +2,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import image.FunctionUtils;
+import image.Pixel;
 import image.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
@@ -11,9 +12,9 @@ import static org.junit.Assert.assertEquals;
  * Class for testing a PixelImpl class.
  */
 public class TestPixel {
-  PixelImpl p;
-  PixelImpl p2;
-  PixelImpl p3;
+  Pixel p;
+  Pixel p2;
+  Pixel p3;
   FunctionUtils fu;
 
   /**

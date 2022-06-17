@@ -7,6 +7,7 @@ import java.util.List;
 
 
 import image.FunctionUtils;
+import image.Image;
 import image.ImageImpl;
 import image.Pixel;
 import image.PixelImpl;
@@ -17,12 +18,11 @@ import static org.junit.Assert.assertEquals;
  * Tests the image class.
  */
 public class TestImage {
-  ImageImpl s;
-  ImageImpl u;
-  ImageImpl p;
-  ImageImpl e;
-  ImageImpl r;
-
+  Image s;
+  Image u;
+  Image p;
+  Image e;
+  Image r;
 
   List<List<Pixel>> lol;
   List<List<Pixel>> peter;
