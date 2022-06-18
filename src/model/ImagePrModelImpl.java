@@ -21,11 +21,6 @@ import model.image.MutateAll;
  * An image processor's model, which performs operations on images stored within its HashMap of
  * images.
  */
-
-/**
- * An image processor's model, which performs operations on images stored within its HashMap of
- * images.
- */
 public class ImagePrModelImpl implements ImagePrModel {
 
   private HashMap<String, Image> images;
@@ -116,7 +111,6 @@ public class ImagePrModelImpl implements ImagePrModel {
    *
    * @return the hashmap.
    */
-  @Override
   public HashMap<String, Image> getHashMap() {
     return new HashMap<>(images);
   }

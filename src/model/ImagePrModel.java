@@ -4,12 +4,42 @@ import java.util.HashMap;
 import java.util.List;
 
 import model.image.Image;
+import model.image.Pixel;
 
 /**
  * The model of our image processor, which performs visual operations on our images
  * through manipulating their pixels.
  */
 public interface ImagePrModel {
+
+  /**
+   * Loads a new image into the hashmap.
+   * @param imageName the name of the image.
+   * @param image the image.
+   */
+  void newEntry(String imageName, Image image);
+
+  /**
+   * Returns whether this model's hashmap has a key of the given string.
+   * @param s the given string.
+   * @return whether the hashmap has that key.
+   */
+  boolean hasKey(String s);
+
+  /**
+   * Returns this model's hashmap.
+   *
+   * @return the hashmap.
+   */
+  HashMap<String, Image> getHashMap();
+
+  /**
+   * Returns the contents of an image at a specified name.
+   *
+   * @param s the image name.
+   * @return the contents.
+   */
+   List<Integer> getImageContents(String s);
 
   /**
    * Flips the image depending on the direction user inputs.
@@ -40,28 +70,6 @@ public interface ImagePrModel {
   void greyscale(String component,String filename, String newname);
 
   /**
-   * Returns whether this model's hashmap has a key of the given string.
-   * @param s the given string.
-   * @return whether the hashmap has that key.
-   */
-  boolean hasKey(String s);
-
-  /**
-   * Returns this model's hashmap.
-   * @return the hashmap.
-   */
-  HashMap<String, Image> getHashMap();
-
-  /**
-   * Returns the contents of the image at this value in the hashmap.
-   * @param s the image name.
-   * @return the contents.
-   */
-  List<Integer> getImageContents(String s);
-
-
-
-  /**
    * Mutates the image based off a kernel
    * @param component which type of kenel mutation one would like to do.
    * @param fileLoc the file location.
@@ -75,11 +83,4 @@ public interface ImagePrModel {
    * @param fileName the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
-
-  /**
-   * Loads a new image into the hashmap.
-   * @param imageName the name of the image.
-   * @param image the image.
-   */
-   void newEntry(String imageName, Image image);
 }

@@ -21,9 +21,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/ImageImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/MatrixMultiplication.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/PixelImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImage.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestPixel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/AbstractApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/AbstractApply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" afterDir="false" />
@@ -104,7 +101,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestImage">
+  <component name="RunManager" selected="JUnit.TestImageModel">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -168,11 +165,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImageModel" />
+        <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="JUnit.TestImage" />
         <item itemvalue="JUnit.TestImageController" />
-        <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestImageModel.testMutate" />
-        <item itemvalue="JUnit.TestPixel" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +245,11 @@
             <option name="WATCH_EXIT" value="false" />
           </properties>
           <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>45</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
