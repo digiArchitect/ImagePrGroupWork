@@ -6,8 +6,8 @@ value-component foo valuefoo
 luma-component foo lumafoo
 intensity-component foointensityfoo
 horizontal-flip foo horizontalfoo
-vertical-flip foo verticalfoo b
-righten 50 foobrightfoo
+vertical-flip foo verticalfoo
+brighten 50 foo brightfoo
 brighten -50 foo darkfoo
 sepia foo sepiafoo
 greyscale foo greyfoo

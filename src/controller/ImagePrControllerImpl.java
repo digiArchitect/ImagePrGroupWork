@@ -161,7 +161,7 @@ public class ImagePrControllerImpl implements ImagePrController {
             }
           }
         } catch (Exception e) {
-          throw new IllegalStateException("there's nothing in the scanner you moron");
+          throw new IllegalStateException("There's nothing in the scanner!");
         }
       }
 
