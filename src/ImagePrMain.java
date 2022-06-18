@@ -3,7 +3,6 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
 import controller.ImagePrController;
 import controller.ImagePrControllerImpl;
 import model.ImagePrModel;
