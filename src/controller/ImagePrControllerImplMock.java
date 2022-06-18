@@ -157,9 +157,15 @@ public class ImagePrControllerImplMock implements ImagePrController {
     }
   }
 
+  /**
+   * Loads an image file into the processor.
+   * @param fileLoc the source location of the file on the user's computer.
+   * @param imageName the name of the image to be put into te hashmap.
+   * @throws IOException
+   */
   @Override
   public void load(String fileLoc, String imageName) throws IOException {
-
+    //no need to mock
   }
 
   /**
@@ -170,7 +176,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
    */
   @Override
   public void loadPPM(String fileLoc, String imageName) throws IOException {
-
+    //no need to mock
   }
 
   /**
@@ -182,7 +188,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
    */
   @Override
   public void loadSupported(String fileLoc, String imageName) throws IOException {
-
+    //no need to mock
   }
 }
 

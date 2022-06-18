@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 
 import controller.ImagePrController;
@@ -21,7 +20,6 @@ import view.ImagePrViewImpl;
 
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -128,6 +126,7 @@ public class TestImageModel {
     assertFalse(impTwo.hasKey("bob"));
     controlImpTwo.load("res/cool.png", "bob");
     assertTrue(impTwo.hasKey("bob"));
+
     assertTrue(arrayEquals(impTwo.getHashMap().get("bob").flatten(),
             new ArrayList<>(Arrays.asList(
                     new PixelImpl(new int[] {14, 52, 218}),
@@ -178,7 +177,11 @@ public class TestImageModel {
   private boolean arrayEquals(List<Pixel> one, List<Pixel> two) {
     boolean b = true;
     for (int x = 0; x < one.size(); x++) {
-      b &= one.get(x).equals(two.get(x));
+      Pixel p = one.get(x);
+      Pixel l = two.get(x);
+      for (int z = 0; z < 3; z++) {
+        b &= p.getChannel(z) == l.getChannel(z);
+      }
     }
     return b;
   }
@@ -290,20 +293,15 @@ public class TestImageModel {
     impTwo.kernelMutate("sharpen", "rizz", "sharp");
     assertTrue(arrayEquals(impTwo.getHashMap().get("sharp").flatten(),
             new ArrayList<>(Arrays.asList(
-
                     new PixelImpl(new int[]{78, 110, 255}),
                     new PixelImpl(new int[]{72, 235, 254}),
                     new PixelImpl(new int[]{21, 60, 77}),
                     new PixelImpl(new int[]{199, 82, 255}),
                     new PixelImpl(new int[]{127, 76, 255}),
                     new PixelImpl(new int[]{42, 56, 104}),
-                    new PixelImpl(new int[]{63, 0, 97}),
-                    new PixelImpl(new int[]{63, 0, 97}),
-                    new PixelImpl(new int[]{20, 0, 43})))));
-
-
-
-
+                    new PixelImpl(new int[]{63, 1, 97}),
+                    new PixelImpl(new int[]{63, 1, 97}),
+                    new PixelImpl(new int[]{20, 1, 54})))));
   }
 
   @Test

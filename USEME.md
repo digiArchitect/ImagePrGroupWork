@@ -1,54 +1,52 @@
-# Jylah and Archie's Enhanced Image Processor
+## Features
++ Load Images
+  + Load images into the image processor through the controller.
+  + Command format:
+    + load *file-source* *image-name*
++ Save Images
+  + Save images from the image processor through the controller.
+  + Command format:
+    + save *file-source* *image-name*
++ Greyscale Images
+  + Greyscale images through a variety of means.
+  + Commands include:
+    + greyscale
+    + red-component
+    + green-component
+    + blue-component
+    + luma
+    + intensity
+    + value
+  + Command format:
+    + *name-of-command* *image-name* *image-destination*
++ Brighten/Darken Images
+  + Brighten or darken images by a certain constant integer value.
+  + Command format:
+    + brighten *amount* *image-name* *image-destination*
++ Flip Images
+  + Flip images, vertically or horizontally.
+  + Commands include:
+    + vertical-flip
+    + horizontal-flip
+  + Command format:
+    + *type*-flip *image-name* *image-destination*
++ Blur Images
+  + Blur images.
+  + Command format:
+    + blur *image-name* *image-destination*
++ Sharpen Images
+  + Sharpen images.
+  + Command format:
+    + sharpen *image-name* *image-destination*
++ Sepia Filter
+  + Add a sepia filter over images.
+  + Command format:
+    + sepia *image-name* *image-destination*
 
-Jylah and Archie's image processor is a text-based interactive image
-processor program that runs in java. Details of the changes we made to our design since the
-initial assignment are noted at the bottom of this README.
-
-## Installation
-
-Downlad the zip from handins.
-
-## Usage
-
-Upon opening the program, a console scanner will prompt you
-to deliver text input. You can copy and paste the following string
-(without the quotation marks) into the scanner input for a demo of
-the program's functionalities. A bit below is a walk-through of what each
-separate command does.
-
-You can enter user input either through a command line argument, or through entering into the
-console with your keyboard.
-
-Upon opening the program, a welcome message will display, showing you the format
-of inputs and the different commands available to you, and then a console scanner will prompt you
-to deliver text input.
-
-Text inputs come in the format of the name of the command,
-and then valid inputs for each of its field types, which will be specified.
-
-If a user enters an invalid input, the program will continue reading through their inputs in search
-of a valid one. If at any point the user inputs the string "q" or "Q", the program will terminate.
-
-You can copy and paste the following series of commands into the scanner input for a demo of
-the program's functionalities.
-
-## Demo Commands
-
-load res/mangoes.ppm foo red-component foo redfoo blue-component foo bluefoo green-component foo
-greenfoo value-component foo valuefoo luma-component foo lumafoo intensity-component foo 
-intensityfoo horizontal-flip foo horizontalfoo vertical-flip foo verticalfoo brighten 50 foo 
-brightfoo brighten -50 foo darkfoo 
-sepia foo sepiafoo greyscale foo greyfoo sharpen foo sharpfoo blur foo blurfoo
-save res/mangoes-red.png redfoo save res/mangoes-blue.png 
-bluefoo save res/mangoes-green.png greenfoo save res/mangoes-value.png valuefoo save 
-res/mangoes-luma.png lumafoo save res/mangoes-intenstiy.png intensityfoo save 
-res/mangoes-horizontal-flip.png horizontalfoo save res/mangoes-vertical-flip.png verticalfoo save 
-res/mangoes-brighter.png brightfoo save res/mangoes-darker.png darkfoo 
-save res/mangoes-sepia.png sepiafoo save res/mangoes-grey.png greyfoo 
-save res/mangoes-sharp.png sharpfoo save res/mangoes-blurry.png blurfoo
-q
-
+    
 ## Demo Commands Explained
+Attatched in this zip file is a script that contains a series of commands to be executed
+in this program. This is every one of those commands, explained.
 ```python
 # loads my given photobooth selfie to the processor under the name "foo"
 load res/mangoes.ppm foo
@@ -137,12 +135,3 @@ save res/mangoes-blurry.png blurfoo
 # quits the program
 q
 ```
-
-## Design Changes
-+ The way Pixels represent their RGB value was changed from three int variables to one 32-int bit variable, with a translation method added as a util. This made it easier to deal with BufferedImages.
-+ Load was moved from the model to the controller. This adheres more closely to the MVC structure.
-+ Added an "Image" and "Pixel" interface that ImageImpl and PixelImpl then implement, as opposed to just having an Image and Pixel class. This was done to remove leaks.
-+ General reformatting of some helper methods and functions to simplify code.
-
-## License
-I took the photo for mangoes.ppm of myself using a filter on the photobooth app on my own computer.

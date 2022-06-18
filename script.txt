@@ -1,0 +1,30 @@
+load res/mangoes.ppm foo
+red-component foo redfoo
+blue-component foo bluefoo
+green-component foo greenfoo
+value-component foo valuefoo
+luma-component foo lumafoo
+intensity-component foointensityfoo
+horizontal-flip foo horizontalfoo
+vertical-flip foo verticalfoo b
+righten 50 foobrightfoo
+brighten -50 foo darkfoo
+sepia foo sepiafoo
+greyscale foo greyfoo
+sharpen foo sharpfoo
+blur foo blurfoo
+save res/mangoes-red.png redfoo
+save res/mangoes-blue.png bluefoo
+save res/mangoes-green.png greenfoo
+save res/mangoes-value.png valuefoo
+save res/mangoes-luma.png lumafoo
+save res/mangoes-intenstiy.png intensityfoo
+save res/mangoes-horizontal-flip.png horizontalfoo
+save res/mangoes-vertical-flip.png verticalfoo
+save res/mangoes-brighter.png brightfoo
+save res/mangoes-darker.png darkfoo
+save res/mangoes-sepia.png sepiafoo
+save res/mangoes-grey.png greyfoo
+save res/mangoes-sharp.png sharpfoo
+save res/mangoes-blurry.png blurfoo
+q

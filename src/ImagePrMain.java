@@ -21,6 +21,8 @@ public class ImagePrMain {
     System.out.println(args);
     Readable input;
     if (args.length > 0) {
+
+
       StringBuilder sb = new StringBuilder();
       for (String s : args) {
         sb.append(s + " ");
@@ -28,8 +30,12 @@ public class ImagePrMain {
       sb.append("q");
       System.out.println(sb);
       input = new StringReader(sb.toString());
-    } else {
+    }
+
+
+    else {
       input = new InputStreamReader(System.in);
+
     }
     ImagePrView view = new ImagePrViewImpl();
     ImagePrModel model = new ImagePrModelImpl();
