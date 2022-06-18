@@ -1,9 +1,9 @@
 import org.junit.Before;
 import org.junit.Test;
 
-import image.FunctionUtils;
-import image.Pixel;
-import image.PixelImpl;
+import model.image.FunctionUtils;
+import model.image.Pixel;
+import model.image.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 

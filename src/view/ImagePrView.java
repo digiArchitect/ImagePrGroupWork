@@ -4,8 +4,7 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
-import image.Image;
-import image.ImageImpl;
+import model.image.Image;
 
 /**
  * Represents the view for our image processor.

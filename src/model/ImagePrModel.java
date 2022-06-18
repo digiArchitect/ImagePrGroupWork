@@ -3,8 +3,7 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 
-import image.Image;
-import image.ImageImpl;
+import model.image.Image;
 
 /**
  * The model of our image processor, which performs visual operations on our images

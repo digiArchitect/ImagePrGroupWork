@@ -1,4 +1,4 @@
-package image;
+package model.image;
 
 public interface Pixel {
   /**

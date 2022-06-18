@@ -9,13 +9,11 @@ import java.util.List;
 
 import javax.imageio.ImageIO;
 
-import image.FunctionUtils;
-import image.Image;
-import image.ImageImpl;
-import image.Pixel;
-import image.PixelImpl;
+import model.image.FunctionUtils;
+import model.image.Image;
+import model.image.Pixel;
 
-import static image.FunctionUtils.fileTypeSupported;
+import static model.image.FunctionUtils.fileTypeSupported;
 
 /**
  * Represents the view of the image processor, allowing us to see our image once we've

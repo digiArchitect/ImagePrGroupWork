@@ -1,4 +1,4 @@
-package image;
+package model.image;
 
 import java.util.Arrays;
 import java.util.HashMap;

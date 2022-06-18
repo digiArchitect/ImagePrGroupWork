@@ -4,15 +4,16 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import controller.ImagePrController;
 import controller.ImagePrControllerImpl;
-import image.FunctionUtils;
-import image.Image;
-import image.ImageImpl;
-import image.Pixel;
-import image.PixelImpl;
+import model.image.FunctionUtils;
+import model.image.Image;
+import model.image.ImageImpl;
+import model.image.Pixel;
+import model.image.PixelImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.ImagePrView;
@@ -20,6 +21,7 @@ import view.ImagePrViewImpl;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -106,6 +108,12 @@ public class TestImageModel {
     assertFalse(impOne.hasKey("rizz"));
     controlImpOne.load("res/lol.ppm", "res");
     controlImpTwo.load("res/lmao.ppm", "rizz");
+    try{
+      controlImpTwo.load("res/cool.png", "");
+    }
+    catch(NullPointerException e) {
+      //you cant do this lol
+    }
     assertTrue(impOne.hasKey("res"));
     assertFalse(impOne.hasKey("rizz"));
 
@@ -117,6 +125,47 @@ public class TestImageModel {
     } catch (ArrayIndexOutOfBoundsException e) {
       //There are no values here at all.
     }
+    assertFalse(impTwo.hasKey("bob"));
+    controlImpTwo.load("res/cool.png", "bob");
+    assertTrue(impTwo.hasKey("bob"));
+    assertTrue(arrayEquals(impTwo.getHashMap().get("bob").flatten(),
+            new ArrayList<>(Arrays.asList(
+                    new PixelImpl(new int[] {14, 52, 218}),
+                    new PixelImpl(new int[] {6, 218, 92}),
+                    new PixelImpl(new int[] {175, 14, 218}),
+                    new PixelImpl(new int[] {175, 14, 218}),
+                    new PixelImpl(new int[] {80, 6 ,218}),
+                    new PixelImpl(new int[] {218, 49, 6}),
+                    new PixelImpl(new int[] {218 ,198, 6}),
+                    new PixelImpl(new int[] {218, 46 ,14}),
+                    new PixelImpl(new int[] {6, 218 ,8})))));
+    assertFalse(impTwo.hasKey("bobby"));
+    controlImpTwo.load("res/awesome.jpg", "bobby");
+    assertTrue(impTwo.hasKey("bobby"));
+    assertTrue(arrayEquals(impTwo.getHashMap().get("bobby").flatten(),
+            new ArrayList<>(Arrays.asList(
+                    new PixelImpl(new int[] {71,47,131
+                    }),
+                    new PixelImpl(new int[] {134,110,194
+                    }),
+                    new PixelImpl(new int[] {134,67,136
+                    }),
+                    new PixelImpl(new int[] {88,64,148
+                    }),
+                    new PixelImpl(new int[]{79, 55, 139
+                    }),
+                    new PixelImpl(new int[] {123,56,125}),
+                    new PixelImpl(new int[] {221,168,76
+                    }),
+                    new PixelImpl(new int[] {143,90,0
+                    }),
+                    new PixelImpl(new int[] {74,178,5})))));
+
+
+
+
+
+
   }
 
   /**
@@ -134,7 +183,7 @@ public class TestImageModel {
     return b;
   }
 
-  /**
+  /**a
    * Tests the flipImage method.
    *
    * @throws IOException if the file cannot be read.
@@ -226,4 +275,51 @@ public class TestImageModel {
     controlImpTwo.load("res/lmao.ppm", "rizz");
     assertTrue(impTwo.hasKey("rizz"));
   }
+
+  @Test
+  public void testMutate() throws IOException {
+    controlImpOne.load("res/lol.ppm", "res");
+    controlImpTwo.load("res/cool.jpeg", "rizz");
+    impOne.kernelMutate("blur", "res", "blur");
+    //checking overwrite here too lolz
+
+    assertTrue(impOne.hasKey("blur"));
+
+    assertTrue(arrayEquals(impOne.getHashMap().get("blur").flatten(),
+            new ArrayList<>(Arrays.asList(three, three))));
+    impTwo.kernelMutate("sharpen", "rizz", "sharp");
+    assertTrue(arrayEquals(impTwo.getHashMap().get("sharp").flatten(),
+            new ArrayList<>(Arrays.asList(
+
+                    new PixelImpl(new int[]{78, 110, 255}),
+                    new PixelImpl(new int[]{72, 235, 254}),
+                    new PixelImpl(new int[]{22, 61, 104}),
+                    new PixelImpl(new int[]{199, 82, 255}),
+                    new PixelImpl(new int[]{127, 76, 255}),
+                    new PixelImpl(new int[]{41, 55, 77}),
+                    new PixelImpl(new int[]{62, 1, 70}),
+                    new PixelImpl(new int[]{62, 1, 70}),
+                    new PixelImpl(new int[]{20, 1, 54})))));
+
+
+  }
+
+  @Test
+  public void testColorTransform() throws IOException {
+    controlImpOne.load("res/lol.ppm", "res");
+    assertFalse(impOne.hasKey("newRes"));
+    impOne.colorTransform("greyscale", "res", "newRes");
+    assertTrue(impOne.hasKey("newRes"));
+    assertTrue(arrayEquals(impOne.getHashMap().get("res").flatten(),
+            new ArrayList<>(Arrays.asList(one, two, three, five))));
+    controlImpOne.load("res/pngen.png", "wow");
+    assertFalse(impOne.hasKey("newWow"));
+    impOne.colorTransform("sepia", "wow", "newWow");
+    assertTrue(impOne.hasKey("newWow"));
+    assertTrue(arrayEquals(impOne.getHashMap().get("newWow").flatten(),
+            List.of(three, two)));
+
+
+  }
+
 }

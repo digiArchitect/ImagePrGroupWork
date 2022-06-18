@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import image.FunctionUtils;
-import image.Image;
-import image.ImageImpl;
-import image.MatrixMultiplication;
-import image.Pixel;
-import image.PixelImpl;
-import image.ReverseAll;
-import image.GreyScale;
-import image.MutateAll;
+import model.image.FunctionUtils;
+import model.image.Image;
+import model.image.ImageImpl;
+import model.image.MatrixMultiplication;
+import model.image.Pixel;
+import model.image.PixelImpl;
+import model.image.ReverseAll;
+import model.image.GreyScale;
+import model.image.MutateAll;
 
 /**
  * An image processor's model, which performs operations on images stored within its HashMap of

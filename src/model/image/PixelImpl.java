@@ -1,4 +1,4 @@
-package image;
+package model.image;
 
 /**
  Represents a PixelImpl of an ImageImpl.

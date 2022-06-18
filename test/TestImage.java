@@ -6,11 +6,11 @@ import java.util.Arrays;
 import java.util.List;
 
 
-import image.FunctionUtils;
-import image.Image;
-import image.ImageImpl;
-import image.Pixel;
-import image.PixelImpl;
+import model.image.FunctionUtils;
+import model.image.Image;
+import model.image.ImageImpl;
+import model.image.Pixel;
+import model.image.PixelImpl;
 
 import static org.junit.Assert.assertEquals;
 

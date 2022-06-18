@@ -1,7 +1,6 @@
-package image;
+package model.image;
 
 import java.util.List;
-import java.util.function.Supplier;
 
 public interface Image {
   List<Pixel> flatten();

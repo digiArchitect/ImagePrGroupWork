@@ -1,4 +1,4 @@
-package image;
+package model.image;
 
 import java.util.function.Function;
 

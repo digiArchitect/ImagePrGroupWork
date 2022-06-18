@@ -13,13 +13,13 @@ import java.util.Scanner;
 
 import javax.imageio.ImageIO;
 
-import image.ImageImpl;
-import image.Pixel;
-import image.PixelImpl;
+import model.image.ImageImpl;
+import model.image.Pixel;
+import model.image.PixelImpl;
 import model.ImagePrModel;
 import view.ImagePrView;
 
-import static image.FunctionUtils.fileTypeSupported;
+import static model.image.FunctionUtils.fileTypeSupported;
 import static java.util.Map.entry;
 
 /**
