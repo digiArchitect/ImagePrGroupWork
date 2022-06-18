@@ -65,7 +65,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestImage">
+  <component name="RunManager" selected="JUnit.TestImageModel">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -129,11 +129,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestImage" />
         <item itemvalue="JUnit.TestImageController" />
         <item itemvalue="JUnit.TestPixel" />
         <item itemvalue="JUnit.TestPixel.testSmallRed" />
-        <item itemvalue="JUnit.TestImageModel" />
       </list>
     </recent_temporary>
   </component>
@@ -195,7 +195,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
           <line>19</line>
-          <properties class="ImagePrMain" method="main">
+          <properties class="ImagePrMain">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>

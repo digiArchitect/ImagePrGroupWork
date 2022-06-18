@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 
 import controller.ImagePrController;
@@ -20,6 +21,7 @@ import view.ImagePrViewImpl;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -117,6 +119,7 @@ public class TestImageModel {
     } catch (ArrayIndexOutOfBoundsException e) {
       //There are no values here at all.
     }
+
   }
 
   /**
@@ -226,4 +229,51 @@ public class TestImageModel {
     controlImpTwo.load("res/lmao.ppm", "rizz");
     assertTrue(impTwo.hasKey("rizz"));
   }
+
+  @Test
+  public void testMutate() throws IOException {
+    controlImpOne.load("res/lol.ppm", "res");
+    controlImpTwo.load("res/cool.png", "rizz");
+    impOne.kernelMutate("blur", "res", "blur");
+    //checking overwrite here too lolz
+
+    assertTrue(impOne.hasKey("blur"));
+
+    assertTrue(arrayEquals(impOne.getHashMap().get("blur").flatten(),
+            new ArrayList<>(Arrays.asList(three, three))));
+    impTwo.kernelMutate("sharpen", "rizz", "sharp");
+    assertTrue(arrayEquals(impTwo.getHashMap().get("sharp").flatten(),
+            new ArrayList<>(Arrays.asList(
+
+                    new PixelImpl(new int[]{78, 110, 255}),
+                    new PixelImpl(new int[]{72, 235, 254}),
+                    new PixelImpl(new int[]{22, 61, 104}),
+                    new PixelImpl(new int[]{199, 82, 255}),
+                    new PixelImpl(new int[]{127, 76, 255}),
+                    new PixelImpl(new int[]{41, 55, 77}),
+                    new PixelImpl(new int[]{62, 1, 70}),
+                    new PixelImpl(new int[]{62, 1, 70}),
+                    new PixelImpl(new int[]{20, 1, 54})))));
+
+
+  }
+
+  @Test
+  public void testColorTransform() throws IOException {
+    controlImpOne.load("res/lol.ppm", "res");
+    assertFalse(impOne.hasKey("newRes"));
+    impOne.colorTransform("greyscale", "res", "newRes");
+    assertTrue(impOne.hasKey("newRes"));
+    assertTrue(arrayEquals(impOne.getHashMap().get("res").flatten(),
+            new ArrayList<>(Arrays.asList(one, two, three, five))));
+    controlImpOne.load("res/pngen.png", "wow");
+    assertFalse(impOne.hasKey("newWow"));
+    impOne.colorTransform("sepia", "wow", "newWow");
+    assertTrue(impOne.hasKey("newWow"));
+    assertTrue(arrayEquals(impOne.getHashMap().get("newWow").flatten(),
+            List.of(three, two)));
+
+
+  }
+
 }
