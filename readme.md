@@ -1,11 +1,12 @@
-# Jylah and Archie's image Processor
+# Jylah and Archie's Enhanced Image Processor
 
 Jylah and Archie's image processor is a text-based interactive image
-processor program that runs in java.
+processor program that runs in java. Details of the changes we made to our design since the
+initial assignment are noted at the bottom of this README.
 
 ## Installation
 
-Downlad the zip from handins
+Downlad the zip from handins.
 
 ## Usage
 
@@ -34,7 +35,18 @@ the program's functionalities.
 ## Demo Commands
 
 load res/mangoes.ppm foo red-component foo redfoo blue-component foo bluefoo green-component foo
-greenfoo value-component foo valuefoo luma-component foo lumafoo intensity-component foo intensityfoo horizontal-flip foo horizontalfoo vertical-flip foo verticalfoo brighten 50 foo brightfoo brighten -50 foo darkfoo save res/mangoes-red.png redfoo save res/mangoes-blue.png bluefoo save res/mangoes-green.png greenfoo save res/mangoes-value.png valuefoo save res/mangoes-luma.png lumafoo save res/mangoes-intenstiy.png intensityfoo save res/mangoes-horizontal-flip.png horizontalfoo save res/mangoes-vertical-flip.png verticalfoo save res/mangoes-brighter.png brightfoo save res/mangoes-darker.png darkfoo q
+greenfoo value-component foo valuefoo luma-component foo lumafoo intensity-component foo 
+intensityfoo horizontal-flip foo horizontalfoo vertical-flip foo verticalfoo brighten 50 foo 
+brightfoo brighten -50 foo darkfoo 
+sepia foo sepiafoo greyscale foo greyfoo sharpen foo sharpfoo blur foo blurfoo
+save res/mangoes-red.png redfoo save res/mangoes-blue.png 
+bluefoo save res/mangoes-green.png greenfoo save res/mangoes-value.png valuefoo save 
+res/mangoes-luma.png lumafoo save res/mangoes-intenstiy.png intensityfoo save 
+res/mangoes-horizontal-flip.png horizontalfoo save res/mangoes-vertical-flip.png verticalfoo save 
+res/mangoes-brighter.png brightfoo save res/mangoes-darker.png darkfoo 
+save res/mangoes-sepia.png sepiafoo save res/mangoes-grey.png greyfoo 
+save res/mangoes-sharp.png sharpfoo save res/mangoes-blurry.png blurfoo
+q
 
 ## Demo Commands Explained
 ```python
@@ -68,6 +80,18 @@ vertical-flip foo verticalfoo
 # create an image of a darkened foo, under the name "darkfoo"
 brighten -50 foo darkfoo
 
+# create an image of a foo with a sepia filter, under the name "sepiafoo"
+sepia foo sepiafoo 
+
+# create an image of a foo with a greyscale filter, under the name "greyfoo"
+greyscale foo greyfoo 
+
+# create an image of a sharpened foo, under the name "sharpfoo"
+sharpen foo sharpfoo 
+
+#create an image of a blurred foo, under the name "blurfoo"
+blur foo blurfoo
+
 # save redfoo to the res folder under the file name mangoes-red.png
 save res/mangoes-red.png redfoo
 
@@ -98,9 +122,27 @@ save res/mangoes-brighter.png brightfoo
 # save darkfoo to the res folder under the file name mangoes-darker.png
 save res/mangoes-darker.png darkfoo
 
+# save sepiafoo to the res folder under the file name mangoes-sepia.png
+save res/mangoes-sepia.png sepiafoo
+
+# save greyfoo to the res folder under the file name mangoes-grey.png
+save res/mangoes-grey.png greyfoo 
+
+# save sharpfoo to the res folder under the file name mangoes-sharpen.png
+save res/mangoes-sharp.png sharpfoo 
+
+# save blurfoo to the res folder under the file name mangoes-blurry.png
+save res/mangoes-blurry.png blurfoo
+
 # quits the program
 q
 ```
+
+## Design Changes
++ The way Pixels represent their RGB value was changed from three int variables to one 32-int bit variable, with a translation method added as a util. This made it easier to deal with BufferedImages.
++ Load was moved from the model to the controller. This adheres more closely to the MVC structure.
++ Added an "Image" and "Pixel" interface that ImageImpl and PixelImpl then implement, as opposed to just having an Image and Pixel class. This was done to remove leaks.
++ General reformatting of some helper methods and functions to simplify code.
 
 ## License
 I took the photo for mangoes.ppm of myself using a filter on the photobooth app on my own computer.
