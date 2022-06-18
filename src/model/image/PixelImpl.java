@@ -47,7 +47,7 @@ public class PixelImpl implements Pixel {
    * @return the rgb.
    */
     public int hashCode() {
-      return rgb;
+      return getChannel(0) +  getChannel(1) * 2 + getChannel(2) * 3;
     }
 
   /**

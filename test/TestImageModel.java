@@ -279,7 +279,7 @@ public class TestImageModel {
   @Test
   public void testMutate() throws IOException {
     controlImpOne.load("res/lol.ppm", "res");
-    controlImpTwo.load("res/cool.jpeg", "rizz");
+    controlImpTwo.load("res/cool.png", "rizz");
     impOne.kernelMutate("blur", "res", "blur");
     //checking overwrite here too lolz
 
@@ -293,13 +293,15 @@ public class TestImageModel {
 
                     new PixelImpl(new int[]{78, 110, 255}),
                     new PixelImpl(new int[]{72, 235, 254}),
-                    new PixelImpl(new int[]{22, 61, 104}),
+                    new PixelImpl(new int[]{21, 60, 77}),
                     new PixelImpl(new int[]{199, 82, 255}),
                     new PixelImpl(new int[]{127, 76, 255}),
-                    new PixelImpl(new int[]{41, 55, 77}),
-                    new PixelImpl(new int[]{62, 1, 70}),
-                    new PixelImpl(new int[]{62, 1, 70}),
-                    new PixelImpl(new int[]{20, 1, 54})))));
+                    new PixelImpl(new int[]{42, 56, 104}),
+                    new PixelImpl(new int[]{63, 0, 97}),
+                    new PixelImpl(new int[]{63, 0, 97}),
+                    new PixelImpl(new int[]{20, 0, 43})))));
+
+
 
 
   }

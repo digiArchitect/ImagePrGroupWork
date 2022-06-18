@@ -15,12 +15,6 @@
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrView.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/AbstractApply.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/FunctionUtils.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/Image.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/ImageImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/MatrixMultiplication.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/image/PixelImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/AbstractApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/AbstractApply.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" afterDir="false" />
@@ -30,7 +24,6 @@
       <change beforePath="$PROJECT_DIR$/src/image/MatrixMultiplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/MatrixMultiplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/MutateAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/MutateAll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/image/PixelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/PixelImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/ReverseAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/ReverseAll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/image/RgbAll.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/RgbAll.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
@@ -38,7 +31,6 @@
       <change beforePath="$PROJECT_DIR$/src/view/ImagePrView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestImage.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test/TestPixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestPixel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -240,7 +232,7 @@
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java</url>
           <line>51</line>
-          <properties class="controller.ImagePrControllerImpl" method="startProcessor">
+          <properties class="controller.ImagePrControllerImpl">
             <option name="EMULATED" value="true" />
             <option name="WATCH_EXIT" value="false" />
           </properties>
