@@ -108,6 +108,12 @@ public class TestImageModel {
     assertFalse(impOne.hasKey("rizz"));
     controlImpOne.load("res/lol.ppm", "res");
     controlImpTwo.load("res/lmao.ppm", "rizz");
+    try{
+      controlImpTwo.load("res/cool.png", "");
+    }
+    catch(NullPointerException e) {
+      //you cant do this lol
+    }
     assertTrue(impOne.hasKey("res"));
     assertFalse(impOne.hasKey("rizz"));
 
@@ -119,6 +125,46 @@ public class TestImageModel {
     } catch (ArrayIndexOutOfBoundsException e) {
       //There are no values here at all.
     }
+    assertFalse(impTwo.hasKey("bob"));
+    controlImpTwo.load("res/cool.png", "bob");
+    assertTrue(impTwo.hasKey("bob"));
+    assertTrue(arrayEquals(impTwo.getHashMap().get("bob").flatten(),
+            new ArrayList<>(Arrays.asList(
+                    new PixelImpl(new int[] {14, 52, 218}),
+                    new PixelImpl(new int[] {6, 218, 92}),
+                    new PixelImpl(new int[] {175, 14, 218}),
+                    new PixelImpl(new int[] {175, 14, 218}),
+                    new PixelImpl(new int[] {80, 6 ,218}),
+                    new PixelImpl(new int[] {218, 49, 6}),
+                    new PixelImpl(new int[] {218 ,198, 6}),
+                    new PixelImpl(new int[] {218, 46 ,14}),
+                    new PixelImpl(new int[] {6, 218 ,8})))));
+    assertFalse(impTwo.hasKey("bobby"));
+    controlImpTwo.load("res/awesome.jpg", "bobby");
+    assertTrue(impTwo.hasKey("bobby"));
+    assertTrue(arrayEquals(impTwo.getHashMap().get("bobby").flatten(),
+            new ArrayList<>(Arrays.asList(
+                    new PixelImpl(new int[] {71,47,131
+                    }),
+                    new PixelImpl(new int[] {134,110,194
+                    }),
+                    new PixelImpl(new int[] {134,67,136
+                    }),
+                    new PixelImpl(new int[] {88,64,148
+                    }),
+                    new PixelImpl(new int[]{79, 55, 139
+                    }),
+                    new PixelImpl(new int[] {123,56,125}),
+                    new PixelImpl(new int[] {221,168,76
+                    }),
+                    new PixelImpl(new int[] {143,90,0
+                    }),
+                    new PixelImpl(new int[] {74,178,5})))));
+
+
+
+
+
 
   }
 
