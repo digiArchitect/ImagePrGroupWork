@@ -12,6 +12,11 @@ import java.util.function.Function;
  * Function class utilized to reverse a list of lists.
  */
 public class ReverseAll implements Function<List<Pixel>, List<Pixel>> {
+  /**
+   * Returns a given list of pixels, reversed.
+   * @param pixels the list of pixels.
+   * @return the reversed list.
+   */
   @Override
   public List<Pixel> apply(List<Pixel> pixels) {
     List<Pixel> copiedPixel = new ArrayList<>(pixels);
