@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/mangoes-blurry.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/mangoes-darker.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/mangoes-grey.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/mangoes-sharp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/newMadoka.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/autumnleaves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/autumnleaves2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/madoka.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-blue.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-blue.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-brighter.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-brighter.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-green.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-green.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-horizontal-flip.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-horizontal-flip.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-intenstiy.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-intenstiy.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-luma.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-luma.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-red.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-red.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-sepia.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-sepia.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-value.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-value.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-vertical-flip.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-vertical-flip.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/piiink.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/testnewload.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/va11halla.png" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -62,7 +85,7 @@
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestImageModel">
+  <component name="RunManager" selected="Application.john">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
@@ -190,15 +213,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/ImagePrMain.java</url>
-          <line>19</line>
-          <properties class="ImagePrMain">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="17" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java</url>
           <line>51</line>
