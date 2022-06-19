@@ -5,7 +5,6 @@ import java.io.StringReader;
 
 import controller.ImagePrController;
 import controller.ImagePrControllerImpl;
-import controller.ImagePrControllerImplMock;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.ImagePrView;

@@ -2,11 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/ImagePrGroupWork_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/META-INF/MANIFEST.MF" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lolol.ppm" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/ImagePrModelImplMock.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/TestScript.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/test/TestView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/artifacts/ImagePrGroupWork_jar/ImagePrGroupWork.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImplMock.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/mangoes-sharp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-sharp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/TestImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,8 +23,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -69,32 +76,15 @@
       <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
       <recent name="Image" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.john">
+  <component name="RunManager" selected="JUnit.TestScript.TestScriptWithMock">
     <configuration name="john" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
       <option name="PROGRAM_PARAMETERS" value="file script.txt" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestImage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ImagePrGroupWork" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImage" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestImageController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ImagePrGroupWork" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImageController" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -108,16 +98,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestImageModel.testMutate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ImagePrGroupWork" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="TestImageModel" />
-      <option name="METHOD_NAME" value="testMutate" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="TestPixel" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ImagePrGroupWork" />
       <option name="PACKAGE_NAME" value="" />
@@ -127,21 +107,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="TestScript.TestScriptWithMock" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestScript" />
+      <option name="METHOD_NAME" value="TestScriptWithMock" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestView" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestView" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestView.savePPM" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ImagePrGroupWork" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="TestView" />
+      <option name="METHOD_NAME" value="savePPM" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.john" />
-      <item itemvalue="JUnit.TestImageModel.testMutate" />
+      <item itemvalue="JUnit.TestScript.TestScriptWithMock" />
+      <item itemvalue="JUnit.TestView" />
+      <item itemvalue="JUnit.TestView.savePPM" />
       <item itemvalue="JUnit.TestPixel" />
-      <item itemvalue="JUnit.TestImageController" />
-      <item itemvalue="JUnit.TestImage" />
       <item itemvalue="JUnit.TestImageModel" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestScript.TestScriptWithMock" />
+        <item itemvalue="JUnit.TestView.savePPM" />
+        <item itemvalue="JUnit.TestView" />
         <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestPixel" />
-        <item itemvalue="JUnit.TestImage" />
-        <item itemvalue="JUnit.TestImageController" />
-        <item itemvalue="JUnit.TestImageModel.testMutate" />
       </list>
     </recent_temporary>
   </component>
@@ -177,7 +186,7 @@
       <workItem from="1655488177459" duration="1216000" />
       <workItem from="1655502200230" duration="5430000" />
       <workItem from="1655509137585" duration="550000" />
-      <workItem from="1655595447719" duration="65000" />
+      <workItem from="1655595447719" duration="1781000" />
     </task>
     <servers />
   </component>
@@ -217,7 +226,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/TestImageController.java</url>
-          <line>19</line>
+          <line>18</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>

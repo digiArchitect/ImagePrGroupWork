@@ -9,22 +9,17 @@ initial assignment are noted at the bottom of this README.
 Downlad the zip from handins.
 
 ## Usage
-
-Upon opening the program, a console scanner will prompt you
-to deliver text input. You can copy and paste the following string
-(without the quotation marks) into the scanner input for a demo of
-the program's functionalities. A bit below is a walk-through of what each
-separate command does.
-
 You can enter user input either through a command line argument, or through entering into the
 console with your keyboard.
 
-Upon opening the program, a welcome message will display, showing you the format
++ Running a script
+  + in the command line of the run configuration, type "file" and then the name of the text file you wish to run. The program will execute all of the commands, and then exit.
++ Keyboard input 
+  + Upon opening the program, a welcome message will display, showing you the format
 of inputs and the different commands available to you, and then a console scanner will prompt you
 to deliver text input.
 
-Text inputs come in the format of the name of the command,
-and then valid inputs for each of its field types, which will be specified.
+Correct input format is specified in USEME.md
 
 If a user enters an invalid input, the program will continue reading through their inputs in search
 of a valid one. If at any point the user inputs the string "q" or "Q", the program will terminate.
