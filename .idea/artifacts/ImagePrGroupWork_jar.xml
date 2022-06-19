@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" build-on-make="true" name="ImagePrGroupWork:jar">
+  <artifact type="jar" name="ImagePrGroupWork:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/ImagePrGroupWork_jar</output-path>
     <root id="archive" name="ImagePrGroupWork.jar">
       <element id="module-output" name="ImagePrGroupWork" />

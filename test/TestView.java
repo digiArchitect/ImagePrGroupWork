@@ -1,10 +1,5 @@
 import org.junit.Before;
-import org.junit.Rule;
 import org.junit.Test;
-import org.junit.rules.TemporaryFolder;
-
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
@@ -69,8 +64,6 @@ public class TestView {
 
   }
 
-  @Rule
-  public TemporaryFolder temporaryFolder = new TemporaryFolder();
 
   @Test
   public void savePPM() throws Exception {
@@ -113,4 +106,6 @@ public class TestView {
     controlImpOne.load("ol.bmp", "ol");
 
   }
+
+
 }
