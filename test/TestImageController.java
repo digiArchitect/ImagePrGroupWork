@@ -3,12 +3,12 @@ import org.junit.Test;
 
 import java.io.StringReader;
 
-import controller.ImagePrController;
-import controller.ImagePrControllerImpl;
+import controller.prcontroller.ImagePrController;
+import controller.prcontroller.ImagePrControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
-import view.ImagePrView;
-import view.ImagePrViewImpl;
+import view.prview.ImagePrView;
+import view.prview.ImagePrViewImpl;
 
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;

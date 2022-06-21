@@ -184,28 +184,24 @@ public class ImagePrModelImpl implements ImagePrModel {
    * at the new image name location.
    *
    * @param component which type of kernel mutation one would like to do.
-   * @param imageName   the image location.
-   * @param newName the new image name.
+   * @param imageName the image location.
+   * @param newName   the new image name.
    */
   @Override
   public void colorTransform(String component, String imageName, String newName) {
     Double[][] matrix;
     if (component.equals("sepia")) {
       matrix = new Double[][]{
-              new Double[]{
-                      0.393, 0.769, 0.189},
-              new Double[]{
-                      0.349, 0.686, 0.168},
-              new Double[]{
-                      0.272, 0.534, 0.131}};
+        new Double[]{0.393, 0.769, 0.189},
+        new Double[]{ 0.349, 0.686, 0.168},
+        new Double[]{0.272, 0.534, 0.131}
+      };
     } else if (component.equals("greyscale")) {
       matrix = new Double[][]{
-              new Double[]{
-                      0.2126, 0.7152, 0.0722},
-              new Double[]{
-                      0.2126, 0.7152, 0.0722},
-              new Double[]{
-                      0.2126, 0.7152, 0.0722}};
+        new Double[]{0.2126, 0.7152, 0.0722},
+        new Double[]{0.2126, 0.7152, 0.0722},
+        new Double[]{0.2126, 0.7152, 0.0722}
+      };
     } else {
       throw new IllegalArgumentException();
     }
@@ -229,25 +225,17 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image g;
     if (component.equals("sharpen")) {
       kernelValues = new Double[][]{
-              new Double[]{
-                      -0.125, -0.125, -0.125, -0.125, -0.125},
-              new Double[]{
-                      -0.125, 0.25, 0.25, 0.25, -0.125},
-              new Double[]{
-                      0.125, 0.25, 1.00, 0.25, -0.125},
-              new Double[]{
-                      -0.125, 0.25, 0.25, 0.25, -0.125},
-              new Double[]{
-                      -0.125, -0.125, -0.125, -0.125, -0.125}
+        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125},
+        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+        new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
+        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
       };
     } else if (component.equals("blur")) {
       kernelValues = new Double[][]{
-              new Double[]{
-                      0.0625, 0.125, 0.0625},
-              new Double[]{
-                      0.125, 0.25, 0.125},
-              new Double[]{
-                      0.0625, 0.125, 0.0625}
+        new Double[]{0.0625, 0.125, 0.0625},
+        new Double[]{0.125, 0.25, 0.125},
+        new Double[]{0.0625, 0.125, 0.0625}
       };
     } else {
       throw new IllegalArgumentException();
@@ -258,8 +246,9 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   /**
    * Applies the kernel matrix upon an image to mutate its values.
+   *
    * @param imageValues the kernel mutation matrix being applied.
-   * @param p the image.
+   * @param p           the image.
    * @return a new mutated image.
    */
   private Image kernelHelper(Double[][] imageValues, Image p) {
@@ -276,7 +265,8 @@ public class ImagePrModelImpl implements ImagePrModel {
         for (int a = centerX * -1; a <= centerX; a++) {
           for (int b = centerY * -1; b <= centerY; b++) {
             if (FunctionUtils.validPosition(x + a, y + b, height, width)) {
-              neighborVals.put(imageVals.get(x + a).get(y + b), imageValues[centerX + a][centerY + b]);
+              neighborVals.put(imageVals.get(x + a).get(y + b),
+                      imageValues[centerX + a][centerY + b]);
             }
           }
         }
@@ -289,6 +279,7 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   /**
    * Returns a new pixel based on the values of the pixels surrounding the given pixel.
+   *
    * @param neighborVals the HashMap of pixels to their values.
    * @return a new pixel.
    */

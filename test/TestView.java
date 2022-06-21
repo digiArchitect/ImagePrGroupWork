@@ -7,8 +7,8 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-import controller.ImagePrController;
-import controller.ImagePrControllerImpl;
+import controller.prcontroller.ImagePrController;
+import controller.prcontroller.ImagePrControllerImpl;
 import model.image.FunctionUtils;
 import model.image.Image;
 import model.image.ImageImpl;
@@ -16,8 +16,8 @@ import model.image.Pixel;
 import model.image.PixelImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
-import view.ImagePrView;
-import view.ImagePrViewImpl;
+import view.prview.ImagePrView;
+import view.prview.ImagePrViewImpl;
 
 import static org.junit.Assert.fail;
 

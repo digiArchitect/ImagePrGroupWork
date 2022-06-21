@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import controller.ImagePrController;
-import controller.ImagePrControllerImpl;
+import controller.prcontroller.ImagePrController;
+import controller.prcontroller.ImagePrControllerImpl;
 import model.image.FunctionUtils;
 import model.image.Image;
 import model.image.ImageImpl;
@@ -15,8 +15,8 @@ import model.image.Pixel;
 import model.image.PixelImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
-import view.ImagePrView;
-import view.ImagePrViewImpl;
+import view.prview.ImagePrView;
+import view.prview.ImagePrViewImpl;
 
 import org.junit.Test;
 
@@ -106,10 +106,10 @@ public class TestImageModel {
     assertFalse(impOne.hasKey("rizz"));
     controlImpOne.load("res/lol.ppm", "res");
     controlImpTwo.load("res/lmao.ppm", "rizz");
-    try{
+    try {
       controlImpTwo.load("res/cool.png", "");
     }
-    catch(NullPointerException e) {
+    catch (NullPointerException e) {
       //you cant do this lol
     }
     assertTrue(impOne.hasKey("res"));

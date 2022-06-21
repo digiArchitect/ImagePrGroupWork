@@ -14,7 +14,7 @@ public class FunctionUtils {
   /**
    * The file types that are supported to load into our image processor.
    */
-  public static String[] supported = new String[] {"jpg", "png", "bmp"};
+  public static final String[] SUPPORTED = new String[] {"jpg", "png", "bmp"};
 
   /**
    * Returns whether a file type is supported to be loaded in.
@@ -22,7 +22,7 @@ public class FunctionUtils {
    * @return whether it is supported.
    */
   public static boolean fileTypeSupported(String fileType) {
-    return Arrays.asList(supported).contains(fileType);
+    return Arrays.asList(SUPPORTED).contains(fileType);
   }
 
   /**
@@ -51,7 +51,7 @@ public class FunctionUtils {
     p.append(values[0] << 16);
     p.append(values[1] << 8);
     p.append(values[2]);
-    int f = ((values[0]&0x0ff)<<16)|((values[1]&0x0ff)<<8)|(values[2]&0x0ff);
+    int f = ((values[0] & 0x0ff) << 16) | ((values[1] & 0x0ff) << 8) | (values[2] & 0x0ff);
     return f;
   }
 

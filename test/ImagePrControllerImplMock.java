@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.Scanner;
 
 
-import controller.ImagePrController;
+import controller.prcontroller.ImagePrController;
 
 import static java.util.Map.entry;
 
@@ -161,7 +161,7 @@ public class ImagePrControllerImplMock implements ImagePrController {
    * Loads an image file into the processor.
    * @param fileLoc the source location of the file on the user's computer.
    * @param imageName the name of the image to be put into te hashmap.
-   * @throws IOException
+   * @throws IOException if something goes wrong.
    */
   @Override
   public void load(String fileLoc, String imageName) throws IOException {

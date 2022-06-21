@@ -5,17 +5,25 @@ import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
-import controller.ImagePrController;
-import controller.ImagePrControllerImpl;
+import controller.prcontroller.ImagePrController;
+import controller.prcontroller.ImagePrControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImplMock;
-import view.ImagePrView;
-import view.ImagePrViewImpl;
+import view.prview.ImagePrView;
+import view.prview.ImagePrViewImpl;
 
 import static org.junit.Assert.assertEquals;
 
+/**
+ * Tests reading from a script.
+ */
 public class TestScript {
   StringBuilder log;
+
+  /**
+   * Tests reading from a script.
+   * @throws IOException if reading from the file goes wrong.
+   */
   @Test
   public void TestScriptWithMock() throws IOException {
     String[] args = {"file", "script.txt"};
