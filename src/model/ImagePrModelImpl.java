@@ -1,5 +1,6 @@
 package model;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -123,6 +124,16 @@ public class ImagePrModelImpl implements ImagePrModel {
    */
   public List<Integer> getImageContents(String s) {
     return images.get(s).getContents();
+  }
+
+  /**
+   * Returns a buffered image from a given image class.
+   *
+   * @param i the image name.
+   * @return the image.
+   */
+  public BufferedImage getImage(String i) {
+    return images.get(i).getBufferedImage();
   }
 
   //COMMANDS

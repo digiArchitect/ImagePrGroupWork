@@ -6,6 +6,8 @@ import java.nio.file.Path;
 
 import javax.swing.*;
 
+import controller.guicontroller.GUIController;
+import controller.guicontroller.GUIControllerImpl;
 import controller.prcontroller.ImagePrController;
 import controller.prcontroller.ImagePrControllerImpl;
 import model.ImagePrModel;
@@ -25,7 +27,6 @@ public class ImagePrMain {
    */
   public static void main(String[] args) throws IOException {
 
-    /*
     Readable input;
     if (args.length > 0) {
       if (args[0].equals("file")) {
@@ -55,26 +56,22 @@ public class ImagePrMain {
     else {
       input = new InputStreamReader(System.in);
     }
-    ImagePrView view = new ImagePrViewImpl();
-    ImagePrModel model = new ImagePrModelImpl();
-    ImagePrController controller = new ImagePrControllerImpl(input, view, model);
-    controller.startProcessor();
 
-    */
+
+    ImagePrModel model = new ImagePrModelImpl();
+    ImagePrView view = new ImagePrViewImpl();
+    ImagePrController controller = new ImagePrControllerImpl(input, view, model);
+
 
     System.out.println("heyyyyy BALLSACK!");
-    GUIViewImpl gui = new GUIViewImpl();
+
+    GUIControllerImpl gui = new GUIControllerImpl(controller, model);
+
+    controller.startProcessor();
 
     gui.setDefaultLookAndFeelDecorated(false);
-
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gui.setVisible(true);
-
-    try {
-      UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-    } catch (Exception e) {
-      //do stuff
-    }
   }
 }
 

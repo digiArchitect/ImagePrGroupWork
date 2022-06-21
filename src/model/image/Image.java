@@ -1,5 +1,6 @@
 package model.image;
 
+import java.awt.image.BufferedImage;
 import java.util.List;
 
 /**
@@ -23,4 +24,10 @@ public interface Image {
    * @return a 2-d list of Pixels.
    */
   List<List<Pixel>> getImageVals();
+
+  /**
+   * Returns buffered image of image.
+   * @return a buffered image.
+   */
+  BufferedImage getBufferedImage();
 }

@@ -1,5 +1,6 @@
 package model.image;
 
+import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -62,5 +63,17 @@ public class ImageImpl implements Image {
    */
   public List<List<Pixel>> getImageVals() {
     return new ArrayList<>(imageVals);
+  }
+
+  public BufferedImage getBufferedImage() {
+    BufferedImage b = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    int count = 0;
+    for (int x = 0; x < height; x++) {
+      for (int y = 0; y < width; y++) {
+        b.setRGB(y, x, imageVals.get(count).hashCode());
+        count++;
+      }
+    }
+    return b;
   }
 }

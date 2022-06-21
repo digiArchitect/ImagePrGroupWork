@@ -7,44 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guideas.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ballsack1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/penis_sorry.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/guiview/GUIView.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ImagePrGroupWork_jar/ImagePrGroupWork.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/FunctionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/FunctionUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Pixel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Pixel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/PixelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/PixelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/model/ImagePrModelImplMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/model/ImagePrModelImplMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-sharp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-sharp.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Image.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/prcontroller/ImagePrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/PixelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/PixelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/prview/ImagePrView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/prview/ImagePrViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImagePrModelImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrModelImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/ImageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/ImageImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -73,28 +50,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Downloaded.Files.Path.Enabled": "false",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "false",
-    "Repository.Attach.Sources": "false",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "jdk.selected.JAVA_MODULE": "11",
-    "last_directory_selection": "/Users/jylahbah/Documents/GitHub/ImagePrGroupWork/Test",
-    "last_opened_file_path": "/Users/archie.oconnell/Documents/GitHub/ImagePrGroupWork",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/jylahbah/Documents/GitHub/ImagePrGroupWork/Test&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/archie.oconnell/Documents/GitHub/ImagePrGroupWork&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/res" />
@@ -218,6 +195,8 @@
       <workItem from="1655509137585" duration="550000" />
       <workItem from="1655595447719" duration="4224000" />
       <workItem from="1655750546454" duration="6840000" />
+      <workItem from="1655840670390" duration="2754000" />
+      <workItem from="1655843667775" duration="1255000" />
     </task>
     <servers />
   </component>
@@ -252,7 +231,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>45</line>
+          <line>46</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

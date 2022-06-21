@@ -9,32 +9,35 @@ public class GUIViewImpl extends JFrame {
   private JPanel mainPanel;
   private JScrollPane mainScrollPane;
 
+  private JLabel comboboxDisplay;
+
   public GUIViewImpl() {
     super();
     setTitle("GUI VIEW");
     setSize(600, 400);
 
     mainPanel = new JPanel();
-
-    //for elements to be arranged vertically within this panel
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
 
-    //scroll bars around this main panel
     mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
-    //show an image with a scrollbar
     JPanel imagePanel = new JPanel();
-    //a border around the panel with a caption
     imagePanel.setBorder(BorderFactory.createTitledBorder("Showing an image"));
     imagePanel.setLayout(new GridLayout(1, 0, 10, 10));
-    //imagePanel.setMaximumSize(null);
     mainPanel.add(imagePanel);
 
+    //combo boxes
 
+    JPanel comboboxPanel = new JPanel();
+    comboboxPanel.setLayout(new BoxLayout(comboboxPanel, BoxLayout.PAGE_AXIS));
+    comboboxDisplay = new JLabel("Cold Stone Creamery: Which size do you "
+            + "want?");
+    String[] options = {"Like it", "Love it", "Gotta have it"};
+    JComboBox<String> combobox = new JComboBox<String>(options);
 
-
-
-
+    comboboxPanel.add(comboboxDisplay);
+    comboboxPanel.add(combobox);
+    mainPanel.add(comboboxPanel);
   }
 }
