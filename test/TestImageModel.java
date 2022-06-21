@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 import controller.ImagePrController;
 import controller.ImagePrControllerImpl;
@@ -20,6 +22,7 @@ import view.ImagePrViewImpl;
 
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
@@ -321,5 +324,17 @@ public class TestImageModel {
 
 
   }
+  @Test
+  public void testHistogram() throws IOException
+  {
+    controlImpOne.load("res/awesome.jpg", "res");
+    HashMap<Integer,Integer> hist = impOne.histogram("red", "res");
+    for (Integer e  : hist.keySet()) {
+      System.out.println(hist.get(e));
 
+  }
+
+
+
+  }
 }

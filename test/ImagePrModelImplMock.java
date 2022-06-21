@@ -222,6 +222,11 @@ public class ImagePrModelImplMock implements ImagePrModel {
     images.put(newName, applyChanges(new MatrixMultiplication(matrix), images.get(imageName)));
   }
 
+  @Override
+  public HashMap<Integer, Integer> histogram(String component, String fileLoc) {
+    return null;
+  }
+
   //KERNEL STUFF
 
   /**

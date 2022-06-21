@@ -8,6 +8,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import model.image.FunctionUtils;
+import model.image.HistogramVals;
 import model.image.Image;
 import model.image.ImageImpl;
 import model.image.MatrixMultiplication;
@@ -212,6 +213,23 @@ public class ImagePrModelImpl implements ImagePrModel {
 
     images.put(newName, applyChanges(new MatrixMultiplication(matrix), images.get(imageName)));
   }
+
+  @Override
+  public HashMap<Integer, Integer> histogram(String component, String fileLoc) {
+    Image i = images.get(fileLoc);
+    List<Pixel> mapList = i.flatten();
+    List<Integer> pixelVals = mapList.stream()
+            .map(new HistogramVals(component)).collect(Collectors.toList());
+
+    HashMap<Integer,Integer> histogram = new HashMap<>();
+    for (int x = 0; x < 257; x++) {
+      int finalX = x;
+      Integer count = pixelVals.stream().filter(y -> y == finalX).mapToInt(y ->y).sum();
+      histogram.put(x,count);
+    }
+    return histogram;
+  }
+
 
   //KERNEL STUFF
 

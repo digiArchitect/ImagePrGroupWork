@@ -83,4 +83,12 @@ public interface ImagePrModel {
    * @param fileName the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
+
+  /**
+   * Creates the data for a histogram.
+   * @param component
+   * @param fileLoc
+   * @returns a hashmap with each of the 255 and the corresponding frequencies.
+   */
+  HashMap<Integer,Integer> histogram(String component,String fileLoc);
 }
