@@ -14,7 +14,6 @@ import model.image.MatrixMultiplication;
 import model.image.Pixel;
 import model.image.PixelImpl;
 import model.image.ReverseAll;
-import model.image.GreyScale;
 import model.image.MutateAll;
 
 /**

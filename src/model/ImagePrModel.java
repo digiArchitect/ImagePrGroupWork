@@ -99,4 +99,14 @@ public interface ImagePrModel {
    * @return the buffered image.
    */
   BufferedImage getImage(String s);
+
+  /**
+   * Generates a histogram data for a specfic component
+   * @param component based off of red green blue or intensity
+   * @param fileLoc the name of the file
+   * @return the histogram for it.
+   */
+  HashMap<Integer,Integer> histogram(String component,String fileLoc);
+
+
 }
