@@ -6,33 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Archive.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/guideas.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/ballsack1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/res/penis_sorry.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/artifacts/ImagePrGroupWork_jar/ImagePrGroupWork.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Controller/ImagePrControllerImpl.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/View/ImagePrViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/model/ImagePrModelImplMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/model/ImagePrModelImplMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/mangoes-sharp.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/mangoes-sharp.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/prcontroller/ImagePrController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/ImagePrControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/FunctionUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/Pixel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Pixel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/PixelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/PixelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/prview/ImagePrView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/ImagePrViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/prview/ImagePrViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrControllerImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestImageModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestImageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestScript.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestView.java" afterDir="false" />
-    </list>
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,11 +61,11 @@
       <recent name="$PROJECT_DIR$/res" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/model/image" />
       <recent name="$PROJECT_DIR$/res" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/Images" />
       <recent name="$PROJECT_DIR$/src/Image" />
-      <recent name="$PROJECT_DIR$/src" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="" />
