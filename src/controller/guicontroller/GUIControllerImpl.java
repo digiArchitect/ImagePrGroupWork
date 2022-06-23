@@ -45,9 +45,6 @@ public class GUIControllerImpl extends JFrame implements ActionListener, EventLi
     JScrollPane imageScrollPane = new JScrollPane();
 
 
-    this.controller.load("res/mangoes.ppm", "balls");
-    System.out.println(this.model.getImageContents("balls"));
-
     BufferedImage myPicture = this.model.getImage("balls");
 
     imageLabel.setIcon(new ImageIcon(myPicture));

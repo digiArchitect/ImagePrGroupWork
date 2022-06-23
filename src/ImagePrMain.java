@@ -65,9 +65,11 @@ public class ImagePrMain {
 
     System.out.println("heyyyyy BALLSACK!");
 
+    controller.load("res/mangoes.ppm", "balls");
+    System.out.println(model.getImageContents("balls"));
+
     GUIControllerImpl gui = new GUIControllerImpl(controller, model);
 
-    controller.startProcessor();
 
     gui.setDefaultLookAndFeelDecorated(false);
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
