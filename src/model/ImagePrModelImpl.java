@@ -1,6 +1,7 @@
 package model;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -8,6 +9,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import model.image.FunctionUtils;
+import model.image.HistogramVals;
 import model.image.Image;
 import model.image.ImageImpl;
 import model.image.MatrixMultiplication;
@@ -294,4 +296,28 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     return new PixelImpl(newPixel);
   }
+  @Override
+  public HashMap<Integer, List<Integer>> histogram(String fileLoc) {
+    Image i = images.get(fileLoc);
+    List<Pixel> mapList = i.flatten();
+    List<String> components = Arrays.asList("red","green","blue","intensity");
+    HashMap<Integer,List<Integer>> histogram = new HashMap<>();
+    for (int x = 0; x < 257; x++) {
+      int finalX = x;
+      List<Integer> frequencies = new ArrayList<>();
+      for(String s : components) {
+        List<Integer> pixelVals = mapList.stream()
+                .map(new HistogramVals(s)).collect(Collectors.toList());
+        int count = pixelVals.stream().filter(y -> y == finalX).collect(Collectors.toList()).size();
+        frequencies.add(count);
+
+      }
+      histogram.put(x,frequencies);
+    }
+
+
+
+    return histogram;
+  }
+
 }

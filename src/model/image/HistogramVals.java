@@ -1,10 +1,8 @@
 package model.image;
 
-import java.util.Arrays;
-import java.util.List;
 import java.util.function.Function;
 
-public class HistogramVals extends AbstractApply implements Function<Pixel, List<Integer>> {
+public class HistogramVals extends AbstractApply implements Function<Pixel,Integer> {
   String component;
 
   public HistogramVals(String component) {
@@ -12,11 +10,7 @@ public class HistogramVals extends AbstractApply implements Function<Pixel, List
   }
 
   @Override
-  public List<Integer> apply(Pixel pixel) {
-    return
-            Arrays.asList(newValue("red",pixel),
-                    newValue("green",pixel),
-                    newValue("blue",pixel),
-                    newValue("intensity",pixel));
+  public Integer apply(Pixel pixel) {
+    return newValue(component,pixel);
   }
 }

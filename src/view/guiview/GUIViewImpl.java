@@ -1,7 +1,9 @@
 package view.guiview;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import javax.swing.*;
 
@@ -10,11 +12,20 @@ public class GUIViewImpl extends JFrame {
   private JPanel mainPanel;
   private JScrollPane mainScrollPane;
 
+
   public GUIViewImpl() {
     super();
-    HashMap<Integer,Integer> hist = new HashMap<>();
     setTitle("GUI VIEW");
     setSize(600, 400);
+    HashMap<Integer,List<Integer>> hist = new HashMap<>();
+    for(int x = 0; x < 257; x++) {
+      List<Integer> lis = new ArrayList<>();
+      for(int y = 0; y < 4; y++) {
+        lis.add((int)(Math.random()*100));
+      }
+      hist.put(x,lis);
+    }
+
 
     mainPanel = new JPanel();
 
@@ -38,7 +49,7 @@ public class GUIViewImpl extends JFrame {
 
     //JPanel histogram = new JPanel();
     // this.add(panel,BorderLayout.PAGE_END)
-    JPanel histogram = new histogram();
+    JPanel histogram = new histogram(hist);
     //JScrollPane histScroll = new JScrollPane(histogram);
     //add(histScroll);
 

@@ -90,4 +90,10 @@ public interface ImagePrModel {
    * @param fileName  the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
+  /**
+   * Generates a histogram data for an image.
+   * @param fileLoc the name of the file
+   * @return the histogram for it.
+   */
+  HashMap<Integer,List<Integer>> histogram(String fileLoc);
 }

@@ -5,6 +5,7 @@ import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 import controller.prcontroller.ImagePrController;
 import controller.prcontroller.ImagePrControllerImpl;
@@ -320,6 +321,21 @@ public class TestImageModel {
             List.of(three, two)));
 
 
+  }
+  @Test
+  public void testHistogram() throws IOException {
+    controlImpOne.load("res/awesome.jpg", "res");
+    Map<Integer,List<Integer>> list = impOne.histogram("res");
+    for(Integer x : list.keySet()) {
+      int count = 0;
+      for(int y = 0; y < 4; y++) {
+        if(list.get(x).get(y) != 0) {
+          count++;
+        }
+      }
+
+
+    }
   }
 
 }
