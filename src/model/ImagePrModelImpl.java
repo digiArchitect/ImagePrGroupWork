@@ -320,4 +320,14 @@ public class ImagePrModelImpl implements ImagePrModel {
     return histogram;
   }
 
+  @Override
+  public void imageDownscale(int newWidth, int newHeight, String fileLoc, String fileName) {
+    Image i = images.get(fileLoc);
+    int width = i.getContents().get(0);
+    int height = i.getContents().get(1);
+  }
+  private int calcValue(int var, int dimension, int newDimension) {
+    return (newDimension * var)/dimension;
+  }
+
 }

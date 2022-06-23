@@ -32,7 +32,10 @@ public class histogram extends JPanel {
      */
     int height = this.getHeight();
     int width = this.getWidth();
-    List<Color> col = Arrays.asList(Color.red,Color.green,Color.blue, Color.ORANGE);
+    List<Color> col = Arrays.asList(new Color(255,0,0,25),
+            new Color(0,255,0,50),
+            new Color(0,0,255,75),
+            new Color(255,165,0,100));
     int max = 0;
     for (Integer e: hist.keySet()) {
       max = Math.max(max, Collections.max(hist.get(e)));
@@ -41,16 +44,14 @@ public class histogram extends JPanel {
     for (Integer e: hist.keySet()) {
       List<Integer> f = hist.get(e);
       for (int x = 0; x < 4; x++) {
-        //hist.put(x, x+5);
-        g.drawLine(x + e*2 + 30, height - 25, x + e*2 + 30,
-      ((height - f.get(x))*max)/max - 25);
         g.setColor(col.get(x));
+        g.fillRect(x + e + 30, height+5-f.get(x),5,((f.get(x)*max)/max - 25));
 
 
       }
     }
     g.setColor(Color.black);
-    g.drawLine(25,height-20,width,height-20);
+    g.drawLine(25,height-20,286,height-20);
     g.drawString("Value",50,height-5);
     g.drawLine(25,height-20,25,height-125);
     String f =  "Frequency";

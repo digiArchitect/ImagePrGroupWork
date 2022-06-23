@@ -96,4 +96,13 @@ public interface ImagePrModel {
    * @return the histogram for it.
    */
   HashMap<Integer,List<Integer>> histogram(String fileLoc);
+
+  /**
+   * Downscales an image!
+   * @param newWidth the new width
+   * @param newHeight the new Height
+   * @param fileLoc   the file location.
+   * @param fileName  the file name.
+   */
+  void imageDownscale(int newWidth, int newHeight,String fileLoc, String fileName);
 }
