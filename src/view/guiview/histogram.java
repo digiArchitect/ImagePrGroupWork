@@ -15,7 +15,7 @@ public class histogram extends JPanel {
 
     setBorder(BorderFactory.createTitledBorder("Histogram"));
     //histogram.setLayout(new BoxLayout(histogram,BoxLayout.Y_AXIS));
-    setPreferredSize(new Dimension(300,150));
+    setPreferredSize(new Dimension(300,124));
     setBackground(Color.LIGHT_GRAY);
   }
 
@@ -33,8 +33,8 @@ public class histogram extends JPanel {
     int height = this.getHeight();
     int width = this.getWidth();
     List<Color> col = Arrays.asList(new Color(255,0,0,25),
-            new Color(0,255,0,50),
-            new Color(0,0,255,75),
+            new Color(144,238,144,50),
+            new Color(30,144,255,75),
             new Color(255,165,0,100));
     int max = 0;
     for (Integer e: hist.keySet()) {
@@ -45,9 +45,13 @@ public class histogram extends JPanel {
       List<Integer> f = hist.get(e);
       for (int x = 0; x < 4; x++) {
         g.setColor(col.get(x));
-        g.fillRect(x + e + 30, height+5-f.get(x),5,((f.get(x)*max)/max - 25));
+        int newHeight = (int)((f.get(x) * 1.0)/ max * 100);
+        System.out.println(max);
+        g.fillRect(x + e*2 + 30, height - f.get(x) ,10,
+                newHeight);
       }
     }
+    /*
     g.setColor(Color.black);
     g.drawLine(25,height-20,286,height-20);
     g.drawString("Value",50,height-5);
@@ -59,19 +63,9 @@ public class histogram extends JPanel {
       g.drawString(s,15,freqHeight + x * 10);
     }
 
-
-
-
-    //g.fillRect(startingX,startingY,5,endingY);
-
-
-
-
-    //your code to the draw the board should go here.
-    //The originX and originY is the top-left of where the cell (0,0) should start
-    //cellDimension is the width (and height) occupied by every cell
-
+     */
   }
+
 
 
 }

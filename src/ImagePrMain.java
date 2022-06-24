@@ -26,7 +26,7 @@ public class ImagePrMain {
    */
   public static void main(String[] args) throws IOException {
 
-
+/*
     Readable input;
     if (args.length > 0) {
       if (args[0].equals("file")) {
@@ -59,7 +59,7 @@ public class ImagePrMain {
     controller.startProcessor();
 
 
-/*
+*/
     System.out.println("heyyyyy BALLSACK!");
     GUIViewImpl gui = new GUIViewImpl();
 
@@ -75,9 +75,9 @@ public class ImagePrMain {
     }
   }
 
- */
+
   }
-}
+
 
 
 
