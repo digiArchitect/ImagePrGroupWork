@@ -288,6 +288,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     return newImage(newVals, p);
   }
+
   @Override
   public HashMap<Integer, Integer> histogram(String component, String fileLoc) {
     Image i = images.get(fileLoc);

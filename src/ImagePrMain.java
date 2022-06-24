@@ -12,6 +12,7 @@ import controller.prcontroller.ImagePrController;
 import controller.prcontroller.ImagePrControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
+import view.guiview.GUIView;
 import view.guiview.GUIViewImpl;
 import view.prview.ImagePrView;
 import view.prview.ImagePrViewImpl;
@@ -59,15 +60,10 @@ public class ImagePrMain {
 
 
     ImagePrModel model = new ImagePrModelImpl();
-    ImagePrView view = new ImagePrViewImpl();
-    ImagePrController controller = new ImagePrControllerImpl(input, view, model);
-
+    GUIView view = new GUIViewImpl();
+    GUIControllerImpl gui = new GUIControllerImpl(view, model);
 
     System.out.println("heyyyyy BALLSACK!");
-
-    GUIControllerImpl gui = new GUIControllerImpl(controller, model);
-
-    controller.startProcessor();
 
     gui.setDefaultLookAndFeelDecorated(false);
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

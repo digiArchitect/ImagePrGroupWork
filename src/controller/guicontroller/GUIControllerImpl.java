@@ -3,72 +3,123 @@ package controller.guicontroller;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
-import java.io.File;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 import java.io.IOException;
-import java.util.EventListener;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import controller.prcontroller.ImagePrController;
 import model.ImagePrModel;
+import view.guiview.GUIView;
 
-public class GUIControllerImpl extends JFrame implements ActionListener, EventListener {
+public class GUIControllerImpl extends JFrame implements ActionListener {
+
+  private JPanel rightPanel;
+
+  private JPanel leftPanel;
+
+  private JComboBox imagesComboBox;
+
+  private JComboBox commandsComboBox;
 
   private JPanel mainPanel;
   private JScrollPane mainScrollPane;
-
-  private JLabel comboboxDisplay;
-
   private ImagePrModel model;
 
-  private ImagePrController controller;
+  private GUIView view;
 
-  public GUIControllerImpl(ImagePrController controller, ImagePrModel model) throws IOException {
+  public GUIControllerImpl(GUIView view, ImagePrModel model) throws IOException {
     super();
-    this.controller = controller;
-    setTitle("GUI VIEW");
-    setSize(600, 400);
+    this.view = view;
+    this.model = model;
+
+    setTitle("gui view");
+    setSize(1000, 800);
+
+    //MAIN-----------------------------------------------------------------------
 
     mainPanel = new JPanel();
-    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.PAGE_AXIS));
-
+    mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
     mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
+    //---------------------------------------------------------------------------
+
+    //LEFT SIDE-----------------------------------------------------------------------
+
+    leftPanel = new JPanel();
+    leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
+
+      //IMAGE
+
     JPanel imagePanel = new JPanel();
     imagePanel.setBorder(BorderFactory.createTitledBorder("Showing an image"));
-    imagePanel.setLayout(new GridLayout(1, 0, 10, 10));
-
-    JLabel imageLabel = new JLabel();
     JScrollPane imageScrollPane = new JScrollPane();
-
-
-    this.controller.load("res/mangoes.ppm", "balls");
-    System.out.println(this.model.getImageContents("balls"));
-
-    BufferedImage myPicture = this.model.getImage("balls");
-
-    imageLabel.setIcon(new ImageIcon(myPicture));
-
-
-    imageScrollPane.setPreferredSize(new Dimension(100, 600));
+    imageScrollPane.setPreferredSize(new Dimension(600, 600));
     imagePanel.add(imageScrollPane);
-    mainPanel.add(imagePanel);
 
-    //combo boxes
+      //MISC
 
-    JPanel comboboxPanel = new JPanel();
-    comboboxPanel.setLayout(new BoxLayout(comboboxPanel, BoxLayout.PAGE_AXIS));
-    comboboxDisplay = new JLabel("Cold Stone Creamery: Which size do you "
-            + "want?");
-    String[] options = {"Like it", "Love it", "Gotta have it"};
-    JComboBox<String> combobox = new JComboBox<String>(options);
+    JPanel leftMisc = new JPanel();
+    leftMisc.setLayout(new BoxLayout(leftMisc, BoxLayout.X_AXIS));
 
-    comboboxPanel.add(comboboxDisplay);
-    comboboxPanel.add(combobox);
-    mainPanel.add(comboboxPanel);
+    JLabel imageName = new JLabel("Test");
+    leftMisc.add(imageName);
+
+      //ADDING
+
+    leftPanel.add(imagePanel);
+    leftPanel.add(leftMisc);
+
+    //---------------------------------------------------------------------------
+
+    //RIGHT SIDE-----------------------------------------------------------------------
+
+    rightPanel = new JPanel();
+    rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+
+      //COMBO BOXES
+
+    JPanel comboBoxPanel = new JPanel();
+    comboBoxPanel.setLayout(new BoxLayout(comboBoxPanel, BoxLayout.Y_AXIS));
+
+    JPanel imagesComboBoxPanel = new JPanel();
+    JLabel imagesTitle = new JLabel("Images");
+    String[] imageNames = {"image 1"};
+    imagesComboBox = new JComboBox(imageNames);
+
+    imagesComboBoxPanel.setLayout(new BoxLayout(imagesComboBoxPanel, BoxLayout.X_AXIS));
+    imagesComboBoxPanel.add(imagesTitle);
+    imagesComboBoxPanel.add(imagesComboBox);
+
+    JPanel commandsComboBoxPanel = new JPanel();
+    JLabel commandsTitle = new JLabel("Commands");
+    String[] commandNames = {"Greyscale by Luma", "Greyscale by Intensity",
+            "Greyscale by Component", "Greyscale by Red", "Greyscale by Blue",
+            "Greyscale by Green", "Greyscale by Matrix", "Blur", "Sharpen", "Sepia", "Brighten",
+            "Vertical Flip", "Horizontal Flip"};
+    commandsComboBox = new JComboBox(commandNames);
+
+    commandsComboBoxPanel.setLayout(new BoxLayout(commandsComboBoxPanel, BoxLayout.X_AXIS));
+    commandsComboBoxPanel.add(commandsTitle);
+    commandsComboBoxPanel.add(commandsComboBox);
+
+    imagesComboBox.setActionCommand("Image options");
+    imagesComboBox.addActionListener(this);
+    commandsComboBox.setActionCommand("Command options");
+    commandsComboBox.addActionListener(this);
+
+    comboBoxPanel.add(imagesComboBoxPanel);
+    comboBoxPanel.add(commandsComboBoxPanel);
+
+      //ADDING
+
+    rightPanel.add(comboBoxPanel);
+
+    //---------------------------------------------------------------------------
+
+
+    mainPanel.add(leftPanel);
+    mainPanel.add(rightPanel);
+
   }
 
   /**
@@ -78,10 +129,6 @@ public class GUIControllerImpl extends JFrame implements ActionListener, EventLi
    */
   @Override
   public void actionPerformed(ActionEvent e) {
-
-  }
-
-  public void refresh() {
-
+    System.out.println("ballsa");
   }
 }
