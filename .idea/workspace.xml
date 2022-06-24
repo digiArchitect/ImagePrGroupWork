@@ -6,7 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +78,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.john">
-    <configuration name="john" type="Application" factoryName="Application">
+    <configuration name="john" type="Application" factoryName="Application" temporary="true">
       <option name="MAIN_CLASS_NAME" value="ImagePrMain" />
       <module name="ImagePrGroupWork" />
       <method v="2">
@@ -137,11 +142,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.john" />
         <item itemvalue="JUnit.TestImageModel" />
         <item itemvalue="JUnit.TestImageModel.testMutate" />
         <item itemvalue="JUnit.TestScript" />
         <item itemvalue="JUnit.TestView" />
-        <item itemvalue="JUnit.TestScript.TestScriptWithMock" />
       </list>
     </recent_temporary>
   </component>
@@ -183,6 +188,8 @@
       <workItem from="1655843667775" duration="1255000" />
       <workItem from="1656019104808" duration="4717000" />
       <workItem from="1656077520362" duration="653000" />
+      <workItem from="1656096131160" duration="4843000" />
+      <workItem from="1656101049001" duration="1732000" />
     </task>
     <servers />
   </component>
