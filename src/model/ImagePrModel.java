@@ -92,13 +92,6 @@ public interface ImagePrModel {
    */
   void colorTransform(String component, String fileLoc, String fileName);
 
-  /**
-   * Returns a buffered image from an image in the hashmap.
-   *
-   * @param s the image name.
-   * @return the buffered image.
-   */
-  BufferedImage getImage(String s);
 
   /**
    * Generates a histogram data for a specfic component

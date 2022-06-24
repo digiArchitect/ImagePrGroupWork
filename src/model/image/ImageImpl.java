@@ -65,15 +65,4 @@ public class ImageImpl implements Image {
     return new ArrayList<>(imageVals);
   }
 
-  public BufferedImage getBufferedImage() {
-    BufferedImage b = new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
-    int count = 0;
-    for (int x = 0; x < height; x++) {
-      for (int y = 0; y < width; y++) {
-        b.setRGB(y, x, imageVals.get(count).hashCode());
-        count++;
-      }
-    }
-    return b;
-  }
 }

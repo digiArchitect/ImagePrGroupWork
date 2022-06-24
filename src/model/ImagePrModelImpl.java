@@ -127,15 +127,6 @@ public class ImagePrModelImpl implements ImagePrModel {
     return images.get(s).getContents();
   }
 
-  /**
-   * Returns a buffered image from a given image class.
-   *
-   * @param i the image name.
-   * @return the image.
-   */
-  public BufferedImage getImage(String i) {
-    return images.get(i).getBufferedImage();
-  }
 
   //COMMANDS
 
@@ -189,6 +180,7 @@ public class ImagePrModelImpl implements ImagePrModel {
   public void greyscale(String component, String imageName, String newName) {
     Image newImage = applyChanges(new GreyScale(component), images.get(imageName));
     images.put(newName, newImage);
+    System.out.println("did a greyscale");
   }
 
   /**

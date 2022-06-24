@@ -21,10 +21,12 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 import model.ImagePrModel;
+import model.image.FunctionUtils;
 import model.image.ImageImpl;
 import model.image.Pixel;
 import model.image.PixelImpl;
 import view.guiview.GUIView;
+import view.guiview.GUIViewImpl;
 
 import static java.util.Map.entry;
 import static model.image.FunctionUtils.fileTypeSupported;
@@ -40,12 +42,15 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
   private GUIView view;
   private boolean loaded;
   private String currentImage;
-  JPanel comboBoxPanel;
-  JPanel imagesComboBoxPanel;
-  ArrayList<String> imageNames;
-  JPanel commandsComboBoxPanel;
-  String[] commandNames;
-  JLabel imageName;
+  private JPanel comboBoxPanel;
+  private JPanel imagesComboBoxPanel;
+  private ArrayList<String> imageNames;
+  private JPanel commandsComboBoxPanel;
+  private String[] commandNames;
+  private JLabel imageName;
+  private BufferedImage currentBufferedImage;
+  JPanel imagePanel;
+  JLabel imageLabel;
 
   Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
           entry("Greyscale by Red Component",
@@ -70,10 +75,10 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
 
   public GUIControllerImpl(GUIView view, ImagePrModel model) throws IOException {
     super();
-    if (view == null || model == null) {
+    if (model == null) {
       throw new IllegalArgumentException();
     }
-    this.view = view;
+    this.view = new GUIViewImpl();
     this.model = model;
     loaded = false;
 
@@ -96,9 +101,10 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
 
     //IMAGE
 
-    JPanel imagePanel = new JPanel();
+    imagePanel = new JPanel();
     imagePanel.setBorder(BorderFactory.createTitledBorder("Showing an image"));
-    JScrollPane imageScrollPane = new JScrollPane();
+    imageLabel = new JLabel();
+    JScrollPane imageScrollPane = new JScrollPane(imageLabel);
     imageScrollPane.setPreferredSize(new Dimension(600, 600));
     imagePanel.add(imageScrollPane);
 
@@ -202,6 +208,19 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
   }
 
   /**
+   * Updates our GUI.
+   */
+  private void update() {
+    System.out.println(imageNames);
+    imageName.setText(currentImage);
+    List<Integer> contents = model.getImageContents(currentImage);
+    List<Pixel> imageVals = model.getHashMap().get(currentImage).flatten();
+    currentBufferedImage = this.view.image(contents, imageVals);
+
+    imageLabel.setIcon(new ImageIcon(currentBufferedImage));
+  }
+
+  /**
    * Invoked when an action occurs.
    *
    * @param e the event to be processed
@@ -212,6 +231,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     switch (e.getActionCommand()) {
 
       case "load":
+        String fileName;
         final JFileChooser fchooser = new JFileChooser(".");
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
                 "JPG, PNG, or PPM Images", "jpg", "ppm", "png");
@@ -222,23 +242,37 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
           System.out.println(f.getName());
           String fileLoc = f.getAbsolutePath();
           System.out.println(fileLoc);
-          String fileName = JOptionPane.showInputDialog("Please enter the name of this " +
+          fileName = JOptionPane.showInputDialog("Please enter the name of this " +
                   "image within the" +
                   "processor.");
           try {
             this.load(fileLoc, fileName);
+            imagesComboBox.addItem(fileName);
+
+            if (!loaded) {
+              imagesComboBox.removeItemAt(0);
+              imageNames.clear();
+              loaded = true;
+            }
+
+            imageNames.add(fileName);
+            currentImage = fileName;
+
+
           } catch (IOException ex) {
             System.out.println("there's something wrong with the file you're trying to load!");
           }
         }
+
+
         break;
 
       case "save":
+        String fileType = JOptionPane.showInputDialog("what file type?");
         break;
       case "Command options":
         JComboBox box = (JComboBox) e.getSource();
         String c = box.getSelectedItem().toString();
-        System.out.println(c);
         int amountOfNeededParams = commandsMap.get(c).size();
         int[] params = new int[amountOfNeededParams - 2];
         if (amountOfNeededParams > 2) {
@@ -247,27 +281,58 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
           }
         }
 
+        System.out.println("-------------");
+        System.out.println();
+        System.out.println("switch test");
+        System.out.println();
+        System.out.println("c: " + c);
         switch(c) {
-          case "Greyscale by Red":
+          case "Greyscale by Red Component":
+            System.out.println("greyscaled by red");
             this.model.greyscale("red", currentImage, currentImage);
             break;
-          case "Greyscale by Blue":
+          case "Greyscale by Blue Component":
+            System.out.println("greyscaled by blue");
             this.model.greyscale("blue", currentImage, currentImage);
             break;
-          case "Greyscale by Green":
+          case "Greyscale by Green Component":
+            System.out.println("greyscaled by green");
             this.model.greyscale("green", currentImage, currentImage);
             break;
-          case "Greyscale by Luma":
+          case "Greyscale by Luma Component":
             this.model.greyscale("luma", currentImage, currentImage);
             break;
-          case "Greyscale by Intensity":
+          case "Greyscale by Intensity Component":
             this.model.greyscale("intensity", currentImage, currentImage);
             break;
-          case "Greyscale by Component":
-            this.model.greyscale("component", currentImage, currentImage);
+          case "Greyscale by Value Component":
+            this.model.greyscale("value", currentImage, currentImage);
+            break;
+          case "Horizontal Flip":
+            this.model.flipImage("horizontal", currentImage, currentImage);
+            break;
+          case "Vertical Flip":
+            this.model.flipImage("vertical", currentImage, currentImage);
+            break;
+          case "Brighten":
+            this.model.brighten(params[0], currentImage, currentImage);
+            break;
+          case "Blur":
+            this.model.kernelMutate("blur", currentImage, currentImage);
+            break;
+          case "Sharpen":
+            this.model.kernelMutate("sharpen", currentImage, currentImage);
+            break;
+          case "Greyscale":
+            this.model.colorTransform("greyscale", currentImage, currentImage);
+            break;
+          case "Sepia":
+            this.model.colorTransform("sepia", currentImage, currentImage);
+            break;
+          default:
+            System.out.println("command not recognized");
             break;
         }
-
         break;
       case "Image options":
         box = (JComboBox) e.getSource();
@@ -277,10 +342,6 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     update();
   }
 
-  private void update() {
-    System.out.println(imageNames);
-    imageName.setText(currentImage);
-  }
 
   /**
    * Read an image file in the PPM format and stores it in this model's hashmap.
@@ -301,18 +362,6 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     } else {
       throw new IllegalArgumentException();
     }
-
-
-    imagesComboBox.addItem(fileName);
-
-    if (!loaded) {
-      imagesComboBox.removeItemAt(0);
-      imageNames.clear();
-      loaded = true;
-    }
-
-    imageNames.add(fileName);
-    currentImage = fileName;
   }
 
   /**

@@ -25,9 +25,4 @@ public interface Image {
    */
   List<List<Pixel>> getImageVals();
 
-  /**
-   * Returns buffered image of image.
-   * @return a buffered image.
-   */
-  BufferedImage getBufferedImage();
 }
