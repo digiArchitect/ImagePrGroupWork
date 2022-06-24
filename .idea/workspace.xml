@@ -6,23 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Image.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/Image.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Image.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/ImageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/ImageImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +185,7 @@
       <workItem from="1656077520362" duration="653000" />
       <workItem from="1656096131160" duration="4843000" />
       <workItem from="1656101049001" duration="3505000" />
-      <workItem from="1656104626723" duration="608000" />
+      <workItem from="1656104626723" duration="621000" />
     </task>
     <servers />
   </component>
