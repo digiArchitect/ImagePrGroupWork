@@ -103,6 +103,7 @@ public interface ImagePrModel {
    * @param newHeight the new Height
    * @param fileLoc   the file location.
    * @param fileName  the file name.
+   * @throws IllegalArgumentException if newWidth > width || newHeight > height
    */
   void imageDownscale(int newWidth, int newHeight,String fileLoc, String fileName);
 }

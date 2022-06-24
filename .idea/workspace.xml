@@ -180,7 +180,7 @@
       <workItem from="1655595447719" duration="4224000" />
       <workItem from="1655750546454" duration="6840000" />
       <workItem from="1656017541130" duration="14367000" />
-      <workItem from="1656048118915" duration="5296000" />
+      <workItem from="1656048118915" duration="6786000" />
     </task>
     <servers />
   </component>
@@ -223,31 +223,6 @@
           <url>file://$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java</url>
           <line>230</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>338</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>334</line>
-          <option name="timeStamp" value="25" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>332</line>
-          <option name="timeStamp" value="26" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>333</line>
-          <option name="timeStamp" value="27" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>331</line>
-          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

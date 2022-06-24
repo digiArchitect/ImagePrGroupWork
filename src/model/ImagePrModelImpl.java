@@ -325,13 +325,16 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image i = images.get(fileLoc);
     int width = i.getContents().get(0);
     int height = i.getContents().get(1);
+    if(height < newHeight || newWidth > width) {
+      throw new IllegalArgumentException("Invalid arguments");
+    }
     List<List<Pixel>> imageVals = i.getImageVals();
     List<List<Pixel>> downScaled = new ArrayList<>();
     for (int x = 0; x < newHeight; x++) {
       List<Pixel> row = new ArrayList<>();
       for (int y = 0; y < newWidth; y++) {
-        double a = (calcValue(x, newHeight, height));
-        double b = (calcValue(y, newWidth, width));
+        int a = (calcValue(x, newHeight, height));
+        int b = (calcValue(y, newWidth, width));
         row.add(calcPixel(a,b,imageVals));
       }
       downScaled.add(row);
@@ -344,23 +347,21 @@ public class ImagePrModelImpl implements ImagePrModel {
 
   }
 
-  private Pixel calcPixel(double ab, double bc, List<List<Pixel>> imageVals) {
-    int xF = (int) Math.floor(ab);
-    int xC = (int) Math.ceil(ab);
-    int yF = (int) Math.floor(bc);
-    int yC = (int) Math.ceil(bc);
-    Pixel ca = imageVals.get(xF).get(yF);
-    Pixel cb = imageVals.get(xC).get(yF);
-    Pixel cc = imageVals.get(xF).get(yC);
+  private Pixel calcPixel(int ab, int bc, List<List<Pixel>> imageVals) {
+    int xC = ab+1;
+    int yC = bc+1;
+    Pixel ca = imageVals.get(ab).get(bc);
+    Pixel cb = imageVals.get(xC).get(bc);
+    Pixel cc = imageVals.get(ab).get(yC);
     Pixel cd = imageVals.get(xC).get(yC);
     int[] rgb = new int[3];
     for (int x = 0; x < 3; x ++) {
       int m  = newPixelVals(ca.getChannel(x),
-              (cb.getChannel(x)),xF,xF,xC);
+              (cb.getChannel(x)),ab,ab,xC);
       int n  = newPixelVals(cc.getChannel(x),
-              (cd.getChannel(x)),xF,xF,xC);
+              (cd.getChannel(x)),ab,ab,xC);
       rgb[x] = newPixelVals(m,
-              n,yF,yF,yC);
+              n,bc,bc,yC);
 
     }
     return new PixelImpl(FunctionUtils.properRGB(rgb));
@@ -371,8 +372,8 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
 
-  private double calcValue(int var, int dimension, int oldDimension) {
-    return (oldDimension * 1.0 * var) / dimension;
+  private int calcValue(int var, int dimension, int oldDimension) {
+    return (oldDimension * var) / dimension;
   }
 
 }
