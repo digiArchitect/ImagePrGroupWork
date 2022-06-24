@@ -46,7 +46,7 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;jdk.selected.JAVA_MODULE&quot;: &quot;11&quot;,
-    &quot;last_directory_selection&quot;: &quot;/Users/jylahbah/Documents/GitHub/ImagePrGroupWork/Test&quot;,
+    &quot;last_directory_selection&quot;: &quot;/Users/jylahbah/Documents/GitHub/ImagePrGroupWork/src/model&quot;,
     &quot;last_opened_file_path&quot;: &quot;/Users/archie.oconnell/Documents/GitHub/ImagePrGroupWork&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
@@ -179,7 +179,8 @@
       <workItem from="1655509137585" duration="550000" />
       <workItem from="1655595447719" duration="4224000" />
       <workItem from="1655750546454" duration="6840000" />
-      <workItem from="1656017541130" duration="5252000" />
+      <workItem from="1656017541130" duration="14367000" />
+      <workItem from="1656048118915" duration="5296000" />
     </task>
     <servers />
   </component>
@@ -203,15 +204,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java</url>
-          <line>51</line>
-          <properties class="controller.prcontroller.ImagePrControllerImpl" method="startProcessor">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
           <line>47</line>
@@ -221,6 +213,41 @@
           <url>file://$PROJECT_DIR$/test/TestImageController.java</url>
           <line>18</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java</url>
+          <line>231</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/controller/prcontroller/ImagePrControllerImpl.java</url>
+          <line>230</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>338</line>
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>334</line>
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>332</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>333</line>
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
+          <line>331</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -194,15 +194,15 @@ public class ImagePrModelImpl implements ImagePrModel {
     Double[][] matrix;
     if (component.equals("sepia")) {
       matrix = new Double[][]{
-        new Double[]{0.393, 0.769, 0.189},
-        new Double[]{ 0.349, 0.686, 0.168},
-        new Double[]{0.272, 0.534, 0.131}
+              new Double[]{0.393, 0.769, 0.189},
+              new Double[]{0.349, 0.686, 0.168},
+              new Double[]{0.272, 0.534, 0.131}
       };
     } else if (component.equals("greyscale")) {
       matrix = new Double[][]{
-        new Double[]{0.2126, 0.7152, 0.0722},
-        new Double[]{0.2126, 0.7152, 0.0722},
-        new Double[]{0.2126, 0.7152, 0.0722}
+              new Double[]{0.2126, 0.7152, 0.0722},
+              new Double[]{0.2126, 0.7152, 0.0722},
+              new Double[]{0.2126, 0.7152, 0.0722}
       };
     } else {
       throw new IllegalArgumentException();
@@ -227,17 +227,17 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image g;
     if (component.equals("sharpen")) {
       kernelValues = new Double[][]{
-        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125},
-        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
-        new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
-        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
-        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
+              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125},
+              new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+              new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
+              new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
       };
     } else if (component.equals("blur")) {
       kernelValues = new Double[][]{
-        new Double[]{0.0625, 0.125, 0.0625},
-        new Double[]{0.125, 0.25, 0.125},
-        new Double[]{0.0625, 0.125, 0.0625}
+              new Double[]{0.0625, 0.125, 0.0625},
+              new Double[]{0.125, 0.25, 0.125},
+              new Double[]{0.0625, 0.125, 0.0625}
       };
     } else {
       throw new IllegalArgumentException();
@@ -296,25 +296,25 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     return new PixelImpl(newPixel);
   }
+
   @Override
   public HashMap<Integer, List<Integer>> histogram(String fileLoc) {
     Image i = images.get(fileLoc);
     List<Pixel> mapList = i.flatten();
-    List<String> components = Arrays.asList("red","green","blue","intensity");
-    HashMap<Integer,List<Integer>> histogram = new HashMap<>();
+    List<String> components = Arrays.asList("red", "green", "blue", "intensity");
+    HashMap<Integer, List<Integer>> histogram = new HashMap<>();
     for (int x = 0; x < 257; x++) {
       int finalX = x;
       List<Integer> frequencies = new ArrayList<>();
-      for(String s : components) {
+      for (String s : components) {
         List<Integer> pixelVals = mapList.stream()
                 .map(new HistogramVals(s)).collect(Collectors.toList());
         int count = pixelVals.stream().filter(y -> y == finalX).collect(Collectors.toList()).size();
         frequencies.add(count);
 
       }
-      histogram.put(x,frequencies);
+      histogram.put(x, frequencies);
     }
-
 
 
     return histogram;
@@ -325,9 +325,54 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image i = images.get(fileLoc);
     int width = i.getContents().get(0);
     int height = i.getContents().get(1);
+    List<List<Pixel>> imageVals = i.getImageVals();
+    List<List<Pixel>> downScaled = new ArrayList<>();
+    for (int x = 0; x < newHeight; x++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int y = 0; y < newWidth; y++) {
+        double a = (calcValue(x, newHeight, height));
+        double b = (calcValue(y, newWidth, width));
+        row.add(calcPixel(a,b,imageVals));
+      }
+      downScaled.add(row);
+    }
+    images.put(fileName,
+            new ImageImpl(downScaled,
+                    newWidth,
+                    newHeight,
+                    i.getContents().get(2)));
+
   }
-  private int calcValue(int var, int dimension, int newDimension) {
-    return (newDimension * var)/dimension;
+
+  private Pixel calcPixel(double ab, double bc, List<List<Pixel>> imageVals) {
+    int xF = (int) Math.floor(ab);
+    int xC = (int) Math.ceil(ab);
+    int yF = (int) Math.floor(bc);
+    int yC = (int) Math.ceil(bc);
+    Pixel ca = imageVals.get(xF).get(yF);
+    Pixel cb = imageVals.get(xC).get(yF);
+    Pixel cc = imageVals.get(xF).get(yC);
+    Pixel cd = imageVals.get(xC).get(yC);
+    int[] rgb = new int[3];
+    for (int x = 0; x < 3; x ++) {
+      int m  = newPixelVals(ca.getChannel(x),
+              (cb.getChannel(x)),xF,xF,xC);
+      int n  = newPixelVals(cc.getChannel(x),
+              (cd.getChannel(x)),xF,xF,xC);
+      rgb[x] = newPixelVals(m,
+              n,yF,yF,yC);
+
+    }
+    return new PixelImpl(FunctionUtils.properRGB(rgb));
+
+  }
+  private int newPixelVals(int a, int b, int x, int floor, int ceiling) {
+      return b*(x-floor) + a*(ceiling-x);
+  }
+
+
+  private double calcValue(int var, int dimension, int oldDimension) {
+    return (oldDimension * 1.0 * var) / dimension;
   }
 
 }

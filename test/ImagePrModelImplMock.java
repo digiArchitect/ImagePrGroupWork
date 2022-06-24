@@ -1,4 +1,3 @@
-package model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -8,6 +7,7 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import model.ImagePrModel;
 import model.image.FunctionUtils;
 import model.image.HistogramVals;
 import model.image.Image;
@@ -208,6 +208,12 @@ public class ImagePrModelImplMock implements ImagePrModel {
     }
     return histogram;
   }
+
+  @Override
+  public void imageDownscale(int newWidth, int newHeight, String fileLoc, String fileName) {
+
+  }
+
   /**
    * Applies a filter on an image using kernels and saves the new image in the hashmap
    * at the new image name location.

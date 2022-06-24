@@ -74,6 +74,8 @@ public class ImagePrControllerImpl implements ImagePrController {
             entry("blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
             entry("greyscale", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+            entry("downscale", new ArrayList<>(Arrays.asList("int","int",
+                    "img-name", "img-dest"))),
             entry("sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
     welcomeMessage();
@@ -126,6 +128,7 @@ public class ImagePrControllerImpl implements ImagePrController {
                   System.out.println("The input " + arf + " needs to be a String!");
                 }
                 break;
+
               case ("img-name"):
                 if (model.hasKey(arf) || parentCommand.equals("load")) {
                   fields.add(arf);
@@ -224,6 +227,11 @@ public class ImagePrControllerImpl implements ImagePrController {
           case ("greyscale"):
             this.model.colorTransform("greyscale",
                     fields.get(1), fields.get(2));
+            break;
+          case ("downscale"):
+            this.model.imageDownscale(Integer.parseInt(fields.get(1)),
+                    Integer.parseInt(fields.get(2)),
+                    fields.get(3), fields.get(4));
             break;
           default:
             throw new IllegalStateException("No command executed!");

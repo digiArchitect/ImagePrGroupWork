@@ -46,8 +46,6 @@ public class histogram extends JPanel {
       for (int x = 0; x < 4; x++) {
         g.setColor(col.get(x));
         g.fillRect(x + e + 30, height+5-f.get(x),5,((f.get(x)*max)/max - 25));
-
-
       }
     }
     g.setColor(Color.black);

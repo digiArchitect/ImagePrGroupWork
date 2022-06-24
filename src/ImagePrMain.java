@@ -21,11 +21,12 @@ import view.prview.ImagePrViewImpl;
 public class ImagePrMain {
   /**
    * Runs the program.
+   *
    * @param args the command line arguments.
    */
   public static void main(String[] args) throws IOException {
 
-    /*
+
     Readable input;
     if (args.length > 0) {
       if (args[0].equals("file")) {
@@ -34,16 +35,14 @@ public class ImagePrMain {
           String content = Files.readString(filePath);
 
           input = new StringReader(content);
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
           System.out.println("Cannot read this file. Reading input from keyboard.");
           input = new InputStreamReader(System.in);
         }
-      }
-      else {
+      } else {
         StringBuilder sb = new StringBuilder();
         for (String s : args) {
-          sb.append(s + " ");
+          sb.append(s).append(" ");
         }
         if (!sb.substring(sb.length() - 1).equals("q")) {
           sb.append("q");
@@ -51,8 +50,7 @@ public class ImagePrMain {
         System.out.println(sb);
         input = new StringReader(sb.toString());
       }
-    }
-    else {
+    } else {
       input = new InputStreamReader(System.in);
     }
     ImagePrView view = new ImagePrViewImpl();
@@ -60,8 +58,8 @@ public class ImagePrMain {
     ImagePrController controller = new ImagePrControllerImpl(input, view, model);
     controller.startProcessor();
 
-    */
 
+/*
     System.out.println("heyyyyy BALLSACK!");
     GUIViewImpl gui = new GUIViewImpl();
 
@@ -75,6 +73,9 @@ public class ImagePrMain {
     } catch (Exception e) {
       //do stuff
     }
+  }
+
+ */
   }
 }
 
