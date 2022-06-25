@@ -1,23 +1,26 @@
 package view.guiview;
 
 import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
 import java.util.List;
 
-import javax.imageio.ImageIO;
-
-import model.image.FunctionUtils;
-import model.image.Image;
 import model.image.Pixel;
 
-import static model.image.FunctionUtils.fileTypeSupported;
 
+/**
+ * Represents te GUi view.
+ */
 public class GUIViewImpl implements GUIView {
+  /**
+   * Constructs a GUI view.
+   */
   public GUIViewImpl() {}
 
+  /**
+   * Makes an image from an image.
+   * @param contents the image contents.
+   * @param imageVals the image vals.
+   * @return a buffered image.
+   */
   public BufferedImage image(List<Integer> contents, List<Pixel> imageVals) {
     BufferedImage b = new BufferedImage(contents.get(0),
             contents.get(1), BufferedImage.TYPE_INT_RGB);

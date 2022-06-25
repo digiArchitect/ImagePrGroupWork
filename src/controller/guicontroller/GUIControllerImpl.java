@@ -1,10 +1,7 @@
-package Controller.guicontroller;
+package controller.guicontroller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
@@ -25,7 +22,6 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import Controller.guicontroller.histogram;
 import model.ImagePrModel;
 import model.image.FunctionUtils;
-import model.image.HistogramVals;
 import model.image.Image;
 import model.image.ImageImpl;
 import model.image.Pixel;
@@ -36,13 +32,8 @@ import view.guiview.GUIViewImpl;
 import static java.util.Map.entry;
 import static model.image.FunctionUtils.fileTypeSupported;
 
-public class GUIControllerImpl extends JFrame implements ActionListener {
-  private JPanel rightPanel;
-  private JPanel leftPanel;
+public class GUIControllerImpl extends JFrame implements GUIController {
   private JComboBox imagesComboBox;
-  private JComboBox commandsComboBox;
-  private JPanel mainPanel;
-  private JScrollPane mainScrollPane;
   private ImagePrModel model;
   private GUIView view;
   private boolean loaded;
@@ -58,9 +49,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
   JLabel imageLabel;
   private histogram hist;
 
-  Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
-          entry("Greyscale by Red Component",
-                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+  Map<String, ArrayList<String>> commandsMap = Map.ofEntries(entry("Greyscale by Red Component",
+          new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Blue Component",
                   new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Green Component",
@@ -71,16 +61,30 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
                   new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Intensity Component",
                   new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Horizontal Flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Vertical Flip", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Brighten", new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))),
-          entry("Blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Greyscale by Matrix", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
-          entry("Downscale", new ArrayList<>(Arrays.asList("int","int",
-                  "img-name", "img-dest"))),
-          entry("Sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
+          entry("Horizontal Flip",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Vertical Flip",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Brighten",
+                  new ArrayList<>(Arrays.asList("int", "img-name", "img-dest"))),
+          entry("Blur",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Sharpen",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Greyscale by Matrix",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Downscale",
+                  new ArrayList<>(Arrays.asList("int", "int", "img-name", "img-dest"))),
+          entry("Sepia",
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
+  /**
+   * Constructs a GUI Controller
+   *
+   * @param view  the view.
+   * @param model the model.
+   * @throws IOException if the image methods go wrong.
+   */
   public GUIControllerImpl(GUIView view, ImagePrModel model) throws IOException {
     super();
     if (model == null) {
@@ -95,16 +99,16 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
 
     //MAIN-----------------------------------------------------------------------
 
-    mainPanel = new JPanel();
+    JPanel mainPanel = new JPanel();
     mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.X_AXIS));
-    mainScrollPane = new JScrollPane(mainPanel);
+    JScrollPane mainScrollPane = new JScrollPane(mainPanel);
     add(mainScrollPane);
 
     //---------------------------------------------------------------------------
 
     //LEFT SIDE-----------------------------------------------------------------------
 
-    leftPanel = new JPanel();
+    JPanel leftPanel = new JPanel();
     leftPanel.setLayout(new BoxLayout(leftPanel, BoxLayout.Y_AXIS));
 
     //IMAGE
@@ -133,7 +137,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
 
     //RIGHT SIDE-----------------------------------------------------------------------
 
-    rightPanel = new JPanel();
+    JPanel rightPanel = new JPanel();
     hist = new histogram(new HashMap<>());
     rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
     rightPanel.add(hist);
@@ -185,10 +189,10 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     JLabel commandsTitle = new JLabel("Commands");
     commandNames = new String[]{"Greyscale by Red Component", "Greyscale by Blue Component",
             "Greyscale by Green Component", "Greyscale by Value Component",
-            "Greyscale by Luma Component",
-            "Greyscale by Intensity Component", "Horizontal Flip", "Vertical Flip",
-            "Brighten", "Blur", "Sharpen", "Greyscale", "Sepia","Downscale"};
-    commandsComboBox = new JComboBox(commandNames);
+            "Greyscale by Luma Component", "Greyscale by Intensity Component",
+            "Horizontal Flip", "Vertical Flip", "Brighten", "Blur", "Sharpen", "Greyscale",
+            "Sepia", "Downscale"};
+    JComboBox commandsComboBox = new JComboBox(commandNames);
     commandsComboBoxPanel.setLayout(new BoxLayout(commandsComboBoxPanel, BoxLayout.X_AXIS));
 
 
@@ -255,9 +259,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
           System.out.println(f.getName());
           String fileLoc = f.getAbsolutePath();
           System.out.println(fileLoc);
-          fileName = JOptionPane.showInputDialog("Please enter the name of this " +
-                  "image within the" +
-                  "processor.");
+          fileName = JOptionPane.showInputDialog("Please enter the name of this "
+                  + "image within the processor.");
           try {
             this.load(fileLoc, fileName);
             imagesComboBox.addItem(fileName);
@@ -282,7 +285,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
       case "save":
         String fileType = JOptionPane.showInputDialog("Give file name");
         try {
-          save(fileType,currentImage,this.model.getImageContents(currentImage),
+          save(fileType, currentImage, this.model.getImageContents(currentImage),
                   this.model.getHashMap());
         } catch (Exception f) {
           System.out.println("bad file name");
@@ -304,7 +307,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
         System.out.println("switch test");
         System.out.println();
         System.out.println("c: " + c);
-        switch(c) {
+        switch (c) {
           case "Greyscale by Red Component":
             System.out.println("greyscaled by red");
             this.model.greyscale("red", currentImage, currentImage);
@@ -348,7 +351,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
             this.model.colorTransform("sepia", currentImage, currentImage);
             break;
           case "Downscale":
-            this.model.imageDownscale(params[0],params[1], currentImage, currentImage);
+            this.model.imageDownscale(params[0], params[1], currentImage, currentImage);
           default:
             System.out.println("command not recognized");
             break;
@@ -358,6 +361,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
         box = (JComboBox) e.getSource();
         c = box.getSelectedItem().toString();
         currentImage = c;
+      default:
+        System.out.println("nothing");
     }
     update();
   }
@@ -453,8 +458,9 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     this.model.newEntry(imageName, new ImageImpl(imageVals, width, height, maxValue));
     System.out.println(imageName + "successfully loaded!");
   }
+
   private void save(String fileLoc, String fileName, List<Integer> contents,
-                   HashMap<String, Image> images) throws IOException {
+                    HashMap<String, Image> images) throws IOException {
     String fileType = fileLoc.split("[.]")[1];
     if (fileTypeSupported(fileType)) {
       saveSupported(fileLoc, contents, images.get(fileName).flatten(), fileType);
@@ -465,11 +471,10 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     }
   }
 
-  private void saveSupported(String fileLocation,
-                             List<Integer> contents, List<Pixel> imageVals, String fileType)
-          throws IOException {
-    BufferedImage b = new BufferedImage(contents.get(0),
-            contents.get(1), BufferedImage.TYPE_INT_RGB);
+  private void saveSupported(String fileLocation, List<Integer> contents, List<Pixel> imageVals,
+                             String fileType) throws IOException {
+    BufferedImage b = new BufferedImage(contents.get(0), contents.get(1),
+            BufferedImage.TYPE_INT_RGB);
     int count = 0;
     for (int x = 0; x < contents.get(1); x++) {
       for (int y = 0; y < contents.get(0); y++) {
@@ -480,8 +485,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     ImageIO.write(b, fileType, new File(fileLocation));
   }
 
-  private void savePPM(String fileLocation,
-                       List<Integer> contents, List<String> mapList) throws IOException {
+  private void savePPM(String fileLocation, List<Integer> contents, List<String> mapList)
+          throws IOException {
     File newFile = new File(fileLocation);
     FileWriter w = new FileWriter(newFile);
     StringBuilder s = new StringBuilder();

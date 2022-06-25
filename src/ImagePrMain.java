@@ -3,17 +3,12 @@ import java.io.InputStreamReader;
 import java.io.StringReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
-
-import javax.swing.*;
-
-import Controller.guicontroller.GUIControllerImpl;
-
+import javax.swing.JFrame;
+import controller.guicontroller.GUIControllerImpl;
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.guiview.GUIView;
 import view.guiview.GUIViewImpl;
-import view.prview.ImagePrView;
-import view.prview.ImagePrViewImpl;
 
 /**
  * Runs the program, allowing the user to upload PPM images and edit them using the

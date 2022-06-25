@@ -6,7 +6,26 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="" />
+    <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Archive 2.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Archive 3.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hahaha.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/autumnleaves.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/autumnleaves2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ballsack1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/penis_sorry.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ruby.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/AbstractApply.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/AbstractApply.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/HistogramVals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/HistogramVals.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/Image.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/Image.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/image/ImageImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/ImageImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -186,6 +205,7 @@
       <workItem from="1656096131160" duration="4843000" />
       <workItem from="1656101049001" duration="3505000" />
       <workItem from="1656104626723" duration="621000" />
+      <workItem from="1656118259011" duration="335000" />
     </task>
     <servers />
   </component>

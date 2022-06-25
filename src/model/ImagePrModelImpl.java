@@ -8,7 +8,6 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import Controller.guicontroller.histogram;
 import model.image.FunctionUtils;
 import model.image.HistogramVals;
 import model.image.Image;
@@ -197,14 +196,12 @@ public class ImagePrModelImpl implements ImagePrModel {
       matrix = new Double[][]{
               new Double[]{0.393, 0.769, 0.189},
               new Double[]{0.349, 0.686, 0.168},
-              new Double[]{0.272, 0.534, 0.131}
-      };
+              new Double[]{0.272, 0.534, 0.131}};
     } else if (component.equals("greyscale")) {
       matrix = new Double[][]{
               new Double[]{0.2126, 0.7152, 0.0722},
               new Double[]{0.2126, 0.7152, 0.0722},
-              new Double[]{0.2126, 0.7152, 0.0722}
-      };
+              new Double[]{0.2126, 0.7152, 0.0722}};
     } else {
       throw new IllegalArgumentException();
     }
@@ -301,12 +298,12 @@ public class ImagePrModelImpl implements ImagePrModel {
   @Override
   public HashMap<Integer, List<Integer>> histogram(String fileLoc) {
 
-       Image i = images.get(fileLoc);
+    Image i = images.get(fileLoc);
     List<Pixel> mapList = i.flatten();
     List<List<Integer>> values;
     List<Integer> redVals = mapList.stream()
             .map(new HistogramVals("red")).collect(Collectors.toList());
-    List<Integer> greenVals =  mapList.stream()
+    List<Integer> greenVals = mapList.stream()
             .map(new HistogramVals("green")).collect(Collectors.toList());
     List<Integer> blueVals = mapList.stream()
             .map(new HistogramVals("blue")).collect(Collectors.toList());
@@ -323,14 +320,14 @@ public class ImagePrModelImpl implements ImagePrModel {
       for (List<Integer> e : values) {
         int count = 0;
         for (Integer y : e) {
-          if(y == x) {
-            count +=1;
+          if (y == x) {
+            count += 1;
           }
         }
         frequencies.add(count);
 
       }
-      histogram.put(x,frequencies);
+      histogram.put(x, frequencies);
     }
 
 
@@ -342,7 +339,7 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image i = images.get(fileLoc);
     int width = i.getContents().get(0);
     int height = i.getContents().get(1);
-    if(height < newHeight || newWidth > width) {
+    if (height < newHeight || newWidth > width) {
       throw new IllegalArgumentException("Invalid arguments");
     }
     List<List<Pixel>> imageVals = i.getImageVals();
@@ -352,7 +349,7 @@ public class ImagePrModelImpl implements ImagePrModel {
       for (int y = 0; y < newWidth; y++) {
         int a = (calcValue(x, newHeight, height));
         int b = (calcValue(y, newWidth, width));
-        row.add(calcPixel(a,b,imageVals));
+        row.add(calcPixel(a, b, imageVals));
       }
       downScaled.add(row);
     }
@@ -365,27 +362,28 @@ public class ImagePrModelImpl implements ImagePrModel {
   }
 
   private Pixel calcPixel(int ab, int bc, List<List<Pixel>> imageVals) {
-    int xC = ab+1;
-    int yC = bc+1;
+    int xC = ab + 1;
+    int yC = bc + 1;
     Pixel ca = imageVals.get(ab).get(bc);
     Pixel cb = imageVals.get(xC).get(bc);
     Pixel cc = imageVals.get(ab).get(yC);
     Pixel cd = imageVals.get(xC).get(yC);
     int[] rgb = new int[3];
-    for (int x = 0; x < 3; x ++) {
-      int m  = newPixelVals(ca.getChannel(x),
-              (cb.getChannel(x)),ab,ab,xC);
-      int n  = newPixelVals(cc.getChannel(x),
-              (cd.getChannel(x)),ab,ab,xC);
+    for (int x = 0; x < 3; x++) {
+      int m = newPixelVals(ca.getChannel(x),
+              (cb.getChannel(x)), ab, ab, xC);
+      int n = newPixelVals(cc.getChannel(x),
+              (cd.getChannel(x)), ab, ab, xC);
       rgb[x] = newPixelVals(m,
-              n,bc,bc,yC);
+              n, bc, bc, yC);
 
     }
     return new PixelImpl(FunctionUtils.properRGB(rgb));
 
   }
+
   private int newPixelVals(int a, int b, int x, int floor, int ceiling) {
-    return b*(x-floor) + a*(ceiling-x);
+    return b * (x - floor) + a * (ceiling - x);
   }
 
 

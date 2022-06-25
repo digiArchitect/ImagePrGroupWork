@@ -14,7 +14,7 @@ public abstract class AbstractApply {
   }
 
   /**
-   * Produces dependent on a pixel and a string component
+   * Produces dependent on a pixel and a string component.
    * @param component the component to retrieve
    * @param pixel the pixel to
    * @return the calculate integer
