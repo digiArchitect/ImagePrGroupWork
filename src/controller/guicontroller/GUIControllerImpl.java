@@ -1,4 +1,4 @@
-package controller.guicontroller;
+package Controller.guicontroller;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -9,9 +9,11 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
@@ -20,8 +22,11 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+import Controller.guicontroller.histogram;
 import model.ImagePrModel;
 import model.image.FunctionUtils;
+import model.image.HistogramVals;
+import model.image.Image;
 import model.image.ImageImpl;
 import model.image.Pixel;
 import model.image.PixelImpl;
@@ -51,6 +56,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
   private BufferedImage currentBufferedImage;
   JPanel imagePanel;
   JLabel imageLabel;
+  private histogram hist;
 
   Map<String, ArrayList<String>> commandsMap = Map.ofEntries(
           entry("Greyscale by Red Component",
@@ -71,6 +77,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
           entry("Blur", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Sharpen", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Matrix", new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+          entry("Downscale", new ArrayList<>(Arrays.asList("int","int",
+                  "img-name", "img-dest"))),
           entry("Sepia", new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
   public GUIControllerImpl(GUIView view, ImagePrModel model) throws IOException {
@@ -126,7 +134,9 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     //RIGHT SIDE-----------------------------------------------------------------------
 
     rightPanel = new JPanel();
+    hist = new histogram(new HashMap<>());
     rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
+    rightPanel.add(hist);
 
     //BUTTONS
 
@@ -177,7 +187,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
             "Greyscale by Green Component", "Greyscale by Value Component",
             "Greyscale by Luma Component",
             "Greyscale by Intensity Component", "Horizontal Flip", "Vertical Flip",
-            "Brighten", "Blur", "Sharpen", "Greyscale", "Sepia"};
+            "Brighten", "Blur", "Sharpen", "Greyscale", "Sepia","Downscale"};
     commandsComboBox = new JComboBox(commandNames);
     commandsComboBoxPanel.setLayout(new BoxLayout(commandsComboBoxPanel, BoxLayout.X_AXIS));
 
@@ -199,6 +209,7 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     rightPanel.add(buttonsPanel);
     rightPanel.add(comboBoxPanel);
 
+
     //---------------------------------------------------------------------------
 
 
@@ -216,6 +227,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     List<Integer> contents = model.getImageContents(currentImage);
     List<Pixel> imageVals = model.getHashMap().get(currentImage).flatten();
     currentBufferedImage = this.view.image(contents, imageVals);
+    hist.updateVals(model.histogram(currentImage));
+    hist.repaint();
 
     imageLabel.setIcon(new ImageIcon(currentBufferedImage));
   }
@@ -258,7 +271,6 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
             imageNames.add(fileName);
             currentImage = fileName;
 
-
           } catch (IOException ex) {
             System.out.println("there's something wrong with the file you're trying to load!");
           }
@@ -268,7 +280,13 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
         break;
 
       case "save":
-        String fileType = JOptionPane.showInputDialog("what file type?");
+        String fileType = JOptionPane.showInputDialog("Give file name");
+        try {
+          save(fileType,currentImage,this.model.getImageContents(currentImage),
+                  this.model.getHashMap());
+        } catch (Exception f) {
+          System.out.println("bad file name");
+        }
         break;
       case "Command options":
         JComboBox box = (JComboBox) e.getSource();
@@ -329,6 +347,8 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
           case "Sepia":
             this.model.colorTransform("sepia", currentImage, currentImage);
             break;
+          case "Downscale":
+            this.model.imageDownscale(params[0],params[1], currentImage, currentImage);
           default:
             System.out.println("command not recognized");
             break;
@@ -433,4 +453,56 @@ public class GUIControllerImpl extends JFrame implements ActionListener {
     this.model.newEntry(imageName, new ImageImpl(imageVals, width, height, maxValue));
     System.out.println(imageName + "successfully loaded!");
   }
+  private void save(String fileLoc, String fileName, List<Integer> contents,
+                   HashMap<String, Image> images) throws IOException {
+    String fileType = fileLoc.split("[.]")[1];
+    if (fileTypeSupported(fileType)) {
+      saveSupported(fileLoc, contents, images.get(fileName).flatten(), fileType);
+    } else if (fileType.equals("ppm")) {
+      savePPM(fileLoc, contents, FunctionUtils.getFlatten(images, fileName));
+    } else {
+      throw new IllegalArgumentException();
+    }
+  }
+
+  private void saveSupported(String fileLocation,
+                             List<Integer> contents, List<Pixel> imageVals, String fileType)
+          throws IOException {
+    BufferedImage b = new BufferedImage(contents.get(0),
+            contents.get(1), BufferedImage.TYPE_INT_RGB);
+    int count = 0;
+    for (int x = 0; x < contents.get(1); x++) {
+      for (int y = 0; y < contents.get(0); y++) {
+        b.setRGB(y, x, imageVals.get(count).hashCode());
+        count++;
+      }
+    }
+    ImageIO.write(b, fileType, new File(fileLocation));
+  }
+
+  private void savePPM(String fileLocation,
+                       List<Integer> contents, List<String> mapList) throws IOException {
+    File newFile = new File(fileLocation);
+    FileWriter w = new FileWriter(newFile);
+    StringBuilder s = new StringBuilder();
+    s.append("P3\n");
+    s.append(contents.get(0));
+    s.append(" ");
+    s.append(contents.get(1));
+    s.append("\n");
+    s.append(contents.get(2));
+    s.append("\n");
+    int count = 0;
+    for (int x = 0; x < contents.get(1); x++) {
+      for (int y = 0; y < contents.get(0); y++) {
+        s.append(mapList.get(count));
+        count++;
+      }
+      s.append("\n");
+    }
+    s.append("\n");
+    w.write(s.toString());
+    w.close();
+  }
+
 }

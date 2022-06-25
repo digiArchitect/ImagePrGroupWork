@@ -6,10 +6,8 @@ import java.nio.file.Path;
 
 import javax.swing.*;
 
-import controller.guicontroller.GUIController;
-import controller.guicontroller.GUIControllerImpl;
-import controller.prcontroller.ImagePrController;
-import controller.prcontroller.ImagePrControllerImpl;
+import Controller.guicontroller.GUIControllerImpl;
+
 import model.ImagePrModel;
 import model.ImagePrModelImpl;
 import view.guiview.GUIView;

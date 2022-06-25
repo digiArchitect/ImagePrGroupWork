@@ -219,11 +219,6 @@
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/model/ImagePrModelImpl.java</url>
-          <line>46</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/test/TestImageController.java</url>
           <line>18</line>
           <option name="timeStamp" value="21" />

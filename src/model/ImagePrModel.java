@@ -91,15 +91,22 @@ public interface ImagePrModel {
    * @param fileName  the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
-
-
   /**
-   * Generates a histogram data for a specfic component
-   * @param component based off of red green blue or intensity
+   * Generates a histogram data for an image.
    * @param fileLoc the name of the file
    * @return the histogram for it.
    */
-  HashMap<Integer,Integer> histogram(String component,String fileLoc);
+  HashMap<Integer,List<Integer>> histogram(String fileLoc);
+
+  /**
+   * Downscales an image!
+   * @param newWidth the new width
+   * @param newHeight the new Height
+   * @param fileLoc   the file location.
+   * @param fileName  the file name.
+   * @throws IllegalArgumentException if newWidth > width || newHeight > height
+   */
+  void imageDownscale(int newWidth, int newHeight,String fileLoc, String fileName);
 
 
 }

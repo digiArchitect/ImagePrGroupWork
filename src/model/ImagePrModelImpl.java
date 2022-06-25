@@ -1,15 +1,15 @@
 package model;
 
-import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import Controller.guicontroller.histogram;
 import model.image.FunctionUtils;
-import model.image.GreyScale;
 import model.image.HistogramVals;
 import model.image.Image;
 import model.image.ImageImpl;
@@ -17,6 +17,7 @@ import model.image.MatrixMultiplication;
 import model.image.Pixel;
 import model.image.PixelImpl;
 import model.image.ReverseAll;
+import model.image.GreyScale;
 import model.image.MutateAll;
 
 /**
@@ -127,7 +128,6 @@ public class ImagePrModelImpl implements ImagePrModel {
     return images.get(s).getContents();
   }
 
-
   //COMMANDS
 
   /**
@@ -180,7 +180,6 @@ public class ImagePrModelImpl implements ImagePrModel {
   public void greyscale(String component, String imageName, String newName) {
     Image newImage = applyChanges(new GreyScale(component), images.get(imageName));
     images.put(newName, newImage);
-    System.out.println("did a greyscale");
   }
 
   /**
@@ -196,15 +195,15 @@ public class ImagePrModelImpl implements ImagePrModel {
     Double[][] matrix;
     if (component.equals("sepia")) {
       matrix = new Double[][]{
-        new Double[]{0.393, 0.769, 0.189},
-        new Double[]{ 0.349, 0.686, 0.168},
-        new Double[]{0.272, 0.534, 0.131}
+              new Double[]{0.393, 0.769, 0.189},
+              new Double[]{0.349, 0.686, 0.168},
+              new Double[]{0.272, 0.534, 0.131}
       };
     } else if (component.equals("greyscale")) {
       matrix = new Double[][]{
-        new Double[]{0.2126, 0.7152, 0.0722},
-        new Double[]{0.2126, 0.7152, 0.0722},
-        new Double[]{0.2126, 0.7152, 0.0722}
+              new Double[]{0.2126, 0.7152, 0.0722},
+              new Double[]{0.2126, 0.7152, 0.0722},
+              new Double[]{0.2126, 0.7152, 0.0722}
       };
     } else {
       throw new IllegalArgumentException();
@@ -229,17 +228,17 @@ public class ImagePrModelImpl implements ImagePrModel {
     Image g;
     if (component.equals("sharpen")) {
       kernelValues = new Double[][]{
-        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125},
-        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
-        new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
-        new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
-        new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
+              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125},
+              new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+              new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
+              new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
+              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
       };
     } else if (component.equals("blur")) {
       kernelValues = new Double[][]{
-        new Double[]{0.0625, 0.125, 0.0625},
-        new Double[]{0.125, 0.25, 0.125},
-        new Double[]{0.0625, 0.125, 0.0625}
+              new Double[]{0.0625, 0.125, 0.0625},
+              new Double[]{0.125, 0.25, 0.125},
+              new Double[]{0.0625, 0.125, 0.0625}
       };
     } else {
       throw new IllegalArgumentException();
@@ -281,22 +280,6 @@ public class ImagePrModelImpl implements ImagePrModel {
     return newImage(newVals, p);
   }
 
-  @Override
-  public HashMap<Integer, Integer> histogram(String component, String fileLoc) {
-    Image i = images.get(fileLoc);
-    List<Pixel> mapList = i.flatten();
-    List<Integer> pixelVals = mapList.stream()
-            .map(new HistogramVals(component)).collect(Collectors.toList());
-
-    HashMap<Integer,Integer> histogram = new HashMap<>();
-    for (int x = 0; x < 257; x++) {
-      int finalX = x;
-      Integer count = pixelVals.stream().filter(y -> y == finalX).mapToInt(y ->y).sum();
-      histogram.put(x,count);
-    }
-    return histogram;
-  }
-
   /**
    * Returns a new pixel based on the values of the pixels surrounding the given pixel.
    *
@@ -314,4 +297,100 @@ public class ImagePrModelImpl implements ImagePrModel {
     }
     return new PixelImpl(newPixel);
   }
+
+  @Override
+  public HashMap<Integer, List<Integer>> histogram(String fileLoc) {
+
+       Image i = images.get(fileLoc);
+    List<Pixel> mapList = i.flatten();
+    List<List<Integer>> values;
+    List<Integer> redVals = mapList.stream()
+            .map(new HistogramVals("red")).collect(Collectors.toList());
+    List<Integer> greenVals =  mapList.stream()
+            .map(new HistogramVals("green")).collect(Collectors.toList());
+    List<Integer> blueVals = mapList.stream()
+            .map(new HistogramVals("blue")).collect(Collectors.toList());
+    List<Integer> intensity = mapList.stream()
+            .map(new HistogramVals("intensity")).collect(Collectors.toList());
+    values = Arrays.asList(redVals,
+            greenVals,
+            blueVals,
+            intensity);
+
+    HashMap<Integer, List<Integer>> histogram = new HashMap<>();
+    for (int x = 0; x < 257; x++) {
+      List<Integer> frequencies = new ArrayList<>();
+      for (List<Integer> e : values) {
+        int count = 0;
+        for (Integer y : e) {
+          if(y == x) {
+            count +=1;
+          }
+        }
+        frequencies.add(count);
+
+      }
+      histogram.put(x,frequencies);
+    }
+
+
+    return histogram;
+  }
+
+  @Override
+  public void imageDownscale(int newWidth, int newHeight, String fileLoc, String fileName) {
+    Image i = images.get(fileLoc);
+    int width = i.getContents().get(0);
+    int height = i.getContents().get(1);
+    if(height < newHeight || newWidth > width) {
+      throw new IllegalArgumentException("Invalid arguments");
+    }
+    List<List<Pixel>> imageVals = i.getImageVals();
+    List<List<Pixel>> downScaled = new ArrayList<>();
+    for (int x = 0; x < newHeight; x++) {
+      List<Pixel> row = new ArrayList<>();
+      for (int y = 0; y < newWidth; y++) {
+        int a = (calcValue(x, newHeight, height));
+        int b = (calcValue(y, newWidth, width));
+        row.add(calcPixel(a,b,imageVals));
+      }
+      downScaled.add(row);
+    }
+    images.put(fileName,
+            new ImageImpl(downScaled,
+                    newWidth,
+                    newHeight,
+                    i.getContents().get(2)));
+
+  }
+
+  private Pixel calcPixel(int ab, int bc, List<List<Pixel>> imageVals) {
+    int xC = ab+1;
+    int yC = bc+1;
+    Pixel ca = imageVals.get(ab).get(bc);
+    Pixel cb = imageVals.get(xC).get(bc);
+    Pixel cc = imageVals.get(ab).get(yC);
+    Pixel cd = imageVals.get(xC).get(yC);
+    int[] rgb = new int[3];
+    for (int x = 0; x < 3; x ++) {
+      int m  = newPixelVals(ca.getChannel(x),
+              (cb.getChannel(x)),ab,ab,xC);
+      int n  = newPixelVals(cc.getChannel(x),
+              (cd.getChannel(x)),ab,ab,xC);
+      rgb[x] = newPixelVals(m,
+              n,bc,bc,yC);
+
+    }
+    return new PixelImpl(FunctionUtils.properRGB(rgb));
+
+  }
+  private int newPixelVals(int a, int b, int x, int floor, int ceiling) {
+    return b*(x-floor) + a*(ceiling-x);
+  }
+
+
+  private int calcValue(int var, int dimension, int oldDimension) {
+    return (oldDimension * var) / dimension;
+  }
+
 }
