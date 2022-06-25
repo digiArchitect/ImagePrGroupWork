@@ -19,7 +19,6 @@ import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import Controller.guicontroller.histogram;
 import model.ImagePrModel;
 import model.image.FunctionUtils;
 import model.image.Image;
@@ -32,25 +31,23 @@ import view.guiview.GUIViewImpl;
 import static java.util.Map.entry;
 import static model.image.FunctionUtils.fileTypeSupported;
 
+/**
+ * Represents a GUI Controller.
+ */
 public class GUIControllerImpl extends JFrame implements GUIController {
   private JComboBox imagesComboBox;
   private ImagePrModel model;
   private GUIView view;
   private boolean loaded;
   private String currentImage;
-  private JPanel comboBoxPanel;
-  private JPanel imagesComboBoxPanel;
   private ArrayList<String> imageNames;
-  private JPanel commandsComboBoxPanel;
-  private String[] commandNames;
   private JLabel imageName;
-  private BufferedImage currentBufferedImage;
   JPanel imagePanel;
   JLabel imageLabel;
-  private histogram hist;
+  private Histogram hist;
 
   Map<String, ArrayList<String>> commandsMap = Map.ofEntries(entry("Greyscale by Red Component",
-          new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
+                  new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Blue Component",
                   new ArrayList<>(Arrays.asList("img-name", "img-dest"))),
           entry("Greyscale by Green Component",
@@ -79,7 +76,7 @@ public class GUIControllerImpl extends JFrame implements GUIController {
                   new ArrayList<>(Arrays.asList("img-name", "img-dest"))));
 
   /**
-   * Constructs a GUI Controller
+   * Constructs a GUI Controller.
    *
    * @param view  the view.
    * @param model the model.
@@ -138,7 +135,7 @@ public class GUIControllerImpl extends JFrame implements GUIController {
     //RIGHT SIDE-----------------------------------------------------------------------
 
     JPanel rightPanel = new JPanel();
-    hist = new histogram(new HashMap<>());
+    hist = new Histogram(new HashMap<>());
     rightPanel.setLayout(new BoxLayout(rightPanel, BoxLayout.Y_AXIS));
     rightPanel.add(hist);
 
@@ -171,10 +168,10 @@ public class GUIControllerImpl extends JFrame implements GUIController {
 
     //COMBO BOXES
 
-    comboBoxPanel = new JPanel();
+    JPanel comboBoxPanel = new JPanel();
     comboBoxPanel.setLayout(new BoxLayout(comboBoxPanel, BoxLayout.Y_AXIS));
 
-    imagesComboBoxPanel = new JPanel();
+    JPanel imagesComboBoxPanel = new JPanel();
     JLabel imagesTitle = new JLabel("Images");
     imageNames = new ArrayList<>(Arrays.asList("no images yet!"));
     imagesComboBox = new JComboBox(imageNames.toArray());
@@ -185,13 +182,13 @@ public class GUIControllerImpl extends JFrame implements GUIController {
     imagesComboBoxPanel.add(imagesComboBox);
 
 
-    commandsComboBoxPanel = new JPanel();
+    JPanel commandsComboBoxPanel = new JPanel();
     JLabel commandsTitle = new JLabel("Commands");
-    commandNames = new String[]{"Greyscale by Red Component", "Greyscale by Blue Component",
-            "Greyscale by Green Component", "Greyscale by Value Component",
-            "Greyscale by Luma Component", "Greyscale by Intensity Component",
-            "Horizontal Flip", "Vertical Flip", "Brighten", "Blur", "Sharpen", "Greyscale",
-            "Sepia", "Downscale"};
+    String[] commandNames = new String[]{"Greyscale by Red Component",
+            "Greyscale by Blue Component", "Greyscale by Green Component",
+            "Greyscale by Value Component", "Greyscale by Luma Component",
+            "Greyscale by Intensity Component", "Horizontal Flip", "Vertical Flip", "Brighten",
+            "Blur", "Sharpen", "Greyscale", "Sepia", "Downscale"};
     JComboBox commandsComboBox = new JComboBox(commandNames);
     commandsComboBoxPanel.setLayout(new BoxLayout(commandsComboBoxPanel, BoxLayout.X_AXIS));
 
@@ -230,7 +227,7 @@ public class GUIControllerImpl extends JFrame implements GUIController {
     imageName.setText(currentImage);
     List<Integer> contents = model.getImageContents(currentImage);
     List<Pixel> imageVals = model.getHashMap().get(currentImage).flatten();
-    currentBufferedImage = this.view.image(contents, imageVals);
+    BufferedImage currentBufferedImage = this.view.image(contents, imageVals);
     hist.updateVals(model.histogram(currentImage));
     hist.repaint();
 
@@ -352,6 +349,7 @@ public class GUIControllerImpl extends JFrame implements GUIController {
             break;
           case "Downscale":
             this.model.imageDownscale(params[0], params[1], currentImage, currentImage);
+            break;
           default:
             System.out.println("command not recognized");
             break;
@@ -361,6 +359,7 @@ public class GUIControllerImpl extends JFrame implements GUIController {
         box = (JComboBox) e.getSource();
         c = box.getSelectedItem().toString();
         currentImage = c;
+        break;
       default:
         System.out.println("nothing");
     }

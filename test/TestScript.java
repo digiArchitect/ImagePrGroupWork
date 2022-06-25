@@ -8,7 +8,6 @@ import java.nio.file.Path;
 import controller.prcontroller.ImagePrController;
 import controller.prcontroller.ImagePrControllerImpl;
 import model.ImagePrModel;
-import model.ImagePrModelImplMock;
 import view.prview.ImagePrView;
 import view.prview.ImagePrViewImpl;
 
@@ -32,7 +31,7 @@ public class TestScript {
     Readable input = new StringReader(content);
     log = new StringBuilder();
     ImagePrView view = new ImagePrViewImpl();
-    ImagePrModel model = new ImagePrModelImplMock(log);
+    ImagePrModel model = new test.ImagePrModelImplMock(log);
     ImagePrController controller = new ImagePrControllerImpl(input, view, model);
     controller.startProcessor();
     assertEquals("greyscale\n" +

@@ -55,9 +55,6 @@ public class ImagePrMain {
     ImagePrModel model = new ImagePrModelImpl();
     GUIView view = new GUIViewImpl();
     GUIControllerImpl gui = new GUIControllerImpl(view, model);
-
-    System.out.println("heyyyyy BALLSACK!");
-
     gui.setDefaultLookAndFeelDecorated(false);
     gui.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     gui.setVisible(true);

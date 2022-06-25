@@ -1,4 +1,4 @@
-package model;
+package test;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -7,7 +7,9 @@ import java.util.List;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
+import model.ImagePrModel;
 import model.image.FunctionUtils;
+import model.image.GreyScale;
 import model.image.Image;
 import model.image.ImageImpl;
 import model.image.MatrixMultiplication;
@@ -215,6 +217,31 @@ public class ImagePrModelImplMock implements ImagePrModel {
     }
 
     images.put(newName, applyChanges(new MatrixMultiplication(matrix), images.get(imageName)));
+  }
+
+  /**
+   * Generates a Histogram data for an image.
+   *
+   * @param fileLoc the name of the file
+   * @return the Histogram for it.
+   */
+  @Override
+  public HashMap<Integer, List<Integer>> histogram(String fileLoc) {
+    return null;
+  }
+
+  /**
+   * Downscales an image.
+   *
+   * @param newWidth  the new width.
+   * @param newHeight the new Height.
+   * @param fileLoc   the file location.
+   * @param fileName  the file name.
+   * @throws IllegalArgumentException if newWidth > width || newHeight > height.
+   */
+  @Override
+  public void imageDownscale(int newWidth, int newHeight, String fileLoc, String fileName) {
+
   }
 
   //KERNEL STUFF

@@ -13,7 +13,9 @@ public class GUIViewImpl implements GUIView {
   /**
    * Constructs a GUI view.
    */
-  public GUIViewImpl() {}
+  public GUIViewImpl() {
+    //no params necessary.
+  }
 
   /**
    * Makes an image from an image.

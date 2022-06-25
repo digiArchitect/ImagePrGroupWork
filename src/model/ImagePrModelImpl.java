@@ -229,14 +229,12 @@ public class ImagePrModelImpl implements ImagePrModel {
               new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
               new Double[]{0.125, 0.25, 1.00, 0.25, -0.125},
               new Double[]{-0.125, 0.25, 0.25, 0.25, -0.125},
-              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}
-      };
+              new Double[]{-0.125, -0.125, -0.125, -0.125, -0.125}};
     } else if (component.equals("blur")) {
       kernelValues = new Double[][]{
               new Double[]{0.0625, 0.125, 0.0625},
               new Double[]{0.125, 0.25, 0.125},
-              new Double[]{0.0625, 0.125, 0.0625}
-      };
+              new Double[]{0.0625, 0.125, 0.0625}};
     } else {
       throw new IllegalArgumentException();
     }

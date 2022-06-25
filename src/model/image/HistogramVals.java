@@ -3,13 +3,13 @@ package model.image;
 import java.util.function.Function;
 
 /**
- * Represents histogram values.
+ * Represents Histogram values.
  */
 public class HistogramVals extends AbstractApply implements Function<Pixel,Integer> {
   String component;
 
   /**
-   * Constructs histogram values based on a component.
+   * Constructs Histogram values based on a component.
    * @param component the component.
    */
   public HistogramVals(String component) {

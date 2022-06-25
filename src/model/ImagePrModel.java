@@ -1,6 +1,5 @@
 package model;
 
-import java.awt.image.BufferedImage;
 import java.util.HashMap;
 import java.util.List;
 
@@ -91,20 +90,21 @@ public interface ImagePrModel {
    * @param fileName  the file name.
    */
   void colorTransform(String component, String fileLoc, String fileName);
+
   /**
-   * Generates a histogram data for an image.
+   * Generates a Histogram data for an image.
    * @param fileLoc the name of the file
-   * @return the histogram for it.
+   * @return the Histogram for it.
    */
   HashMap<Integer,List<Integer>> histogram(String fileLoc);
 
   /**
-   * Downscales an image!
-   * @param newWidth the new width
-   * @param newHeight the new Height
+   * Downscales an image.
+   * @param newWidth the new width.
+   * @param newHeight the new Height.
    * @param fileLoc   the file location.
    * @param fileName  the file name.
-   * @throws IllegalArgumentException if newWidth > width || newHeight > height
+   * @throws IllegalArgumentException if newWidth > width || newHeight > height.
    */
   void imageDownscale(int newWidth, int newHeight,String fileLoc, String fileName);
 
