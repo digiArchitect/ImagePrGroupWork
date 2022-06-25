@@ -8,33 +8,7 @@
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive 2.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/Model/ImagePrModelImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/GUIControllerImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/histogram.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/controller/guicontroller/histogram.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/HistogramVals.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/HistogramVals.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/model/image/ImageImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/view/guiview/GUIViewImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/ImagePrControllerImplMock.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/ImagePrControllerImplMock.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestImageModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestScript.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/test/ImagePrGroupWork/TestView.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/test/ImagePrGroupWork/model/ImagePrModelImplMock.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ImagePrGroupWork.jar" beforeDir="false" afterPath="$PROJECT_DIR$/res/ImagePrGroupWork.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/guicontroller/histogram.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/guicontroller/histogram.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ImagePrMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ImagePrMain.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controller/guicontroller/GUIControllerImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/ImagePrModelImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/model/image/HistogramVals.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/image/HistogramVals.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/guiview/GUIViewImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/ImagePrModelImplMock.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/ImagePrModelImplMock.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test/TestScript.java" beforeDir="false" afterPath="$PROJECT_DIR$/test/TestScript.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/res/ImagePrGroupWork.jar" beforeDir="false" afterPath="$PROJECT_DIR$/res/ImagePrGroupWork (1).jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +189,7 @@
       <workItem from="1656096131160" duration="4843000" />
       <workItem from="1656101049001" duration="3505000" />
       <workItem from="1656104626723" duration="621000" />
-      <workItem from="1656118259011" duration="2682000" />
+      <workItem from="1656118259011" duration="3372000" />
     </task>
     <servers />
   </component>
