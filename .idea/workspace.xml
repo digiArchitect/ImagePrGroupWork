@@ -7,8 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="387c536b-1627-46a5-8ff5-3e35483a71d8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/city.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/grandpajosh.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/ImagePrGroupWork.jar" beforeDir="false" afterPath="$PROJECT_DIR$/res/ImagePrGroupWork (1).jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/ImagePrGroupWork/ImagePrMain.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +192,10 @@
       <workItem from="1656101049001" duration="3505000" />
       <workItem from="1656104626723" duration="621000" />
       <workItem from="1656118259011" duration="3372000" />
+      <workItem from="1656780532674" duration="51000" />
+      <workItem from="1657323791619" duration="608000" />
+      <workItem from="1660837276777" duration="886000" />
+      <workItem from="1662650670206" duration="278000" />
     </task>
     <servers />
   </component>
